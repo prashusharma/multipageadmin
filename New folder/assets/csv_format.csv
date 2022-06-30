@@ -1,9 +1,0 @@
-country,state,city,countryCode,partnerName,email,organizeinEmail,partnerPhone,partnerAddress,ServiceCode,status
-"{Country full name}
-Eg: india","{State full name }
-Eg. Delhi","{ city full name }
-Eg. East delhi","{ country code }
-eg. IN, PK etc",{ Name of the partner } ,{ email of partner },{ organizein email of partner },{ Email of partner },{ Address of partner },"{ service code }
-Refer: shorturl.at/nxzA5 for service code","1 for Active
-2 for Inactive
-3 for Deleted"
