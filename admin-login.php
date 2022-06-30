@@ -1,3 +1,9 @@
+<?php
+session_start();
+if (!isset($_SESSION["isLoggedin"])) {
+    header('Location: ./index.php');
+}
+?>
 <?php include 'partials/header.php' ?>
 
 <!------------------ header section  ------------------------>

@@ -1,3 +1,9 @@
+<?php
+session_start();
+if (!isset($_SESSION["isLoggedin"])) {
+    header('Location: ./index.php');
+}
+?>
 <?php include 'partials/header.php' ?>
 
 
@@ -52,7 +58,7 @@
 <section>
     <div class="container">
         <div class="row">
-        <?php include 'partials/sidebar.php' ?>
+            <?php include 'partials/sidebar.php' ?>
             <div class="col-12 col-md-9 col-lg-9">
                 <div class="right-site">
                     <h4>Add a New Page > Add Single Page</h4>
@@ -277,7 +283,7 @@
 
             <div class="col-12 col-md-12">
                 <div class="log-out mt-5 mb-3">
-                    <a href="http://localhost/multipageAdmin/">
+                    <a href="<?="./auth/logout.php"?>">
                         <i class="fa-solid fa-right-from-bracket"></i> Logout</a>
                 </div>
             </div>

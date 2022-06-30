@@ -1,3 +1,9 @@
+<?php
+session_start();
+if (!isset($_SESSION["isLoggedin"])) {
+    header('Location: ./index.php');
+}
+?>
 <?php include 'partials/header.php' ?>
     <!------------------ header section  ------------------------>
         <!-- <header>
@@ -80,7 +86,7 @@
                 
                 <div class="col-12 col-md-12">
                     <div class="log-out mt-5 mb-3">
-                        <a href="login.html">
+                    <a href="<?="./auth/logout.php"?>">
                             <i class="fa-solid fa-right-from-bracket"></i> Logout</a>
                     </div>
                 </div>
