@@ -1,0 +1,21 @@
+.code-box-wraper{
+    width: 100%;
+    border: 2px solid #cfae4c;
+}
+.code-box-wraper div{
+    width: 100%;
+    background-color: #ffd966;
+    padding: 7px 10px;
+    font-weight: 600;
+    border-bottom: 2px solid #cfae4c;
+}
+.code-box-wraper textarea{
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 10px;
+}
+.header-code-box2{
+    background: black !important;
+    color: #ffd966;
+}

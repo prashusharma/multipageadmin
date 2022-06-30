@@ -1,0 +1,10 @@
+.click-Here-To-Manage{
+    text-align: center;
+    margin-top: 50px;
+}
+.click-Here-To-Manage a{
+    color: #000;
+}
+.click-Here-To-Manage a:hover{
+    background-color: #000;
+}

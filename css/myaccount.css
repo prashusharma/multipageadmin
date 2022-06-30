@@ -1,0 +1,14 @@
+.change-pass-header h4{
+    text-align: center;
+    padding: 15px 10px;
+    font-weight: 600;
+}
+form div.change-pass-form{
+    background: rgb(255, 255, 255) !important;
+}
+.right-input input {
+    background: #f5fbfd  !important;
+}
+.create-website2{
+    padding: 15px 75px !important;
+}
