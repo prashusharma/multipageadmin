@@ -1,6 +1,6 @@
 <?php include 'partials/header.php' ?>
     <!------------------ header section  ------------------------>
-        <header>
+        <!-- <header>
             <div class="container">
                 <div class="row">
                     <div class="col-12 col-md-12 col-lg-12">
@@ -42,13 +42,14 @@
                     </div>
                 </div>
             </div>
-        </header>
+        </header> -->
+        <?php include 'partials/loggedin-header.php' ?>
     <!------------------ header section end ------------------------>
 
     <section>
         <div class="container">
             <div class="row">
-                <?php include'partials/sidebar.php' ?>
+            <?php include 'partials/sidebar.php' ?>
                 <div class="col-12 col-md-9 col-lg-9">
                     <div class="right-site">
                         <h4>Contact Forms</h4>
@@ -340,7 +341,15 @@
    
 
     <!---------------- footer section start  -------------->
-    <?php include 'partials/footer.php' ?>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-12 text-center">
+                    <a href="">www.organizein.com | Multi-Page Admin Panel</a>
+                </div>
+            </div>
+        </div>
+    </footer>
       <!-- popup table  -->
       <div class="popup-wraper">
         <div class="table-popup">

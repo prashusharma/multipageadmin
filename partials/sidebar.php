@@ -1,7 +1,7 @@
 <div class="col-12 col-md-3 col-lg-3">
                     <div class="left-site-menu">
                         <ul>
-                            <li class="first-child"><a class="active"  href="dashboard.html">Dashboard</a></li>
+                            <li class="first-child"><a class="active"  href="dashboard.php">Dashboard</a></li>
                             <li><a href="template.php">Templates</a></li>
                             <li><a href="new-page.php">New Page</a></li>
                             <li><a href="manage-pages.php">Manage Page</a></li>

@@ -1,6 +1,6 @@
 <?php include 'partials/header.php' ?>
     <!------------------ header section  ------------------------>
-        <header>
+        <!-- <header>
             <div class="container">
                 <div class="row">
                     <div class="col-12 col-md-12 col-lg-12">
@@ -10,7 +10,7 @@
                             </div>
                             <div class="header-icon-div">
                                 <div>
-                                    <a class="icon" href="Contact%20Form.html">
+                                    <a class="icon" href="contact-form1.php">
                                         
                                         <i class="fa-solid fa-envelope">
                                             <span>0</span>
@@ -42,26 +42,14 @@
                     </div>
                 </div>
             </div>
-        </header>
+        </header> -->
+        <?php include 'partials/loggedin-header.php' ?>
     <!------------------ header section end ------------------------>
 
     <section>
         <div class="container">
             <div class="row">
-                <div class="col-12 col-md-3 col-lg-3">
-                    <div class="left-site-menu">
-                        <ul>
-                            <li class="first-child"><a href="dashboard.html">Dashboard</a></li>
-                            <li><a href="template.html">Templates</a></li>
-                            <li ><a class="active" href="NewPage.html">New Page</a></li>
-                            <li><a href="Manage%20Pages.html">Manage Page</a></li>
-                            <li><a href="Contact%20Form.html">Contact Forms</a></li>
-                            <li><a href="ContactForm.html">Script / Code</a></li>
-                            <li><a href="Editpage.html">Edit / Update Page</a></li>
-
-                        </ul>
-                    </div>
-                </div>
+            <?php include 'partials/sidebar.php' ?>
                 <div class="col-12 col-md-9 col-lg-9">
                     <div class="right-site">
                         <h4>Add a New Page > Multi Websites > Websites Created!</h4>

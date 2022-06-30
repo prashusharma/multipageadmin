@@ -15,6 +15,18 @@
     <!-- custome css  -->
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/login.css">
+    <link rel="stylesheet" href="./css/contactForm.css">
+    <link rel="stylesheet" href="./css/contactForms.css">
+    <link rel="stylesheet" href="./css/dashboard.css">
+    <link rel="stylesheet" href="./css/login.css">
+    <link rel="stylesheet" href="./css/managepages.css">
+    <link rel="stylesheet" href="./css/myaccount.css">
+    <link rel="stylesheet" href="./css/newpage.css">
+    <link rel="stylesheet" href="./css/template.css">
+    <link rel="stylesheet" href="./css/uploadfile.css">
+    <link rel="stylesheet" href="./css/websitecreated.css">
+    <link rel="stylesheet" href="./css/websitescreated.css">
+
     <title>Create Account</title>
 </head>
 <body>

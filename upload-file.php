@@ -1,6 +1,6 @@
 <?php include 'partials/header.php' ?>
     <!------------------ header section  ------------------------>
-        <header>
+        <!-- <header>
             <div class="container">
                 <div class="row">
                     <div class="col-12 col-md-12 col-lg-12">
@@ -10,7 +10,7 @@
                             </div>
                             <div class="header-icon-div">
                                 <div>
-                                    <a class="icon" href="Contact%20Form.html">
+                                    <a class="icon" href="contact-form1.php">
                                         
                                         <i class="fa-solid fa-envelope">
                                             <span>0</span>
@@ -42,13 +42,14 @@
                     </div>
                 </div>
             </div>
-        </header>
+        </header> -->
+        <?php include 'partials/loggedin-header.php' ?>
     <!------------------ header section end ------------------------>
 
     <section>
         <div class="container">
             <div class="row">
-            <?php include'partials/sidebar.php' ?>
+            <?php include 'partials/sidebar.php' ?>
                 <div class="col-12 col-md-9 col-lg-9">
                     <div class="right-site">
                         <h4 style="margin-bottom: -8px; padding-bottom:10px ;">Add a New Page > Bulk Create Multi Pages </h4>
