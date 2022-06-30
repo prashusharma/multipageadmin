@@ -1,237 +1,211 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php include 'partials/header.php' ?>
 
-<head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- bootstrap 5 link -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous" />
-    <!-- font awesome link -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
-    <!-- google font  -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-        rel="stylesheet" />
-    <!-- custome css  -->
-    <link rel="stylesheet" href="./css/stylec.css" />
-    <link rel="stylesheet" href="./css/style.css" />
-    <title>Document</title>
-</head>
+<!------------------ header section  ------------------------>
+<header>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-12 col-lg-12">
+                <div class="header-navigation">
+                    <div class="logo-">
+                        <a href=""><img src="./img/organizein-logo-main-1.png" class="img-fluid" alt="logo" /></a>
+                    </div>
+                    <div class="header-icon-div">
+                        <div>
+                            <a class="icon" href="Contact%20Form.html">
 
-<body>
-    <!------------------ header section  ------------------------>
-    <header>
-        <div class="container">
-            <div class="row">
-                <div class="col-12 col-md-12 col-lg-12">
-                    <div class="header-navigation">
-                        <div class="logo-">
-                            <a href=""><img src="./img/organizein-logo-main-1.png" class="img-fluid" alt="logo" /></a>
+                                <i class="fa-solid fa-envelope">
+                                    <span>0</span>
+                                </i>
+
+                                <span>
+                                    Website Email
+                                </span>
+                            </a>
                         </div>
-                        <div class="header-icon-div">
-                            <div>
-                                <a class="icon" href="Contact%20Form.html">
-                                    
-                                    <i class="fa-solid fa-envelope">
-                                        <span>0</span>
-                                    </i>
-                                
-                                    <span>
-                                        Website Email
-                                    </span>
-                                </a>
-                            </div>
-                            <div>
-                              <div class="dropdown">
+                        <div>
+                            <div class="dropdown">
                                 <a class="dropdown-toggle" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" href="#">
-                                  <i class="fa-solid fa-user"></i>
-                              
-                                  <span>
-                                      My Account
-                                  </span>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                  <li class="text-start"><a class="dropdown-item" href="dashboard.html">Dashboard</a></li>
-                                  <li class="text-start"><a class="dropdown-item" href="My%20Accoun.html">Change Password</a></li>
-                                  <li class="text-start"><a class="dropdown-item" href="adminlogin.html">Database Details</a></li>
-                                </ul>
-                              </div>
+                                    <i class="fa-solid fa-user"></i>
+
+                                    <span>
+                                        My Account
+                                    </span>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                        <li class="text-start"><a class="dropdown-item" href="dashboard.html">Dashboard</a></li>
+                                        <li class="text-start"><a class="dropdown-item" href="My%20Accoun.html">Change Password</a></li>
+                                        <li class="text-start"><a class="dropdown-item" href="adminlogin.html">Database Details</a></li>
+                                    </ul>
                             </div>
-                            
                         </div>
+
                     </div>
                 </div>
             </div>
         </div>
-    </header>
-    <!------------------ header section end ------------------------>
+    </div>
+</header>
+<!------------------ header section end ------------------------>
 
-    <section>
-        <div class="container">
-            <div class="row">
-            <?php include'partials/sidebar.php' ?>
-                <div class="col-12 col-md-9 col-lg-9">
-                    <div class="right-site">
-                        <h4>Add a New Page > Add Single Page</h4>
-                    </div>
-                    <form action="">
-                        <div class="main-form- active">
-                            <div class="form-header">
-                                <h4>Web Page Creator</h4>
+<section>
+    <div class="container">
+        <div class="row">
+            <?php include 'partials/sidebar.php' ?>
+            <div class="col-12 col-md-9 col-lg-9">
+                <div class="right-site">
+                    <h4>Add a New Page > Add Single Page</h4>
+                </div>
+                <form action="">
+                    <div class="main-form- active">
+                        <div class="form-header">
+                            <h4>Web Page Creator</h4>
+                        </div>
+                        <div>
+                            <div class="single-filed">
+                                <h5>Select Country</h5>
+                                <div class="right">
+                                    <input type="text" />
+                                </div>
                             </div>
-                            <div>
-                                <div class="single-filed">
-                                    <h5>Select Country</h5>
-                                    <div class="right">
-                                        <input type="text" />
-                                    </div>
+                            <div class="single-filed">
+                                <h5>State Name</h5>
+                                <div class="right">
+                                    <input type="text" />
                                 </div>
-                                <div class="single-filed">
-                                    <h5>State Name</h5>
-                                    <div class="right">
-                                        <input type="text" />
-                                    </div>
+                            </div>
+                            <div class="single-filed">
+                                <h5>City Name</h5>
+                                <div class="right">
+                                    <input type="text" />
                                 </div>
-                                <div class="single-filed">
-                                    <h5>City Name</h5>
-                                    <div class="right">
-                                        <input type="text" />
-                                    </div>
-                                </div>
-                                <div class="single-filed">
-                                    <aside style="width: 40%">
-                                        <h5 style="width: 100%">Select Service Page to Create</h5>
-                                        <h5 style="width: 100%; color: #1cafeb">
-                                            Active Template Pages
-                                        </h5>
-                                        <h5 style="width: 100%; color: #1cafeb; font-weight: 500">
-                                            (Main, SEO, SMM)
-                                        </h5>
-                                    </aside>
-                                    <div class="right">
-                                        <div class="tag-box" id="dropDown2Container"
-                                            onclick="toggleDropDown(event , 'dropDown2')">
-                                            <!-- <span class="tag-single">
+                            </div>
+                            <div class="single-filed">
+                                <aside style="width: 40%">
+                                    <h5 style="width: 100%">Select Service Page to Create</h5>
+                                    <h5 style="width: 100%; color: #1cafeb">
+                                        Active Template Pages
+                                    </h5>
+                                    <h5 style="width: 100%; color: #1cafeb; font-weight: 500">
+                                        (Main, SEO, SMM)
+                                    </h5>
+                                </aside>
+                                <div class="right">
+                                    <div class="tag-box" id="dropDown2Container" onclick="toggleDropDown(event , 'dropDown2')">
+                                        <!-- <span class="tag-single">
                                                 <i class="fa-solid fa-xmark"></i> &nbsp; Web design
                                             </span>
                                             <span class="tag-single">
                                                 <i class="fa-solid fa-xmark"></i> &nbsp; Email
                                                 Marketing
                                             </span> -->
-                                        </div>
-                                        <ul class="CustomDropDown" id="dropDown2">
-                                            <li>Web Design</li>
-                                            <li>Email Marketing</li>
-                                            <li>SEO</li>
-                                        </ul>
-                                        <h3 class="text-center mt-2">Or</h3>
-                                        <div class="check">
-                                            <input type="checkbox" />
-                                            <span>Add all available template pages</span>
-                                        </div>
+                                    </div>
+                                    <ul class="CustomDropDown" id="dropDown2">
+                                        <li>Web Design</li>
+                                        <li>Email Marketing</li>
+                                        <li>SEO</li>
+                                    </ul>
+                                    <h3 class="text-center mt-2">Or</h3>
+                                    <div class="check">
+                                        <input type="checkbox" />
+                                        <span>Add all available template pages</span>
                                     </div>
                                 </div>
+                            </div>
 
-                                <div class="form-header selection mb-0 mt-3">
-                                    <h4 style="margin-right: 10px">
-                                        City Select Partner status
-                                    </h4>
-                                    <div class="checkbox-tbh"></div>
-                                    <div id="message_tbh">
-                                        <span>Partner not active</span>
-                                    </div>
+                            <div class="form-header selection mb-0 mt-3">
+                                <h4 style="margin-right: 10px">
+                                    City Select Partner status
+                                </h4>
+                                <div class="checkbox-tbh"></div>
+                                <div id="message_tbh">
+                                    <span>Partner not active</span>
                                 </div>
+                            </div>
 
-                                <div id="form_tbh" class="main-form-">
-                                    <div>
-                                        <div class="single-filed">
-                                            <h5>Title</h5>
-                                            <div class="right">
-                                                <select name="" id="">
-                                                    <option>Select one</option>
-                                                    <option value="">1</option>
-                                                    <option value="">2</option>
-                                                    <option value="">3</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="single-filed">
-                                            <h5>Partner First Name</h5>
-                                            <div class="right">
-                                                <input type="text" />
-                                            </div>
-                                        </div>
-                                        <div class="single-filed">
-                                            <h5>Partner Last Name</h5>
-                                            <div class="right">
-                                                <input type="text" />
-                                            </div>
-                                        </div>
-                                        <div class="single-filed">
-                                            <h5>Partner Image upload</h5>
-                                            <div class="right">
-                                                <div class="uploadFile_container">
-                                                    <label for="upload_form">Upload File</label>
-                                                    <input type="file" id="upload_form" hidden />
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="single-filed">
-                                            <h5>Partner Phone</h5>
-                                            <div class="right">
-                                                <input type="text" />
-                                            </div>
-                                        </div>
-                                        <div class="single-filed">
-                                            <h5>Partner Email</h5>
-                                            <div class="right">
-                                                <input type="text" />
-                                            </div>
-                                        </div>
-                                        <div class="single-filed">
-                                            <h5>Partner Address</h5>
-                                            <div class="right">
-                                                <input type="text" />
-                                            </div>
-                                        </div>
-                                        <div class="single-filed">
-                                            <h5>About Partner Descriptions</h5>
-                                            <div class="right">
-                                                <input type="text" />
-                                            </div>
-                                        </div>
-                                        <div class="single-filed">
-                                            <h5>Partner Linkedln Link</h5>
-                                            <div class="right">
-                                                <input type="text" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="form-header selection">
-                                    <h4 style="margin-right: 10px">Hide Template Box</h4>
-                                    <div class="checkbox-tbh checkbox-tbhx"></div>
-                                    <div id="message_tbhx">
-                                        <span>Do not hide any template</span>
-                                    </div>
-                                </div>
-
-                                <div id="form_tbhx" class="main-form-">
+                            <div id="form_tbh" class="main-form-">
+                                <div>
                                     <div class="single-filed">
-                                        <aside style="width: 40%">
-                                            <h5 style="width: 100%">
-                                                Select Service Page to Create
-                                            </h5>
-                                        </aside>
+                                        <h5>Title</h5>
                                         <div class="right">
-                                            <div class="tag-box" id="dropDown1Container"
-                                                style="padding: 10px 7px; min-height: 40px; height: fit-content; position: relative;"
-                                                onclick="toggleDropDown(event , 'dropDown1')">
-                                                <!-- <span class="tag-single">
+                                            <select name="" id="">
+                                                <option>Select one</option>
+                                                <option value="">1</option>
+                                                <option value="">2</option>
+                                                <option value="">3</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="single-filed">
+                                        <h5>Partner First Name</h5>
+                                        <div class="right">
+                                            <input type="text" />
+                                        </div>
+                                    </div>
+                                    <div class="single-filed">
+                                        <h5>Partner Last Name</h5>
+                                        <div class="right">
+                                            <input type="text" />
+                                        </div>
+                                    </div>
+                                    <div class="single-filed">
+                                        <h5>Partner Image upload</h5>
+                                        <div class="right">
+                                            <div class="uploadFile_container">
+                                                <label for="upload_form">Upload File</label>
+                                                <input type="file" id="upload_form" hidden />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="single-filed">
+                                        <h5>Partner Phone</h5>
+                                        <div class="right">
+                                            <input type="text" />
+                                        </div>
+                                    </div>
+                                    <div class="single-filed">
+                                        <h5>Partner Email</h5>
+                                        <div class="right">
+                                            <input type="text" />
+                                        </div>
+                                    </div>
+                                    <div class="single-filed">
+                                        <h5>Partner Address</h5>
+                                        <div class="right">
+                                            <input type="text" />
+                                        </div>
+                                    </div>
+                                    <div class="single-filed">
+                                        <h5>About Partner Descriptions</h5>
+                                        <div class="right">
+                                            <input type="text" />
+                                        </div>
+                                    </div>
+                                    <div class="single-filed">
+                                        <h5>Partner Linkedln Link</h5>
+                                        <div class="right">
+                                            <input type="text" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-header selection">
+                                <h4 style="margin-right: 10px">Hide Template Box</h4>
+                                <div class="checkbox-tbh checkbox-tbhx"></div>
+                                <div id="message_tbhx">
+                                    <span>Do not hide any template</span>
+                                </div>
+                            </div>
+
+                            <div id="form_tbhx" class="main-form-">
+                                <div class="single-filed">
+                                    <aside style="width: 40%">
+                                        <h5 style="width: 100%">
+                                            Select Service Page to Create
+                                        </h5>
+                                    </aside>
+                                    <div class="right">
+                                        <div class="tag-box" id="dropDown1Container" style="padding: 10px 7px; min-height: 40px; height: fit-content; position: relative;" onclick="toggleDropDown(event , 'dropDown1')">
+                                            <!-- <span class="tag-single">
                                                     <i class="fa-solid fa-xmark"></i> &nbsp; Web design
                                                 </span>
                                                 <span class="tag-single">
@@ -241,201 +215,188 @@
                                                 <span class="tag-single">
                                                     <i class="fa-solid fa-xmark"></i> &nbsp; SEO
                                                 </span> -->
-                                            </div>
-                                            <ul class="CustomDropDown" id="dropDown1">
-                                                <li>Web Design</li>
-                                                <li>Email Marketing</li>
-                                                <li>SEO</li>
-                                            </ul>
+                                        </div>
+                                        <ul class="CustomDropDown" id="dropDown1">
+                                            <li>Web Design</li>
+                                            <li>Email Marketing</li>
+                                            <li>SEO</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="single-filed">
+                                    <h5>Box 1 (Hide status)</h5>
+                                    <div class="right form-header selection">
+                                        <div class="checkbox-tbh hiddenToggle" onclick="hiddenToggle(event)" messageId="box1"></div>
+                                        <div id="box1">
+                                            <span>Not hidden </span>
                                         </div>
                                     </div>
-                                    <div class="single-filed">
-                                        <h5>Box 1 (Hide status)</h5>
-                                        <div class="right form-header selection">
-                                            <div class="checkbox-tbh hiddenToggle" onclick="hiddenToggle(event)"
-                                                messageId="box1"></div>
-                                            <div id="box1">
-                                                <span>Not hidden </span>
-                                            </div>
+                                </div>
+                                <div class="single-filed">
+                                    <h5>Box 2 (Hide status)</h5>
+                                    <div class="right form-header selection">
+                                        <div class="checkbox-tbh hiddenToggle" onclick="hiddenToggle(event)" messageId="box2"></div>
+                                        <div id="box2">
+                                            <span>Not hidden </span>
                                         </div>
                                     </div>
-                                    <div class="single-filed">
-                                        <h5>Box 2 (Hide status)</h5>
-                                        <div class="right form-header selection">
-                                            <div class="checkbox-tbh hiddenToggle" onclick="hiddenToggle(event)"
-                                                messageId="box2"></div>
-                                            <div id="box2">
-                                                <span>Not hidden </span>
-                                            </div>
+                                </div>
+                                <div class="single-filed">
+                                    <h5>Box 3 (Hide status)</h5>
+                                    <div class="right form-header selection">
+                                        <div class="checkbox-tbh hiddenToggle" onclick="hiddenToggle(event)" messageId="box3"></div>
+                                        <div id="box3">
+                                            <span>Not hidden </span>
                                         </div>
                                     </div>
-                                    <div class="single-filed">
-                                        <h5>Box 3 (Hide status)</h5>
-                                        <div class="right form-header selection">
-                                            <div class="checkbox-tbh hiddenToggle" onclick="hiddenToggle(event)"
-                                                messageId="box3"></div>
-                                            <div id="box3">
-                                                <span>Not hidden </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="single-filed">
-                                        <h5>Box 4 (Hide status)</h5>
-                                        <div class="right form-header selection">
-                                            <div class="checkbox-tbh hiddenToggle" onclick="hiddenToggle(event)"
-                                                messageId="box4"></div>
-                                            <div id="box4">
-                                                <span>Not hidden </span>
-                                            </div>
+                                </div>
+                                <div class="single-filed">
+                                    <h5>Box 4 (Hide status)</h5>
+                                    <div class="right form-header selection">
+                                        <div class="checkbox-tbh hiddenToggle" onclick="hiddenToggle(event)" messageId="box4"></div>
+                                        <div id="box4">
+                                            <span>Not hidden </span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <div class="text-center mb-5">
-                            <a class="create-website" href="#">Create Website</a>
-                        </div>
-                    </form>
-                </div>
-
-                <div class="col-12 col-md-12">
-                    <div class="log-out mt-5 mb-3">
-                        <a href="http://localhost/multipageAdmin/">
-                            <i class="fa-solid fa-right-from-bracket"></i> Logout</a>
                     </div>
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <div class="text-center mb-5">
+                        <a class="create-website" href="#">Create Website</a>
+                    </div>
+                </form>
+            </div>
+
+            <div class="col-12 col-md-12">
+                <div class="log-out mt-5 mb-3">
+                    <a href="http://localhost/multipageAdmin/">
+                        <i class="fa-solid fa-right-from-bracket"></i> Logout</a>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!---------------- footer section start  -------------->
-    <?php include 'partials/footer.php' ?>
-    <!-- bootstrap5 link  -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
-        crossorigin="anonymous"></script>
-    <script type="text/javascript">
-        let darkMode = document.querySelector(".checkbox-tbh");
-        let message1 = document.querySelector("#message_tbh");
-        let message2 = document.querySelector("#message_tbhx");
-        let form_tbh = document.getElementById("form_tbh")
-        let form_tbhx = document.getElementById("form_tbhx")
-        darkMode.addEventListener("click", function (e) {
-            darkMode.classList.toggle("active");
-            if (darkMode.classList.contains("active")) {
-                message1.innerHTML = `<span style="color : #21b1ec">Partner Active</span>`;
-                form_tbh.classList.add("active")
-            } else {
-                message1.innerHTML = `<span>Partner not active</span>`;
-                form_tbh.classList.remove("active")
-            }
-        });
-        let darkModex = document.querySelector(".checkbox-tbhx");
-        darkModex.addEventListener("click", function () {
-            darkModex.classList.toggle("active");
-            if (darkModex.classList.contains("active")) {
-                message2.innerHTML = `<span style="color : #21b1ec">Partner Active</span>`;
-                form_tbhx.classList.add("active")
-            } else {
-                message2.innerHTML = `<span>Do not hide any template</span>`;
-                form_tbhx.classList.remove("active")
-            }
-        });
-
-        function hiddenToggle(e) {
-            const element = e.target
-            const msgid = element.getAttribute("messageId")
-            const msgEle = document.getElementById(msgid)
-            element.classList.toggle("active");
-            if (element.classList.contains("active")) {
-                msgEle.innerHTML = `<span>Hidden</span>`;
-            } else {
-                msgEle.innerHTML = `<span>Not Hidden</span>`;
-            }
+<!---------------- footer section start  -------------->
+<?php include 'partials/footer.php' ?>
+<script type="text/javascript">
+    let darkMode = document.querySelector(".checkbox-tbh");
+    let message1 = document.querySelector("#message_tbh");
+    let message2 = document.querySelector("#message_tbhx");
+    let form_tbh = document.getElementById("form_tbh")
+    let form_tbhx = document.getElementById("form_tbhx")
+    darkMode.addEventListener("click", function(e) {
+        darkMode.classList.toggle("active");
+        if (darkMode.classList.contains("active")) {
+            message1.innerHTML = `<span style="color : #21b1ec">Partner Active</span>`;
+            form_tbh.classList.add("active")
+        } else {
+            message1.innerHTML = `<span>Partner not active</span>`;
+            form_tbh.classList.remove("active")
         }
-
-        function toggleDropDown(e, name) {
-            const targetElement = e.target
-            if (!targetElement.classList.contains("tag-box")) {
-                return
-            }
-            const element = document.getElementById(name);
-            element.classList.toggle("active")
+    });
+    let darkModex = document.querySelector(".checkbox-tbhx");
+    darkModex.addEventListener("click", function() {
+        darkModex.classList.toggle("active");
+        if (darkModex.classList.contains("active")) {
+            message2.innerHTML = `<span style="color : #21b1ec">Partner Active</span>`;
+            form_tbhx.classList.add("active")
+        } else {
+            message2.innerHTML = `<span>Do not hide any template</span>`;
+            form_tbhx.classList.remove("active")
         }
+    });
 
-        const dropDown1 = document.getElementById("dropDown1")
-        const dropDown1item = document.querySelectorAll("#dropDown1 li")
-        const dropDown1Container = document.getElementById("dropDown1Container")
-        dropDown1item.forEach((element) => {
-            element.addEventListener("click", (e) => {
-                let dropDownChip = `<span class="tag-single"><i class="fa-solid fa-xmark" onClick="deleteChipData1('${e.target.innerHTML}')"></i> &nbsp; ${e.target.innerHTML}</span>`
-                dropDown1Container.innerHTML = dropDown1Container.innerHTML + dropDownChip
-                const dropDownInneritem = document.querySelectorAll("#dropDown1 li")
-                dropDown1.innerHTML = ""
-                dropDownInneritem.forEach((ele) => {
-                    if (e.target.innerHTML === ele.innerHTML) {
-                        return
-                    }
-                    dropDown1.append(ele)
-                })
+    function hiddenToggle(e) {
+        const element = e.target
+        const msgid = element.getAttribute("messageId")
+        const msgEle = document.getElementById(msgid)
+        element.classList.toggle("active");
+        if (element.classList.contains("active")) {
+            msgEle.innerHTML = `<span>Hidden</span>`;
+        } else {
+            msgEle.innerHTML = `<span>Not Hidden</span>`;
+        }
+    }
+
+    function toggleDropDown(e, name) {
+        const targetElement = e.target
+        if (!targetElement.classList.contains("tag-box")) {
+            return
+        }
+        const element = document.getElementById(name);
+        element.classList.toggle("active")
+    }
+
+    const dropDown1 = document.getElementById("dropDown1")
+    const dropDown1item = document.querySelectorAll("#dropDown1 li")
+    const dropDown1Container = document.getElementById("dropDown1Container")
+    dropDown1item.forEach((element) => {
+        element.addEventListener("click", (e) => {
+            let dropDownChip = `<span class="tag-single"><i class="fa-solid fa-xmark" onClick="deleteChipData1('${e.target.innerHTML}')"></i> &nbsp; ${e.target.innerHTML}</span>`
+            dropDown1Container.innerHTML = dropDown1Container.innerHTML + dropDownChip
+            const dropDownInneritem = document.querySelectorAll("#dropDown1 li")
+            dropDown1.innerHTML = ""
+            dropDownInneritem.forEach((ele) => {
+                if (e.target.innerHTML === ele.innerHTML) {
+                    return
+                }
+                dropDown1.append(ele)
             })
         })
+    })
 
-        const dropDown2 = document.getElementById("dropDown2")
-        const dropDown2item = document.querySelectorAll("#dropDown2 li")
-        const dropDown2Container = document.getElementById("dropDown2Container")
-        dropDown2item.forEach((element) => {
-            element.addEventListener("click", (e) => {
-                let dropDownChip = `<span class="tag-single"><i class="fa-solid fa-xmark" onClick="deleteChipData2('${e.target.innerHTML}')"></i> &nbsp; ${e.target.innerHTML}</span>`
-                dropDown2Container.innerHTML = dropDown2Container.innerHTML + dropDownChip
-                const dropDownInneritem = document.querySelectorAll("#dropDown2 li")
-                dropDown2.innerHTML = ""
-                dropDownInneritem.forEach((ele) => {
-                    if (e.target.innerHTML === ele.innerHTML) {
-                        return
-                    }
-                    dropDown2.append(ele)
-                })
+    const dropDown2 = document.getElementById("dropDown2")
+    const dropDown2item = document.querySelectorAll("#dropDown2 li")
+    const dropDown2Container = document.getElementById("dropDown2Container")
+    dropDown2item.forEach((element) => {
+        element.addEventListener("click", (e) => {
+            let dropDownChip = `<span class="tag-single"><i class="fa-solid fa-xmark" onClick="deleteChipData2('${e.target.innerHTML}')"></i> &nbsp; ${e.target.innerHTML}</span>`
+            dropDown2Container.innerHTML = dropDown2Container.innerHTML + dropDownChip
+            const dropDownInneritem = document.querySelectorAll("#dropDown2 li")
+            dropDown2.innerHTML = ""
+            dropDownInneritem.forEach((ele) => {
+                if (e.target.innerHTML === ele.innerHTML) {
+                    return
+                }
+                dropDown2.append(ele)
             })
         })
+    })
 
 
-        function deleteChipData1(value) {
-            console.log(value, name)
-            const element = document.getElementById("dropDown1")
-            const ele = document.createElement("li")
-            ele.innerHTML = value
-            element.appendChild(ele)
-            const dropdown1span = document.querySelectorAll("#dropDown1Container span")
-            // dropDown1Container.innerHTML = ""
-            dropdown1span.forEach((span, index) => {
-                if (span.innerText.trim() == value) {
-                    dropDown1Container.removeChild(dropDown1Container.children[index])
-                }
-            })
-        }
+    function deleteChipData1(value) {
+        console.log(value, name)
+        const element = document.getElementById("dropDown1")
+        const ele = document.createElement("li")
+        ele.innerHTML = value
+        element.appendChild(ele)
+        const dropdown1span = document.querySelectorAll("#dropDown1Container span")
+        // dropDown1Container.innerHTML = ""
+        dropdown1span.forEach((span, index) => {
+            if (span.innerText.trim() == value) {
+                dropDown1Container.removeChild(dropDown1Container.children[index])
+            }
+        })
+    }
 
-        function deleteChipData2(value) {
-            console.log(value, name)
-            const element = document.getElementById("dropDown2")
-            const ele = document.createElement("li")
-            ele.innerHTML = value
-            element.appendChild(ele)
-            const dropdown2span = document.querySelectorAll("#dropDown2Container span")
-            // dropDown2Container.innerHTML = ""
-            dropdown2span.forEach((span, index) => {
-                if (span.innerText.trim() == value) {
-                    dropDown2Container.removeChild(dropDown2Container.children[index])
-                }
-            })
-        }
-
-
-    </script>
-</body>
-
-</html>
+    function deleteChipData2(value) {
+        console.log(value, name)
+        const element = document.getElementById("dropDown2")
+        const ele = document.createElement("li")
+        ele.innerHTML = value
+        element.appendChild(ele)
+        const dropdown2span = document.querySelectorAll("#dropDown2Container span")
+        // dropDown2Container.innerHTML = ""
+        dropdown2span.forEach((span, index) => {
+            if (span.innerText.trim() == value) {
+                dropDown2Container.removeChild(dropDown2Container.children[index])
+            }
+        })
+    }
+</script>
