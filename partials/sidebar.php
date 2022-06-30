@@ -2,12 +2,12 @@
                     <div class="left-site-menu">
                         <ul>
                             <li class="first-child"><a class="active"  href="dashboard.html">Dashboard</a></li>
-                            <li><a href="template.html">Templates</a></li>
-                            <li><a href="NewPage.html">New Page</a></li>
-                            <li><a href="Manage%20Pages.html">Manage Page</a></li>
-                            <li><a href="Contact%20Form.html">Contact Forms</a></li>
-                            <li><a href="ContactForm.html">Script / Code</a></li>
-                            <li><a href="Editpage.html">Edit / Update Page</a></li>
+                            <li><a href="template.php">Templates</a></li>
+                            <li><a href="new-page.php">New Page</a></li>
+                            <li><a href="manage-pages.php">Manage Page</a></li>
+                            <li><a href="contact-form1.php">Contact Forms</a></li>
+                            <li><a href="contact-form2.php">Script / Code</a></li>
+                            <li><a href="edit-page.php">Edit / Update Page</a></li>
 
                         </ul>
                     </div>
