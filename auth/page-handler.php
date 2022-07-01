@@ -8,7 +8,7 @@ if($_SERVER['REQUEST_METHOD']== 'POST'){
     $last_name = $_POST['last_name'];
     $phone = $_POST['phone'];
     $email = $_POST['email'];
-    $address = $_POST['address'];
+    $address = $_POST['address']; 
     $description = $_POST['description'];
     $linkedin = $_POST['linkedin_url'];
     $photo = "https://www.dmarge.com/most-likeable-person-world-the-rock";
