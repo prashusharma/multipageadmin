@@ -231,7 +231,7 @@ if (!isset($_SESSION["isLoggedin"])) {
                     <br />
                     <br />
                     <div class="text-center mb-5">
-                        <a class="create-website" href="#">Create Website</a>
+                        <button class="create-website" type="submit">Create Website</button>
                     </div>
                 </form>
             </div>
