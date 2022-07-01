@@ -27,19 +27,19 @@ if (!isset($_SESSION["isLoggedin"])) {
                             <div class="single-filed">
                                 <h5>Select Country</h5>
                                 <div class="right">
-                                    <input type="text" />
+                                    <input type="text" name="country"/>
                                 </div>
                             </div>
                             <div class="single-filed">
                                 <h5>State Name</h5>
                                 <div class="right">
-                                    <input type="text" />
+                                    <input type="text" name="state"/>
                                 </div>
                             </div>
                             <div class="single-filed">
                                 <h5>City Name</h5>
                                 <div class="right">
-                                    <input type="text" />
+                                    <input type="text" name="city"/>
                                 </div>
                             </div>
                             <div class="single-filed">
@@ -101,13 +101,13 @@ if (!isset($_SESSION["isLoggedin"])) {
                                     <div class="single-filed">
                                         <h5>Partner First Name</h5>
                                         <div class="right">
-                                            <input type="text" />
+                                            <input type="text" name="first_name"/>
                                         </div>
                                     </div>
                                     <div class="single-filed">
                                         <h5>Partner Last Name</h5>
                                         <div class="right">
-                                            <input type="text" />
+                                            <input type="text" name="last_name"/>
                                         </div>
                                     </div>
                                     <div class="single-filed">
@@ -122,31 +122,31 @@ if (!isset($_SESSION["isLoggedin"])) {
                                     <div class="single-filed">
                                         <h5>Partner Phone</h5>
                                         <div class="right">
-                                            <input type="text" />
+                                            <input type="text" name="phone"/>
                                         </div>
                                     </div>
                                     <div class="single-filed">
                                         <h5>Partner Email</h5>
                                         <div class="right">
-                                            <input type="text" />
+                                            <input type="text" name="email"/>
                                         </div>
                                     </div>
                                     <div class="single-filed">
                                         <h5>Partner Address</h5>
                                         <div class="right">
-                                            <input type="text" />
+                                            <input type="text" name="address"/>
                                         </div>
                                     </div>
                                     <div class="single-filed">
                                         <h5>About Partner Descriptions</h5>
                                         <div class="right">
-                                            <input type="text" />
+                                            <input type="text" name="description"/>
                                         </div>
                                     </div>
                                     <div class="single-filed">
                                         <h5>Partner Linkedln Link</h5>
                                         <div class="right">
-                                            <input type="text" />
+                                            <input type="text" name="linkedin_url"/>
                                         </div>
                                     </div>
                                 </div>
