@@ -6,53 +6,8 @@ if (!isset($_SESSION["isLoggedin"])) {
 ?>
 <?php include 'partials/header.php' ?>
 
-
-<!------------------ header section  ------------------------>
-<!-- <header>
-    <div class="container">
-        <div class="row">
-            <div class="col-12 col-md-12 col-lg-12">
-                <div class="header-navigation">
-                    <div class="logo-">
-                        <a href=""><img src="./img/organizein-logo-main-1.png" class="img-fluid" alt="logo" /></a>
-                    </div>
-                    <div class="header-icon-div">
-                        <div>
-                            <a class="icon" href="contact-form1.php">
-
-                                <i class="fa-solid fa-envelope">
-                                    <span>0</span>
-                                </i>
-
-                                <span>
-                                    Website Email
-                                </span>
-                            </a>
-                        </div>
-                        <div>
-                            <div class="dropdown">
-                                <a class="dropdown-toggle" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" href="#">
-                                    <i class="fa-solid fa-user"></i>
-
-                                    <span>
-                                        My Account
-                                    </span>
-                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                        <li class="text-start"><a class="dropdown-item" href="dashboard.html">Dashboard</a></li>
-                                        <li class="text-start"><a class="dropdown-item" href="My%20Accoun.html">Change Password</a></li>
-                                        <li class="text-start"><a class="dropdown-item" href="adminlogin.html">Database Details</a></li>
-                                    </ul>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</header> -->
-
-<?php include 'partials/loggedin-header.php.php' ?>
+ 
+<?php include './partials/loggedin-header.php' ?>
 <!------------------ header section end ------------------------>
 
 <section>
@@ -63,7 +18,7 @@ if (!isset($_SESSION["isLoggedin"])) {
                 <div class="right-site">
                     <h4>Add a New Page > Add Single Page</h4>
                 </div>
-                <form action="">
+                <form action="./auth/page-handler.php" method="POST">
                     <div class="main-form- active">
                         <div class="form-header">
                             <h4>Web Page Creator</h4>

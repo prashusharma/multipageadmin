@@ -73,13 +73,13 @@ if (!isset($_SESSION["isLoggedin"])) {
                         <div class="text-center mb-5">
                             <!-- <label style="cursor: pointer;" class="create-website" for="upload_form">Bulk Create Multiple Pages</label>
                             <input type="file" id="upload_form" hidden /> -->
-                            <a class="create-website" href="uploadfile.html">Bulk Create Multiple Pages</a>
+                            <a class="create-website" href="upload-file.php">Bulk Create Multiple Pages</a>
                         </div>
                         <h3 class="text-center mt-2 mb-5">
                             Or
                         </h3>
                         <div class="text-center mb-5">
-                            <a style="background-color: #f1f1f1;" class="create-website create-website2" href="addinglePage.html">Add a Single City Page</a>
+                            <a style="background-color: #f1f1f1;" class="create-website create-website2" href="add-single-page.php">Add a Single City Page</a>
                         </div>
                     </form>
                 </div>
