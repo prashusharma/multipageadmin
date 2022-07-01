@@ -1,7 +1,7 @@
 <?php 
 
 
-if (isset($_POST["create_single_page"])) {
+if (isset($_POST["create_single_page"])) { 
     $curl = curl_init(); 
     curl_setopt_array($curl, array(
         CURLOPT_URL => 'http://'.$_SERVER["HTTP_HOST"].'/multipageadmin/partnerwebsiteresources/index.php?partner_id='.$id,
