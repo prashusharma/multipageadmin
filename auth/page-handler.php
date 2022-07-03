@@ -1,5 +1,6 @@
 <?php
 include '../partials/dbconnect.php';
+$actual_link = "http://$_SERVER[HTTP_HOST]";
 
 
 
@@ -20,7 +21,7 @@ if (isset($_POST["create_single_page"])) {
 
     $photo = "https://www.dmarge.com/most-likeable-person-world-the-rock";
 
-    $existsql = "SELECT count(*) as check_row FROM `partner_details` WHERE city_name = '$city' and state_name = '$state'";
+    $existsql = "SELECT count(*) as check_row FROM `partner_details` WHERE city_name = '$city' and state_name = '$state' and json_contains(`services`, '" . json_encode($services) . "')";
     $result = mysqli_query($conn, $existsql);
     $numRows = mysqli_fetch_assoc($result)["check_row"];
     // die($numRows);
@@ -29,14 +30,15 @@ if (isset($_POST["create_single_page"])) {
         header("LOCATION: ../add-single-page.php");
         exit();
     } else {
-        $sql = "INSERT INTO `partner_details`( `country_selected`, `state_name`, `city_name`, `title` ,`partner_first_name`, `partner_last_name`, `partner_phone`, `partner_email`, `partner_address`, `partner_discription`, `partner_linkedin`, `partner_photo`) VALUES ('$country','$state','$city','$selected_title','$fist_name','$last_name','$phone','$email','$address','$description','$linkedin','$photo')";
+        $sql = "INSERT INTO `partner_details`( `country_selected`, `state_name`, `city_name`, `title` ,`partner_first_name`, `partner_last_name`, `partner_phone`, `partner_email`, `partner_address`, `partner_discription`, `partner_linkedin`, `partner_photo`, `services`) VALUES ('$country','$state','$city','$selected_title','$fist_name','$last_name','$phone','$email','$address','$description','$linkedin','$photo', '" . json_encode($services) . "')";
         $result1 = mysqli_query($conn, $sql);
     }
 
     foreach ($services as $service) {
+        $id = mysqli_insert_id($conn);
         $curl = curl_init();
         curl_setopt_array($curl, array(
-            CURLOPT_URL => 'http://' . $_SERVER["HTTP_HOST"] . '/multipageadmin/partnerwebsiteresources/index.php?partner_id=' . $id,
+            CURLOPT_URL => 'http://' . $_SERVER["HTTP_HOST"] . '/multipageadmin/partnerwebsiteresources/index.php?partner_id=' . $id . '&service=' . $service,
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => '',
             CURLOPT_MAXREDIRS => 10,
@@ -49,12 +51,22 @@ if (isset($_POST["create_single_page"])) {
         $response = curl_exec($curl);
         curl_close($curl);
 
-        if (!file_exists('../' . str_replace(" ", "-", $country) . '/' . str_replace(" ", "-", $state) . '/' . str_replace(" ", "-", $city))) {
-            mkdir('../' . str_replace(" ", "-", $country) . '/' . str_replace(" ", "-", $state) . '/' . str_replace(" ", "-", $city), 0777, true);
+        $country = str_replace(" ", "-", $country);
+        $state = str_replace(" ", "-", $state);
+        $city = str_replace(" ", "-", $city);
+
+        if (!file_exists('../' . $country . '/' . $state . '/' . $city)) {
+            mkdir('../' . $country . '/' . $state . '/' . $city, 0777, true);
         }
-        $myfile = fopen('../' . str_replace(" ", "-", $country) . '/' . str_replace(" ", "-", $state) . '/' . str_replace(" ", "-", $city) . '/' . $service . '.php', "w") or die("Unable to open file!");
+        $myfile = fopen('../' . $country . '/' . $state . '/' . $city . '/' . $service . '.php', "w") or die("Unable to open file!");
         fwrite($myfile, $response);
         fclose($myfile);
+
+
+        $url = "$actual_link/multipageadmin/$country/$state/$city/$service.php";
+
+        $sql3 = "INSERT INTO `website_pages`(`partner_id`, `website_url`, `status`) VALUES ('$id', '$url', '1')";
+        mysqli_query($conn, $sql3);
     }
 
 
@@ -68,6 +80,7 @@ if (isset($_POST["create_single_page"])) {
 if (isset($_POST["create_bullk_page"])) {
 
     // adding code for uploading a csv data to mysql.
+
     if (isset($_FILES['csv'])) {
         $csv_file = $_FILES['csv']['tmp_name'];
         if (is_file($csv_file)) {
@@ -75,67 +88,60 @@ if (isset($_POST["create_bullk_page"])) {
                 $var_name = 0;
                 while (($csv_data = fgetcsv($handle, 1000, ",")) !== FALSE) {
                     if ($var_name++ == 0) continue;
+                    echo '<pre>', print_r($csv_data, 1), '</pre>';
+                    $services = array("seo-marketing", "email-marketing", "web-design");
 
-                    $existsql = "SELECT count(*) as check_row FROM `partner_details` WHERE city_name = '$csv_data[2]' and state_name = '$csv_data[1]'";
+                    $existsql = "SELECT count(*) as check_row FROM `partner_details` WHERE city_name = '$csv_data[2]' and state_name = '$csv_data[1]' and json_contains(`services`, '" . json_encode($services) . "')";
                     $results = mysqli_query($conn, $existsql);
                     $numRows = mysqli_fetch_assoc($results)["check_row"];
+                    // print_r("<br>" . $numRows);
+                    if ($numRows > 0) continue;
+                    else {
 
-                    if ($numRows > 0) {
-                        continue;
-                    } else {
-                        $services = array("seo-marketing", "email-marketing", "web-design");
-
-                        $sql2 = "INSERT INTO `partner_details`( `country_selected`, `state_name`, `city_name`, `title`, `partner_first_name`, `partner_last_name`, `partner_phone`, `partner_email`, `partner_address`, `partner_discription`, `partner_linkedin`, `partner_photo`) VALUES ('$csv_data[0]','$csv_data[1]','$csv_data[2]','$csv_data[3]','$csv_data[4]','$csv_data[5]','$csv_data[6]','$csv_data[7]','$csv_data[8]','$csv_data[9]','$csv_data[10]','$csv_data[11]')";
+                        $sql2 = "INSERT INTO `partner_details`( `country_selected`, `state_name`, `city_name`, `title`, `partner_first_name`, `partner_last_name`, `partner_phone`, `partner_email`, `partner_address`, `partner_discription`, `partner_linkedin`, `partner_photo`, `services`) VALUES ('$csv_data[0]','$csv_data[1]','$csv_data[2]','$csv_data[3]','$csv_data[4]','$csv_data[5]','$csv_data[6]','$csv_data[7]','$csv_data[8]','$csv_data[9]','$csv_data[10]','$csv_data[11]', '" . json_encode($services) . "')";
                         if (mysqli_query($conn, $sql2)) {
                             $id = mysqli_insert_id($conn);
                             foreach ($services as $service) {
-                                $curl = curl_init();
-                                curl_setopt_array($curl, array(
-                                    CURLOPT_URL => 'http://' . $_SERVER["HTTP_HOST"] . '/multipageadmin/partnerwebsiteresources/index.php?partner_id=' . $id,
-                                    CURLOPT_RETURNTRANSFER => true,
-                                    CURLOPT_ENCODING => '',
-                                    CURLOPT_MAXREDIRS => 10,
-                                    CURLOPT_TIMEOUT => 0,
-                                    CURLOPT_FOLLOWLOCATION => true,
-                                    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-                                    CURLOPT_CUSTOMREQUEST => 'GET',
-                                ));
+                                $response = file_get_contents($actual_link . '/multipageadmin/partnerwebsiteresources/index.php?partner_id=' . $id . '&service=' . $service);
 
-                                $response = curl_exec($curl);
-                                curl_close($curl);
+                                $country = str_replace(" ", "-", $csv_data[0]);
+                                $state = str_replace(" ", "-", $csv_data[1]);
+                                $city = str_replace(" ", "-", $csv_data[2]);
 
-                                if (!file_exists('../' . str_replace(" ", "-", $csv_data[0]) . '/' . str_replace(" ", "-", $csv_data[1]) . '/' . str_replace(" ", "-", $csv_data[2]))) {
-                                    mkdir('../' . str_replace(" ", "-", $csv_data[0]) . '/' . str_replace(" ", "-", $csv_data[1]) . '/' . str_replace(" ", "-", $csv_data[2]), 0777, true);
+                                if (!file_exists('../' . $country . '/' . $state . '/' . $city)) {
+                                    mkdir('../' . $country . '/' . $state . '/' . $city, 0777, true);
                                 }
 
-                                $myfile = fopen('../' . str_replace(" ", "-", $csv_data[0]) . '/' . str_replace(" ", "-", $csv_data[1]) . '/' . str_replace(" ", "-", $csv_data[2]) . '/' . $service . '.php', "w") or die("Unable to open file!");
+                                $myfile = fopen('../' . $country . '/' . $state . '/' . $city . '/' . $service . '.php', "w") or die("Unable to open file!");
                                 fwrite($myfile, $response);
                                 fclose($myfile);
-                                // $actual_link = "http://$_SERVER[HTTP_HOST]";
 
-                                // $url = $actual_link.'/multipageadmin/' . str_replace(" ", "-", $csv_data[0]) . '/' . str_replace(" ", "-", $csv_data[1]) . '/' . str_replace(" ", "-", $csv_data[2]) . '/' . $service . '.php';
+                                $url = "$actual_link/multipageadmin/$country/$state/$city/$service.php";
 
-                                // $sql3 = "INSERT INTO `website_pages`(`partner_id`, `website_url`, `status`) VALUES ('$id', '$url', '1')";
-                                // mysqli_query($conn, $sql3);
+                                $sql3 = "INSERT INTO `website_pages`(`partner_id`, `website_url`, `status`) VALUES ('$id', '$url', '1')";
+                                mysqli_query($conn, $sql3);
                             }
                         }
                     }
                 }
-                $msg = " Data uploaded succesfully";
                 fclose($handle);
 
-                header("LOCATION : ../manage-pages.php");
+                // header("LOCATION : ../manage-pages.php");
+                header("Location: $actual_link/multipageadmin/manage-pages.php");
+                exit();
             } else {
-                $msg = "Unable to read the format try again";
-                header("LOCATION : ../new-page.php");
-
+                // header("LOCATION : ../new-page.php");
+                header("Location: $actual_link/multipageadmin/new-page.php");
+                exit();
             }
         } else {
-            $msg = "CCSV format file not found";
-            header("LOCATION : ../new-page.php");
+            // header("LOCATION : ../new-page.php");
+            header("Location: $actual_link/multipageadmin/new-page.php");
+            exit();
         }
     } else {
-        $msg = "Please try again";
-        header("LOCATION : ../new-page.php");
+        // header("LOCATION : ../new-page.php");
+        header("Location: $actual_link/multipageadmin/new-page.php");
+        exit();
     }
 }
