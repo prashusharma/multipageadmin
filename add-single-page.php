@@ -19,6 +19,7 @@ if (!isset($_SESSION["isLoggedin"])) {
                     <h4>Add a New Page > Add Single Page</h4>
                 </div>
                 <form action="./auth/page-handler.php" method="POST">
+                    <input type="hidden" name="create_single_page" value="true">
                     <div class="main-form- active">
                         <div class="form-header">
                             <h4>Web Page Creator</h4>
@@ -90,11 +91,11 @@ if (!isset($_SESSION["isLoggedin"])) {
                                     <div class="single-filed">
                                         <h5>Title</h5>
                                         <div class="right">
-                                            <select name="" id="">
-                                                <option>Select one</option>
-                                                <option value="">1</option>
-                                                <option value="">2</option>
-                                                <option value="">3</option>
+                                            <select name="title" id="">
+                                                <option selected disabled>Select title</option>
+                                                <option value="Mr.">Mr.</option>
+                                                <option value="Mrs.">Mrs.</option>
+                                                <option value="Dr.">Dr.</option>
                                             </select>
                                         </div>
                                     </div>

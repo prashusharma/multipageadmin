@@ -1,5 +1,5 @@
 <?php
-$conn = mysqli_connect("135.148.161.67", "plotsview", "Mark@123#$", "plotsvie_ashutosh");
+include '../partials/dbconnect.php';
 if(isset($_POST['csv_submit']))
 {
     //allowed file types
