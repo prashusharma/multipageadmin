@@ -68,13 +68,6 @@ if (!isset($_SESSION["isLoggedin"])) {
                 $name = $row['title'] . $row['partner_first_name'] . $row['partner_last_name'];
                 $services = $row['services'];
                 $services_array = json_decode($services);
-                // $state = $row['partner_state'];
-
-                // $sql2 = "SELECT website_id FROM `website_pages` WHERE partner_id = '$no'";
-                // $result2 = mysqli_query($conn, $sql2);
-                // while ($row2 = mysqli_fetch_assoc($result2)) {
-                //   $url = $row2['website_url'];
-                // }
 
 
                 echo '<tr>
@@ -88,7 +81,7 @@ if (!isset($_SESSION["isLoggedin"])) {
                 $state = str_replace(" ", "-", $state);
                 $city = str_replace(" ", "-", $city);
                 for ($i = 0; $i < count($services_array); $i++) {
-                  echo $actual_link. '/'. 'multipageadmin/' . $country . '/' . $state . '/' . $city . '/' . $services_array[$i] . ".php<br>";
+                  echo $actual_link. '/'. 'multipageadmin/' . $country . '/' . $state . '/' . $city . '/' . $services_array[$i] . ".html<br>";
                 }
 
                 echo '</td>  

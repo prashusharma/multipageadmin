@@ -58,12 +58,12 @@ if (isset($_POST["create_single_page"])) {
         if (!file_exists('../' . $country . '/' . $state . '/' . $city)) {
             mkdir('../' . $country . '/' . $state . '/' . $city, 0777, true);
         }
-        $myfile = fopen('../' . $country . '/' . $state . '/' . $city . '/' . $service . '.php', "w") or die("Unable to open file!");
+        $myfile = fopen('../' . $country . '/' . $state . '/' . $city . '/' . $service . '.html', "w") or die("Unable to open file!");
         fwrite($myfile, $response);
         fclose($myfile);
 
 
-        $url = "$actual_link/multipageadmin/$country/$state/$city/$service.php";
+        $url = "$actual_link/multipageadmin/$country/$state/$city/$service.html";
 
         $sql3 = "INSERT INTO `website_pages`(`partner_id`, `website_url`, `status`) VALUES ('$id', '$url', '1')";
         mysqli_query($conn, $sql3);
@@ -112,11 +112,11 @@ if (isset($_POST["create_bullk_page"])) {
                                     mkdir('../' . $country . '/' . $state . '/' . $city, 0777, true);
                                 }
 
-                                $myfile = fopen('../' . $country . '/' . $state . '/' . $city . '/' . $service . '.php', "w") or die("Unable to open file!");
+                                $myfile = fopen('../' . $country . '/' . $state . '/' . $city . '/' . $service . '.html', "w") or die("Unable to open file!");
                                 fwrite($myfile, $response);
                                 fclose($myfile);
 
-                                $url = "$actual_link/multipageadmin/$country/$state/$city/$service.php";
+                                $url = "$actual_link/multipageadmin/$country/$state/$city/$service.html";
 
                                 $sql3 = "INSERT INTO `website_pages`(`partner_id`, `website_url`, `status`) VALUES ('$id', '$url', '1')";
                                 mysqli_query($conn, $sql3);

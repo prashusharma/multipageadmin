@@ -124,7 +124,8 @@ if (!isset($_SESSION["isLoggedin"])) {
                   <td><?= $phone ?> </td>
                   <td><?= $budget ?> </td>
                   <td><?= $message ?> </td>
-                  <td class="edit-delet"><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal-<?= $id ?>">View</a> / <a href="#">Delete</a></td>
+                  <td class="edit-delet"><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal-<?= $id ?>">View</a> /
+                   <a href="./auth/delete_msg.php?id=<?=$id?>">Delete</a></td>
                 </tr>
 
                 <!-- Modal -->
