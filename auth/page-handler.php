@@ -33,9 +33,9 @@ if (isset($_POST["create_single_page"])) {
         $sql = "INSERT INTO `partner_details`( `country_selected`, `state_name`, `city_name`, `title` ,`partner_first_name`, `partner_last_name`, `partner_phone`, `partner_email`, `partner_address`, `partner_discription`, `partner_linkedin`, `partner_photo`, `services`) VALUES ('$country','$state','$city','$selected_title','$fist_name','$last_name','$phone','$email','$address','$description','$linkedin','$photo', '" . json_encode($services) . "')";
         $result1 = mysqli_query($conn, $sql);
     }
+    $id = mysqli_insert_id($conn);
 
     foreach ($services as $service) {
-        $id = mysqli_insert_id($conn);
         $curl = curl_init();
         curl_setopt_array($curl, array(
             CURLOPT_URL => 'http://' . $_SERVER["HTTP_HOST"] . '/multipageadmin/partnerwebsiteresources/index.php?partner_id=' . $id . '&service=' . $service,
