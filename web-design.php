@@ -2,35 +2,14 @@
 <html lang="en">
 
 <head>
-    <?php
-    include '../partials/dbconnect.php';
-    $actual_link = "http://$_SERVER[HTTP_HOST]";
-    $partnerid = $_GET['partner_id'];
-    $services = $_GET['service'];
-
-    $sql = "SELECT * FROM `partner_details` where partner_id = '$partnerid'";
-    $result = mysqli_query($conn, $sql);
-    $row = mysqli_fetch_assoc($result);
-
-    $country = $row['country_selected'];
-    $state = $row['state_name'];
-    $city = $row['city_name'];
-    $phone = empty($row['partner_phone']) ? "+1 646 679-7250" : $row['partner_phone'];
-    $email = empty($row['partner_email']) ? "hi@organizein.com" : $row['partner_email'];
-    $linkedin = $row['partner_linkedin'];
-/*<?php echo $country?>
-<?php echo $state?>
-<?php echo $city?>*/
-
-    ?>
-    <!-- https://countryflagsapi.com/png/pakistan -->
+        <!-- https://countryflagsapi.com/png/pakistan -->
 
     <!--------------- Required meta tags ------------------->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="title" content="<?php echo $city?> SEO Services | <?php echo $city?> Web Design | <?php echo $city?> Digital Marketing">
-    <meta name="description" content="<?php echo $city?> SEO Company is a leading SEO & Web Design Agency that provides unmatched <?php echo $city?> SEO services. We deliver more leads and traffic to your online business in <?php echo $city?> and surrounding burrows, call <?php echo $city?> SEO Company today.">
-    <meta name="keywords" content="<?php echo $city?> SEO Company ,<?php echo $city?>  Social Media Company,<?php echo $city?> PPC Company ,<?php echo $city?>  Digital Marketing Company ,<?php echo $city?> Web Design Company ,<?php echo $city?> Graphic design agency">
+    <meta name="title" content=" SEO Services |  Web Design |  Digital Marketing">
+    <meta name="description" content=" SEO Company is a leading SEO & Web Design Agency that provides unmatched  SEO services. We deliver more leads and traffic to your online business in  and surrounding burrows, call  SEO Company today.">
+    <meta name="keywords" content=" SEO Company ,  Social Media Company, PPC Company ,  Digital Marketing Company , Web Design Company , Graphic design agency">
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -39,12 +18,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.css" />
 
     <!----------------------- custom css  ----------------------->
-    <link rel="stylesheet" href="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/css/style.css">
+    <link rel="stylesheet" href="http://localhost/multipageadmin/partnerwebsiteresources/css/style.css">
     <!---------------------- fontawesome  ------------------------>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
-    <link rel="shortcut icon" href="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/logo favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="http://localhost/multipageadmin/partnerwebsiteresources/images/logo favicon.png" type="image/x-icon">
 
-    <link rel="stylesheet" href="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/megaMenu.css">
+    <link rel="stylesheet" href="http://localhost/multipageadmin/partnerwebsiteresources/megaMenu.css">
     <style>
         .source {
             display: none !important;
@@ -119,13 +98,13 @@
                             </div>
                             <div class="right___site____top___header">
                                 <div class="number___div" style="margin-right: 4px;">
-                                    <span><i class="fas fa-mobile-alt"></i><?php echo $phone ?></span>
+                                    <span><i class="fas fa-mobile-alt"></i>+1 646 679-7250</span>
                                 </div>
                                 <div class="number___div">
-                                    <span><i class="fas fa-mobile-alt"></i> <?php echo $email ?></span>
+                                    <span><i class="fas fa-mobile-alt"></i> hi@organizein.com</span>
                                 </div>
                                 <div class="login___img">
-                                    <img src="https://countryflagsapi.com/png/<?php echo $country?>" alt="flag" class="img-fluid flag" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    <img src="https://countryflagsapi.com/png/" alt="flag" class="img-fluid flag" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                     <span class="login_btn_company">Login
                                         <div class="openPoper">
                                             <div class="head">
@@ -145,7 +124,7 @@
                                         </div>
 
                                     </span>
-                                    <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/icon-login.png" alt="persone" class="img-fluid persone__logo">
+                                    <img src="http://localhost/multipageadmin/partnerwebsiteresources/images/icon-login.png" alt="persone" class="img-fluid persone__logo">
                                 </div>
                             </div>
                         </div>
@@ -161,7 +140,7 @@
                 <div class="row">
                     <div class="col-md-12 col-12 middle___header__Wraper mx-auto">
                         <div class="logo__img logo___p">
-                            <a href="#"><img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/logo.png" alt="logo__img" class="img-fluid" /></a>
+                            <a href="#"><img src="http://localhost/multipageadmin/partnerwebsiteresources/images/logo.png" alt="logo__img" class="img-fluid" /></a>
                         </div>
                         <div class="list___nav__here">
                             <ul>
@@ -736,7 +715,7 @@
                     <div class="row">
                         <div class="col-md-6 col-12 col-lg-6 banner____ col-xl-6 mx-auto">
                             <div class="text___banner___header" style="padding: 0px 36px;">
-                                <h1>Organizein <?php echo $country ?>'s Trusted IT & Digital Marketing Agency
+                                <h1>Organizein 's Trusted IT & Digital Marketing Agency
                                 </h1>
                                 <p>We will help you take advantage of all that the Internet has to offer. Having a solid
                                     inbound strategy with a high ROI is what every business strives for.
@@ -751,7 +730,7 @@
                             </div>
                         </div>
                         <div class="col-md-6 col-12 col-lg-6 banner____ col-xl-6 mx-auto">
-                            <form action="<?=$actual_link?>/multipageadmin/auth/inquiry_handler.php" method="post" class="contactForm">
+                            <form action="http://localhost/multipageadmin/auth/inquiry_handler.php" method="post" class="contactForm">
                                 <input type="hidden" name="contact_form" value="form-1" />
                                 <div class="formHeader">Let’s Get Started, Get in touch now!</div>
                                 <input type="text" name="name" id="name" class="inputField" placeholder="Full Name" required>
@@ -833,16 +812,16 @@
                         <div class="customer____content">
                             <h3>JOIN OUR HAPPY CUSTOMERS</h3>
                             <div class="Customers__logo">
-                                <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/sameday.png" alt="" class="img-fluid" />
-                                <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/payswiff.png" alt="" class="img-fluid" />
-                                <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/Smart-1.png" alt="" class="img-fluid" />
-                                <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/m.png" alt="" class="img-fluid" />
-                                <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/cruise san diego.png" alt="" class="img-fluid" />
-                                <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/peak.png" alt="" class="img-fluid" />
-                                <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/Ray White.png" alt="" class="img-fluid" />
-                                <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/Cmitsolutions.png" alt="" class="img-fluid" />
-                                <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/bmw.png" alt="" class="img-fluid" />
-                                <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/verify.png" alt="" class="img-fluid" />
+                                <img src="http://localhost/multipageadmin/partnerwebsiteresources/images/sameday.png" alt="" class="img-fluid" />
+                                <img src="http://localhost/multipageadmin/partnerwebsiteresources/images/payswiff.png" alt="" class="img-fluid" />
+                                <img src="http://localhost/multipageadmin/partnerwebsiteresources/images/Smart-1.png" alt="" class="img-fluid" />
+                                <img src="http://localhost/multipageadmin/partnerwebsiteresources/images/m.png" alt="" class="img-fluid" />
+                                <img src="http://localhost/multipageadmin/partnerwebsiteresources/images/cruise san diego.png" alt="" class="img-fluid" />
+                                <img src="http://localhost/multipageadmin/partnerwebsiteresources/images/peak.png" alt="" class="img-fluid" />
+                                <img src="http://localhost/multipageadmin/partnerwebsiteresources/images/Ray White.png" alt="" class="img-fluid" />
+                                <img src="http://localhost/multipageadmin/partnerwebsiteresources/images/Cmitsolutions.png" alt="" class="img-fluid" />
+                                <img src="http://localhost/multipageadmin/partnerwebsiteresources/images/bmw.png" alt="" class="img-fluid" />
+                                <img src="http://localhost/multipageadmin/partnerwebsiteresources/images/verify.png" alt="" class="img-fluid" />
                             </div>
                         </div>
                     </div>
@@ -893,13 +872,13 @@
                             </div>
                             <div class="col-md-4 col-12 col-lg-4 col-xl-4 mx-auto">
                                 <div class="Wprer___computer">
-                                    <img onclick="toggle()" src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/impplay-button-min-min.png" alt="" class="img-fluid overly___Start" />
+                                    <img onclick="toggle()" src="http://localhost/multipageadmin/partnerwebsiteresources/images/impplay-button-min-min.png" alt="" class="img-fluid overly___Start" />
 
                                     <div id="Wraper___video" class="video___poopup">
                                         <div class="if__controler">
                                             <iframe id="video" width="900" height="600" src="https://www.youtube.com/embed/p_Psvj8hUm8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
                                             </iframe>
-                                            <img onclick="toggle()" src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/closebtn.png" alt="" class="img-fluid close____" />
+                                            <img onclick="toggle()" src="http://localhost/multipageadmin/partnerwebsiteresources/images/closebtn.png" alt="" class="img-fluid close____" />
                                         </div>
                                     </div>
                                 </div>
@@ -939,78 +918,78 @@
 
     <!-- <section class="Digital__Marketing______container">
         <div class="single__margkein text-center">
-            <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/SEO-Organizein-USA.png" alt="" class="img-fluid digital_marketing_img" />
+            <img src="http://localhost/multipageadmin/partnerwebsiteresources/images/SEO-Organizein-USA.png" alt="" class="img-fluid digital_marketing_img" />
             <h3>SEO</h3>
             <p>Our search engine optimization strategies are formulated with careful analysis of how
                 your clients and audience finds, consumes or purchases</p>
         </div>
 
         <div class="single__margkein text-center">
-            <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/PPC-Services-Organizein01.png" alt="" class="img-fluid digital_marketing_img" />
+            <img src="http://localhost/multipageadmin/partnerwebsiteresources/images/PPC-Services-Organizein01.png" alt="" class="img-fluid digital_marketing_img" />
             <h3>Search Engine Marketing</h3>
             <p>Our Search Engine Marketing Service(SEM) services aid you in growing your business by generating quality
                 leads and valuable sales to your enterprise.</p>
         </div>
 
         <div class="single__margkein text-center">
-            <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/social media marketing.png" alt="" class="img-fluid digital_marketing_img" />
+            <img src="http://localhost/multipageadmin/partnerwebsiteresources/images/social media marketing.png" alt="" class="img-fluid digital_marketing_img" />
             <h3>Social Media Marketing</h3>
             <p>Use the social media platforms and websites to promote a product or service
             </p>
         </div>
 
         <div class="single__margkein text-center">
-            <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/Chatbot-Apps it service.png" alt="" class="img-fluid digital_marketing_img" />
+            <img src="http://localhost/multipageadmin/partnerwebsiteresources/images/Chatbot-Apps it service.png" alt="" class="img-fluid digital_marketing_img" />
             <h3>Email Marketing</h3>
             <p>Promote your products and sell your services through our Email Campaigns.</p>
         </div>
 
         <div class="single__margkein text-center">
-            <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/80.png" alt="" class="img-fluid digital_marketing_img" />
+            <img src="http://localhost/multipageadmin/partnerwebsiteresources/images/80.png" alt="" class="img-fluid digital_marketing_img" />
             <h3>SMS Marketing</h3>
             <p>Statistics show SMS open rates are as high as 98%, and that’s higher than any other marketing channel.
             </p>
         </div>
 
         <div class="single__margkein text-center">
-            <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/influencer.png" alt="" class="img-fluid digital_marketing_img" />
+            <img src="http://localhost/multipageadmin/partnerwebsiteresources/images/influencer.png" alt="" class="img-fluid digital_marketing_img" />
             <h3>Influencer Marketing</h3>
             <p>To reach your target audience and drive your brand's message to the larger market.
             </p>
         </div>
 
         <div class="single__margkein text-center">
-            <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/WhatsApp_Business_Organizein.png" alt="" class="img-fluid digital_marketing_img" />
+            <img src="http://localhost/multipageadmin/partnerwebsiteresources/images/WhatsApp_Business_Organizein.png" alt="" class="img-fluid digital_marketing_img" />
             <h3>Whatsapp Marketing</h3>
             <p>We Incorporate Formation and execution of social media campaigns....</p>
         </div>
 
         <div class="single__margkein text-center">
-            <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/AMB_Organizein.png" alt="" class="img-fluid digital_marketing_img" />
+            <img src="http://localhost/multipageadmin/partnerwebsiteresources/images/AMB_Organizein.png" alt="" class="img-fluid digital_marketing_img" />
             <h3>ABM Campaings</h3>
             <p>Account based marketing (ABM) is a business marketing strategy that concentrates resources on a set of
                 target accounts within a market.</p>
         </div>
 
         <div class="single__margkein text-center">
-            <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/inbound-marketing-usa-organizein.png" alt="" class="img-fluid digital_marketing_img" />
+            <img src="http://localhost/multipageadmin/partnerwebsiteresources/images/inbound-marketing-usa-organizein.png" alt="" class="img-fluid digital_marketing_img" />
             <h3>Inbound Marketing </h3>
             <p>With the use of multiple channels, we can proactively increase the quality traffic
                 you receive. With this increase in your audience, you will be able to reach</p>
         </div>
         <div class="single__margkein text-center">
-            <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/youtube.png" alt="" class="img-fluid digital_marketing_img" />
+            <img src="http://localhost/multipageadmin/partnerwebsiteresources/images/youtube.png" alt="" class="img-fluid digital_marketing_img" />
             <h3>Youtube Ads </h3>
             <p>our highly talented team in increasing traffics through youtube ads.</p>
         </div>
         <div class="single__margkein text-center">
-            <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/remarketing.png" alt="" class="img-fluid digital_marketing_img" />
+            <img src="http://localhost/multipageadmin/partnerwebsiteresources/images/remarketing.png" alt="" class="img-fluid digital_marketing_img" />
             <h3>Re-Marketing Campaigns </h3>
             <p>Our world class remarketing ad agency will assist you to get the best possible return. Keeping in mind
                 that only 2% of visitors purchase from their first visit on your website,</p>
         </div>
         <div class="single__margkein text-center">
-            <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/google ads.png" alt="" class="img-fluid digital_marketing_img" />
+            <img src="http://localhost/multipageadmin/partnerwebsiteresources/images/google ads.png" alt="" class="img-fluid digital_marketing_img" />
             <h3>Google Ads</h3>
             <p>Our highly talented team of content writers and editors provide you the most authentic and attractive
                 content as google ads</p>
@@ -1019,7 +998,7 @@
 
     <section class="Digital__Marketing______container" style="grid-template-columns: repeat(auto-fit , minmax(300px , 1fr)); gap: 50px;">
         <div class="single__margkein text-center">
-            <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/Webdesign-USA-Organizein.png" alt="" class="img-fluid" />
+            <img src="http://localhost/multipageadmin/partnerwebsiteresources/images/Webdesign-USA-Organizein.png" alt="" class="img-fluid" />
             <h3>Web Design</h3>
             <p>We design super responsive and mobile optimized websites that deliver rich content in
                 an organized manner to your audience.</p>
@@ -1027,7 +1006,7 @@
         </div>
 
         <div class="single__margkein text-center">
-            <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/SEO-Organizein-USA.png" alt="" class="img-fluid" />
+            <img src="http://localhost/multipageadmin/partnerwebsiteresources/images/SEO-Organizein-USA.png" alt="" class="img-fluid" />
             <h3>Search Engine Optimization</h3>
             <p>Our search engine optimization strategies are formulated with careful analysis of how
                 your clients and audience finds, consumes or purchases</p>
@@ -1035,7 +1014,7 @@
         </div>
 
         <div class="single__margkein text-center">
-            <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/inbound-marketing-usa-organizein.png" alt="" class="img-fluid" />
+            <img src="http://localhost/multipageadmin/partnerwebsiteresources/images/inbound-marketing-usa-organizein.png" alt="" class="img-fluid" />
             <h3>Inbound marketing</h3>
             <p>With the use of multiple channels, we can proactively increase the quality traffic
                 you receive. With this increase in your audience, you will be able to reach</p>
@@ -1044,7 +1023,7 @@
         </div>
 
         <div class="single__margkein text-center">
-            <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/PPC-Services-Organizein01.png" alt="" class="img-fluid" />
+            <img src="http://localhost/multipageadmin/partnerwebsiteresources/images/PPC-Services-Organizein01.png" alt="" class="img-fluid" />
             <h3>Pay Per Click Campaigns</h3>
             <p>PPC is a proven way of increasing traffic to your website, but unless you get quality
                 traffic, you won’t be able to get a better ROI.</p>
@@ -1052,7 +1031,7 @@
         </div>
 
         <div class="single__margkein text-center">
-            <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/Email-Marketing-Organizein-USA.png" alt="" class="img-fluid" />
+            <img src="http://localhost/multipageadmin/partnerwebsiteresources/images/Email-Marketing-Organizein-USA.png" alt="" class="img-fluid" />
             <h3>Email Campaigns</h3>
             <p>You can promote brand recognition and awareness through email newsletters with your
                 existing subscribers and some potential leads to get new subscribers.</p>
@@ -1060,7 +1039,7 @@
         </div>
 
         <div class="single__margkein text-center">
-            <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/Social-Media-Services-USA.png" alt="" class="img-fluid" />
+            <img src="http://localhost/multipageadmin/partnerwebsiteresources/images/Social-Media-Services-USA.png" alt="" class="img-fluid" />
             <h3>Social Media Marketing</h3>
             <p>We Incorporate Formation and execution of social media campaigns, audits, policy
                 development and crisis management in our offering.</p>
@@ -1077,7 +1056,7 @@
                     <p>Take the next step in growing your business using digital marketing. Connect with one of our
                         expert
                         digital strategists to learn how WebFx can help you reach your business goals.</p>
-                    <form action="<?=$actual_link?>/multipageadmin/auth/inquiry_handler.php" method="post">
+                    <form action="http://localhost/multipageadmin/auth/inquiry_handler.php" method="post">
                     <input type="hidden" name="contact_form" value="form-2" />
                         <input type="text" class="websiteInput" placeholder="Email">
                         <input type="text" class="websiteInput" placeholder="Enter Your website">
@@ -1086,11 +1065,11 @@
                 </div>
                 <div class="owl-carousel owl-theme imageConent">
                     <img class="item" src="https://www.organizein.com/wp-content/uploads/2021/08/cm-02-1-1.png" alt=">>>>>">
-                    <img class="item" src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/banner/123travel-02.png" alt=">>>>>">
-                    <img class="item" src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/banner/Afamado-02.png" alt=">>>>>">
-                    <img class="item" src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/banner/Aman-educatio-02.png" alt=">>>>>">
-                    <img class="item" src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/banner/Arohan-Yoga-02.png" alt=">>>>>">
-                    <img class="item" src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/banner/Auto-Spa-America-02.png" alt=">>>>>">
+                    <img class="item" src="http://localhost/multipageadmin/partnerwebsiteresources/images/banner/123travel-02.png" alt=">>>>>">
+                    <img class="item" src="http://localhost/multipageadmin/partnerwebsiteresources/images/banner/Afamado-02.png" alt=">>>>>">
+                    <img class="item" src="http://localhost/multipageadmin/partnerwebsiteresources/images/banner/Aman-educatio-02.png" alt=">>>>>">
+                    <img class="item" src="http://localhost/multipageadmin/partnerwebsiteresources/images/banner/Arohan-Yoga-02.png" alt=">>>>>">
+                    <img class="item" src="http://localhost/multipageadmin/partnerwebsiteresources/images/banner/Auto-Spa-America-02.png" alt=">>>>>">
                 </div>
             </div>
         </div>
@@ -1116,71 +1095,71 @@
 
     <section class="Digital__Marketing______container">
         <div class="single__margkein text-center">
-            <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/webdesign-image1.png" alt="" class="img-fluid digital_marketing_img" />
+            <img src="http://localhost/multipageadmin/partnerwebsiteresources/images/webdesign-image1.png" alt="" class="img-fluid digital_marketing_img" />
             <h3>Web Design & Development</h3>
             <p>We design super responsive and mobile optimized websites that deliver rich content in
                 an organized manner to your audience.</p>
         </div>
         <div class="single__margkein text-center">
-            <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/Android-App-Development it services.png" alt="" class="img-fluid digital_marketing_img" />
+            <img src="http://localhost/multipageadmin/partnerwebsiteresources/images/Android-App-Development it services.png" alt="" class="img-fluid digital_marketing_img" />
             <h3>Mobile Application Development</h3>
             <p>Being a leading Android App Development agency, Organizein aids you in developing powerful android
                 applications that facilitates your enterprise to bloom exponentially.</p>
         </div>
         <div class="single__margkein text-center">
-            <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/CRM_Organizein.png" alt="" class="img-fluid digital_marketing_img" />
+            <img src="http://localhost/multipageadmin/partnerwebsiteresources/images/CRM_Organizein.png" alt="" class="img-fluid digital_marketing_img" />
             <h3>CRM Development & Integrations</h3>
             <p>Our CRM analytics service includes programming that analyses data about a company’s client database</p>
         </div>
         <div class="single__margkein text-center">
-            <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/SRS_Docs_Organizein.png" alt="" class="img-fluid digital_marketing_img" />
+            <img src="http://localhost/multipageadmin/partnerwebsiteresources/images/SRS_Docs_Organizein.png" alt="" class="img-fluid digital_marketing_img" />
             <h3>SRS Document Development </h3>
             <p>We also develop and describes the functionality the product needs to fulfill all stakeholders (business,
                 users) needs.</p>
         </div>
         <div class="single__margkein text-center">
-            <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/User-Interface_Organizein.png" alt="" class="img-fluid digital_marketing_img" />
+            <img src="http://localhost/multipageadmin/partnerwebsiteresources/images/User-Interface_Organizein.png" alt="" class="img-fluid digital_marketing_img" />
             <h3>User Interface & Wireframes</h3>
             <p>we also develop skeleton of the eventual user interface. It's a low fidelity sketch (sometimes literally
                 a pen and paper sketch) of the UI.</p>
         </div>
         <div class="single__margkein text-center">
-            <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/Hosting_Organizein.png" alt="" class="img-fluid digital_marketing_img" />
+            <img src="http://localhost/multipageadmin/partnerwebsiteresources/images/Hosting_Organizein.png" alt="" class="img-fluid digital_marketing_img" />
             <h3>Hosting, Domain & Server Management</h3>
             <p>Our top-rated dedicated server management service enables you to boost your rank in search engines With
                 the ability to set up different Operating Systems(OSes)</p>
         </div>
         <div class="single__margkein text-center">
-            <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/MVP_Prototypes_Organizein.png" alt="" class="img-fluid digital_marketing_img" />
+            <img src="http://localhost/multipageadmin/partnerwebsiteresources/images/MVP_Prototypes_Organizein.png" alt="" class="img-fluid digital_marketing_img" />
             <h3>App MVP Prototypes </h3>
             <p>We provides best MVP (minimum viable product) app prototypes.An MVP is all about testing your idea and
                 discovering what will work to properly target your customer. </p>
         </div>
         <div class="single__margkein text-center">
-            <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/SEO-Organizein-USA.png" alt="" class="img-fluid digital_marketing_img" />
+            <img src="http://localhost/multipageadmin/partnerwebsiteresources/images/SEO-Organizein-USA.png" alt="" class="img-fluid digital_marketing_img" />
             <h3>Custom Business Dashboard development</h3>
             <p>We design super responsive and mobile optimized custom business dashboard for your company website</p>
         </div>
         <!-- <div class="single__margkein text-center">
-            <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/Chatbot-Apps it service.png" alt="" class="img-fluid digital_marketing_img" />
+            <img src="http://localhost/multipageadmin/partnerwebsiteresources/images/Chatbot-Apps it service.png" alt="" class="img-fluid digital_marketing_img" />
             <h3>CAI & Chat Bots Development</h3>
             <p>Being a professional chatbot development agency, we comprehend your firm’s requirements and provide the
                 right solution that matches your custom needs.</p>
         </div>
         <div class="single__margkein text-center">
-            <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/google ads.png" alt="" class="img-fluid digital_marketing_img" />
+            <img src="http://localhost/multipageadmin/partnerwebsiteresources/images/google ads.png" alt="" class="img-fluid digital_marketing_img" />
             <h3>Front-End development </h3>
             <p>Being a professional Front-End development agency, we comprehend your firm’s requirements and provide the
                 right solution that matches your custom needs.</p>
         </div>
         <div class="single__margkein text-center">
-            <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/ECommerce-Store-271x300.png" alt="" class="img-fluid digital_marketing_img" />
+            <img src="http://localhost/multipageadmin/partnerwebsiteresources/images/ECommerce-Store-271x300.png" alt="" class="img-fluid digital_marketing_img" />
             <h3>eCommerce Solution </h3>
             <p>Our ECommerce portal expands your online traffic and sales. We provide a custom and unique design for
                 platforms such as Woo Commerce and Search Engine Optimization(SEO)</p>
         </div>
         <div class="single__margkein text-center">
-            <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/youtube.png" alt="" class="img-fluid digital_marketing_img" />
+            <img src="http://localhost/multipageadmin/partnerwebsiteresources/images/youtube.png" alt="" class="img-fluid digital_marketing_img" />
             <h3>Web Maintenance</h3>
             <p>we peovide a better and reasonable way of Web Maintenance that incrase your web productivity.</p>
         </div> -->
@@ -1203,7 +1182,7 @@
                     <div class="col-12 max____width__ col-md-12 col-xl-12 col-xxl-12 col-lg-12 mx-auto">
                         <div class="row">
                             <div class="col-md-6 col-12 Maximize____img col-lg-6 col-xl-6 mx-auto">
-                                <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/sd-Marketing-Services-Agency-1-1-copy-min.png" alt="" class="img-fluid" />
+                                <img src="http://localhost/multipageadmin/partnerwebsiteresources/images/sd-Marketing-Services-Agency-1-1-copy-min.png" alt="" class="img-fluid" />
                             </div>
                             <div class="col-md-6 col-12 Maximize____ col-lg-6 col-xl-6 mx-auto">
                                 <h2>
@@ -1285,11 +1264,11 @@
                     <div class="col-12 max____width__ col-lg-12 col-xl-12 col-xxl-12 mx-auto">
                         <div class="row">
                             <div class="col-12 col-md-5 Responsive______img col-xl-5 col-lg-5 mx-auto">
-                                <img onclick="toggle1()" src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/impplay-button-min-min.png" alt="" class="img-fluid" />
+                                <img onclick="toggle1()" src="http://localhost/multipageadmin/partnerwebsiteresources/images/impplay-button-min-min.png" alt="" class="img-fluid" />
                                 <div class="video___poopup1">
                                     <div class="if__controler">
                                         <iframe class="secound__iframe" width="900" height="600" src="https://www.youtube.com/embed/M4P2KcOb95o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                        <img onclick="toggle1()" src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/closebtn.png" alt="" class="img-fluid close____1" />
+                                        <img onclick="toggle1()" src="http://localhost/multipageadmin/partnerwebsiteresources/images/closebtn.png" alt="" class="img-fluid close____1" />
                                     </div>
                                 </div>
                             </div>
@@ -1332,13 +1311,13 @@
                             </div>
                             <div class="col-12 col-md-5 Responsive______img2 col-xl-5 col-lg-5 mx-auto">
                                 <div>
-                                    <img onclick="toggle2()" src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/impplay-button-min-min.png" alt="" class="img-fluid" />
+                                    <img onclick="toggle2()" src="http://localhost/multipageadmin/partnerwebsiteresources/images/impplay-button-min-min.png" alt="" class="img-fluid" />
                                 </div>
 
                                 <div class="video___poopup2">
                                     <div class="if__controler">
                                         <iframe class="Third___iframe" width="900" height="600" src="https://www.youtube.com/embed/2H_FeNvqxtc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                        <img onclick="toggle2()" src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/closebtn.png" alt="" class="img-fluid close____2" />
+                                        <img onclick="toggle2()" src="http://localhost/multipageadmin/partnerwebsiteresources/images/closebtn.png" alt="" class="img-fluid close____2" />
                                     </div>
                                 </div>
                             </div>
@@ -1358,11 +1337,11 @@
                     <div class="col-12 max____width__ col-md-12 col-xl-12 col-lg-12 col-xxl-12 mx-auto">
                         <div class="row">
                             <div class="col-12 col-md-5 Responsive______img3 col-xl-5 col-lg-5 mx-auto">
-                                <img onclick="toggle3()" src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/impplay-button-min-min.png" alt="" class="img-fluid" />
+                                <img onclick="toggle3()" src="http://localhost/multipageadmin/partnerwebsiteresources/images/impplay-button-min-min.png" alt="" class="img-fluid" />
                                 <div class="video___poopup3">
                                     <div class="if__controler">
                                         <iframe class="Forth___iframe" width="900" height="600" src="https://www.youtube.com/embed/99XseKQQePY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                        <img onclick="toggle3()" src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/closebtn.png" alt="" class="img-fluid close____3" />
+                                        <img onclick="toggle3()" src="http://localhost/multipageadmin/partnerwebsiteresources/images/closebtn.png" alt="" class="img-fluid close____3" />
                                     </div>
                                 </div>
                             </div>
@@ -1422,7 +1401,7 @@
                             </div>
                             <div class="col-md-6 col-12 Maximize____img Maximize____img2 col-lg-6 col-xl-6 mx-auto">
                                 <div class="Ready____img">
-                                    <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/social-media-team-member-1.png" alt="" class="img-fluid" />
+                                    <img src="http://localhost/multipageadmin/partnerwebsiteresources/images/social-media-team-member-1.png" alt="" class="img-fluid" />
                                 </div>
 
                             </div>
@@ -1440,51 +1419,51 @@
 
     <section class="Digital__Marketing______container">
         <div class="single__margkein text-center">
-            <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/80.png" alt="" class="img-fluid digital_marketing_img" />
+            <img src="http://localhost/multipageadmin/partnerwebsiteresources/images/80.png" alt="" class="img-fluid digital_marketing_img" />
             <h3>SMS Marketing</h3>
             <p>Statistics show SMS open rates are as high as 98%, and that’s higher than any other marketing channel.
             </p>
         </div>
 
         <div class="single__margkein text-center">
-            <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/influencer.png" alt="" class="img-fluid digital_marketing_img" />
+            <img src="http://localhost/multipageadmin/partnerwebsiteresources/images/influencer.png" alt="" class="img-fluid digital_marketing_img" />
             <h3>Influencer Marketing</h3>
             <p>To reach your target audience and drive your brand's message to the larger market.
             </p>
         </div>
 
         <div class="single__margkein text-center">
-            <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/WhatsApp_Business_Organizein.png" alt="" class="img-fluid digital_marketing_img" />
+            <img src="http://localhost/multipageadmin/partnerwebsiteresources/images/WhatsApp_Business_Organizein.png" alt="" class="img-fluid digital_marketing_img" />
             <h3>Whatsapp Marketing</h3>
             <p>We Incorporate Formation and execution of social media campaigns....</p>
         </div>
 
         <div class="single__margkein text-center">
-            <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/AMB_Organizein.png" alt="" class="img-fluid digital_marketing_img" />
+            <img src="http://localhost/multipageadmin/partnerwebsiteresources/images/AMB_Organizein.png" alt="" class="img-fluid digital_marketing_img" />
             <h3>ABM Campaings</h3>
             <p>Account based marketing (ABM) is a business marketing strategy that concentrates resources on a set of
                 target accounts within a market.</p>
         </div>
 
         <div class="single__margkein text-center">
-            <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/inbound-marketing-usa-organizein.png" alt="" class="img-fluid digital_marketing_img" />
+            <img src="http://localhost/multipageadmin/partnerwebsiteresources/images/inbound-marketing-usa-organizein.png" alt="" class="img-fluid digital_marketing_img" />
             <h3>Inbound Marketing </h3>
             <p>With the use of multiple channels, we can proactively increase the quality traffic you receive. With this
                 increase in your audience, you will be able to reach</p>
         </div>
         <div class="single__margkein text-center">
-            <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/youtube.png" alt="" class="img-fluid digital_marketing_img" />
+            <img src="http://localhost/multipageadmin/partnerwebsiteresources/images/youtube.png" alt="" class="img-fluid digital_marketing_img" />
             <h3>Youtube Ads </h3>
             <p>our highly talented team in increasing traffics through youtube ads.</p>
         </div>
         <div class="single__margkein text-center">
-            <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/remarketing.png" alt="" class="img-fluid digital_marketing_img" />
+            <img src="http://localhost/multipageadmin/partnerwebsiteresources/images/remarketing.png" alt="" class="img-fluid digital_marketing_img" />
             <h3>Re-Marketing Campaigns </h3>
             <p>Our world class remarketing ad agency will assist you to get the best possible return. Keeping in mind
                 that only 2% of visitors purchase from their first visit on your website,</p>
         </div>
         <div class="single__margkein text-center">
-            <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/google ads.png" alt="" class="img-fluid digital_marketing_img" />
+            <img src="http://localhost/multipageadmin/partnerwebsiteresources/images/google ads.png" alt="" class="img-fluid digital_marketing_img" />
             <h3>Google Ads</h3>
             <p>Our highly talented team of content writers and editors provide you the most authentic and attractive
                 content as google ads</p>
@@ -1504,7 +1483,7 @@
                     <div class="col-12 max____width__ col-md-12 col-xl-12 col-lg-12 col-xxl-12 mx-auto">
                         <div class="row">
                             <div class="col-12 p-4 col-md-6 col-lg-6 col-xl-6 mx-auto">
-                                <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/Screenshot_11.png" alt="" class="img-fluid">
+                                <img src="http://localhost/multipageadmin/partnerwebsiteresources/images/Screenshot_11.png" alt="" class="img-fluid">
                             </div>
 
                             <div class="col-12 Seo__details___ col-md-6 col-lg-6 col-xl-6 mx-auto">
@@ -1557,7 +1536,7 @@
                                 </ul>
                             </div>
                             <div class="col-12 p-3 col-md-6 col-lg-6 col-xl-6 mx-auto">
-                                <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/Screenshot_1-removebg-preview.png" alt="" class="img-fluid">
+                                <img src="http://localhost/multipageadmin/partnerwebsiteresources/images/Screenshot_1-removebg-preview.png" alt="" class="img-fluid">
                             </div>
                         </div>
                     </div>
@@ -1579,7 +1558,7 @@
                     <div class="col-12 max____width__ col-md-12 col-xl-12 col-lg-12 col-xxl-12 mx-auto">
                         <div class="row">
                             <div class="col-12 p-4 col-md-6 col-lg-6 col-xl-6 mx-auto">
-                                <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/Screenshot_2.png" alt="" class="img-fluid">
+                                <img src="http://localhost/multipageadmin/partnerwebsiteresources/images/Screenshot_2.png" alt="" class="img-fluid">
                             </div>
                             <div class="col-12 Seo__details___ Seo__details___2 col-md-6 col-lg-6 col-xl-6 mx-auto">
                                 <h4>What are the benefits of e-commerce SEO?</h4>
@@ -1681,11 +1660,11 @@
                 <div class="col-12 max____width__ col-md-12 col-xl-12 col-lg-12 col-xxl-12 mx-auto">
                     <div class="row">
                         <div class="col-12 col-md-5 Responsive______imgX col-xl-5 col-lg-5 mx-auto">
-                            <img onclick = "toggle4()" src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/impplay-button-min-min.png" alt="" class="img-fluid" />
+                            <img onclick = "toggle4()" src="http://localhost/multipageadmin/partnerwebsiteresources/images/impplay-button-min-min.png" alt="" class="img-fluid" />
                             <div class="video___poopup4">
                                 <div class="if__controler">
                                 <iframe class="fifth__iframe" width="900" height="600" src="https://www.youtube.com/embed/q8yWbptCIz8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                <img onclick = "toggle4()" src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/closebtn.png" alt="" class="img-fluid close____4" />
+                                <img onclick = "toggle4()" src="http://localhost/multipageadmin/partnerwebsiteresources/images/closebtn.png" alt="" class="img-fluid close____4" />
                                 </div>
                             </div>
                         </div>
@@ -1717,11 +1696,11 @@
                             <a href="#">Learn More about Search Engine Optimization</a>
                         </div>
                         <div class="col-12 col-md-5 Responsive______imgY col-xl-5 col-lg-5 mx-auto">
-                            <img onclick = "toggle5()" src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/impplay-button-min-min.png" alt="" class="img-fluid" />
+                            <img onclick = "toggle5()" src="http://localhost/multipageadmin/partnerwebsiteresources/images/impplay-button-min-min.png" alt="" class="img-fluid" />
                             <div class="video___poopup5">
                                 <div class="if__controler">
                                 <iframe class="sixth__iframe" width="900" height="600" src="https://www.youtube.com/embed/4Qd4NMrFNmw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                <img onclick = "toggle5()" src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/closebtn.png" alt="" class="img-fluid close____5" />
+                                <img onclick = "toggle5()" src="http://localhost/multipageadmin/partnerwebsiteresources/images/closebtn.png" alt="" class="img-fluid close____5" />
                                 </div>
                             </div>
                         </div>
@@ -1742,11 +1721,11 @@
                 <div class="col-12 max____width__ col-md-12 col-xl-12 col-lg-12 col-xxl-12 mx-auto">
                     <div class="row">
                         <div class="col-12 col-md-5 Responsive______imgZ col-xl-5 col-lg-5 mx-auto">
-                            <img onclick = "toggle6()" src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/impplay-button-min-min.png" alt="" class="img-fluid" />
+                            <img onclick = "toggle6()" src="http://localhost/multipageadmin/partnerwebsiteresources/images/impplay-button-min-min.png" alt="" class="img-fluid" />
                             <div class="video___poopup6">
                                 <div class="if__controler">
                                 <iframe class="seventh___iframe" width="900" height="600" src="https://www.youtube.com/embed/b-2TaJjOv1M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                <img onclick = "toggle6()" src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/closebtn.png" alt="" class="img-fluid close____6" />
+                                <img onclick = "toggle6()" src="http://localhost/multipageadmin/partnerwebsiteresources/images/closebtn.png" alt="" class="img-fluid close____6" />
                                 </div>
                             </div>
                         </div>
@@ -1777,11 +1756,11 @@
                             <a href="#">Learn More about Email Marketing</a>
                         </div>
                         <div class="col-12 col-md-5 Responsive______imgA col-xl-5 col-lg-5 mx-auto">
-                            <img onclick = "toggle7()" src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/impplay-button-min-min.png" alt="" class="img-fluid" />
+                            <img onclick = "toggle7()" src="http://localhost/multipageadmin/partnerwebsiteresources/images/impplay-button-min-min.png" alt="" class="img-fluid" />
                             <div class="video___poopup7">
                                 <div class="if__controler">
                                 <iframe class="eight__iframe" width="900" height="600" src="https://www.youtube.com/embed/rDHqc9HxzUo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                <img onclick = "toggle7()" src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/closebtn.png" alt="" class="img-fluid close____7" />
+                                <img onclick = "toggle7()" src="http://localhost/multipageadmin/partnerwebsiteresources/images/closebtn.png" alt="" class="img-fluid close____7" />
                                 </div>
                             </div>
                         </div>
@@ -1814,7 +1793,7 @@
                         <div class="col-12 p-0 col-md-6  col-lg-6 col-xl-6 mx-auto">
                             <div class="Ready____img2">
                                 <div class="text-center map____ py-5">
-                                    <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/happy-min.png" alt="" class="img-fluid" />
+                                    <img src="http://localhost/multipageadmin/partnerwebsiteresources/images/happy-min.png" alt="" class="img-fluid" />
                                     <h1>520+</h1>
                                     <p>Organizein Success Stories</p>
                                 </div>
@@ -1825,22 +1804,22 @@
                             <div class="text____started2 ml-2">
                                 <div class="row Count____customer">
                                     <div class="col-12 col-md-6 col-lg-6 single__customer col-xl-6 mx-auto">
-                                        <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/Digital-marketing.png" alt="" class="img-fluid" />
+                                        <img src="http://localhost/multipageadmin/partnerwebsiteresources/images/Digital-marketing.png" alt="" class="img-fluid" />
                                         <h1>12K</h1>
                                         <p>Ads Campaigns</p>
                                     </div>
                                     <div class="col-12 col-md-6 col-lg-6 single__customer col-xl-6 mx-auto">
-                                        <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/Backlinks.png" alt="" class="img-fluid" />
+                                        <img src="http://localhost/multipageadmin/partnerwebsiteresources/images/Backlinks.png" alt="" class="img-fluid" />
                                         <h1>2.5M</h1>
                                         <p>Backlinks Acquired</p>
                                     </div>
                                     <div class="col-12 col-md-6 col-lg-6 single__customer col-xl-6 mx-auto">
-                                        <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/Digital-pr.png" alt="" class="img-fluid" />
+                                        <img src="http://localhost/multipageadmin/partnerwebsiteresources/images/Digital-pr.png" alt="" class="img-fluid" />
                                         <h1>2M</h1>
                                         <p>Digital PR</p>
                                     </div>
                                     <div class="col-12 col-md-6 col-lg-6 single__customer col-xl-6 mx-auto">
-                                        <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/pie-chart-min-min.png" alt="" class="img-fluid" />
+                                        <img src="http://localhost/multipageadmin/partnerwebsiteresources/images/pie-chart-min-min.png" alt="" class="img-fluid" />
                                         <h1>12M</h1>
                                         <p>Campaigns Run</p>
                                     </div>
@@ -1915,7 +1894,7 @@
                         <div class="row gy-4">
                             <div class="col-12 mx-3 d-flex justify-content-center align-items-center text-center col-md-4 col-xl-4 mx-auto">
                                 <div class="Happy__single__customar">
-                                    <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/verifytx_logo_225x50.png" alt="" class="img-fluid" />
+                                    <img src="http://localhost/multipageadmin/partnerwebsiteresources/images/verifytx_logo_225x50.png" alt="" class="img-fluid" />
                                     <h3>
                                         Verify Treatment
                                     </h3>
@@ -1933,7 +1912,7 @@
 
                             <div class="col-12 mx-3 d-flex justify-content-center align-items-center text-center col-md-4 col-xl-4 mx-auto">
                                 <div class="Happy__single__customar">
-                                    <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/Pet-Industry-1.png" alt="" class="img-fluid" />
+                                    <img src="http://localhost/multipageadmin/partnerwebsiteresources/images/Pet-Industry-1.png" alt="" class="img-fluid" />
                                     <h3>
                                         Pet Industry Expert
                                     </h3>
@@ -1950,7 +1929,7 @@
 
                             <div class="col-12 mx-3 d-flex justify-content-center align-items-center text-center col-md-4 col-xl-4 mx-auto">
                                 <div class="Happy__single__customar">
-                                    <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/michael-johnson.png" alt="" class="img-fluid" />
+                                    <img src="http://localhost/multipageadmin/partnerwebsiteresources/images/michael-johnson.png" alt="" class="img-fluid" />
                                     <h3>
                                         MJ Associates
                                     </h3>
@@ -1967,7 +1946,7 @@
 
                             <div class="col-12 mx-3 d-flex justify-content-center align-items-center text-center col-md-4 col-xl-4 mx-auto">
                                 <div class="Happy__single__customar">
-                                    <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/Smart-1.png" alt="" class="img-fluid" />
+                                    <img src="http://localhost/multipageadmin/partnerwebsiteresources/images/Smart-1.png" alt="" class="img-fluid" />
                                     <h3>
                                         Smart Tools
                                     </h3>
@@ -1984,7 +1963,7 @@
 
                             <div class="col-12 mx-3 d-flex justify-content-center align-items-center text-center col-md-4 col-xl-4 mx-auto">
                                 <div class="Happy__single__customar">
-                                    <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/1582822837895-12.png" alt="" class="img-fluid" />
+                                    <img src="http://localhost/multipageadmin/partnerwebsiteresources/images/1582822837895-12.png" alt="" class="img-fluid" />
                                     <h3>
                                         Powerd by Innovation
                                     </h3>
@@ -2002,7 +1981,7 @@
 
                             <div class="col-12 mx-3 d-flex justify-content-center align-items-center text-center col-md-4 col-xl-4 mx-auto">
                                 <div class="Happy__single__customar">
-                                    <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/screenshot_2016_03_11_00.47_1458024802__37248.original.jpg" alt="" class="img-fluid" />
+                                    <img src="http://localhost/multipageadmin/partnerwebsiteresources/images/screenshot_2016_03_11_00.47_1458024802__37248.original.jpg" alt="" class="img-fluid" />
                                     <h3>
                                         O2Fit
                                     </h3>
@@ -2113,7 +2092,7 @@
                         <div class="row gy-4">
                             <div class="col-12 col-md-4 col-lg-4 col-xl-4 mx-auto">
                                 <div class="Wraper__admit__id">
-                                    <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/young-happy-smiling-woman-casual-clothes-holding-laptop-sending-email-her-best-friend-isolated-gray-backgroundv1.png" alt="" class="img-fluid" />
+                                    <img src="http://localhost/multipageadmin/partnerwebsiteresources/images/young-happy-smiling-woman-casual-clothes-holding-laptop-sending-email-her-best-friend-isolated-gray-backgroundv1.png" alt="" class="img-fluid" />
                                     <p class="header___admin">
                                         Proven Performance
                                     </p>
@@ -2129,7 +2108,7 @@
 
                             <div class="col-12 col-md-4 col-lg-4 col-xl-4 mx-auto">
                                 <div class="Wraper__admit__id">
-                                    <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/transparent-Roi-v1.png" alt="" class="img-fluid" />
+                                    <img src="http://localhost/multipageadmin/partnerwebsiteresources/images/transparent-Roi-v1.png" alt="" class="img-fluid" />
                                     <p class="header___admin">
                                         Transparent ROI
                                     </p>
@@ -2146,7 +2125,7 @@
 
                             <div class="col-12 col-md-4 col-lg-4 col-xl-4 mx-auto">
                                 <div class="Wraper__admit__id">
-                                    <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/smiling-businesswoman-typing-laptop-sitting-cafev1.png" alt="" class="img-fluid" />
+                                    <img src="http://localhost/multipageadmin/partnerwebsiteresources/images/smiling-businesswoman-typing-laptop-sitting-cafev1.png" alt="" class="img-fluid" />
                                     <p class="header___admin">
                                         Driving Traffic
                                     </p>
@@ -2182,7 +2161,7 @@
                     <div class="col-12 max____width__ col-md-12 col-lg-12 col-xl-12 col-xxl-12 mx-auto">
                         <div class="row gy-5">
                             <div class="col-md-4 col-12  PartnerShip____img col-lg-4 col-xl-4 col-xxl-4 mx-auto">
-                                <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/top-search-engines-oct-2020-copy.png" alt="" class="img-fluid" />
+                                <img src="http://localhost/multipageadmin/partnerwebsiteresources/images/top-search-engines-oct-2020-copy.png" alt="" class="img-fluid" />
                             </div>
                             <div class="col-md-8 PartnerShip____details col-12 col-lg-8 col-xl-8 col-xxl-8 mx-auto">
                                 <h4>Digital Marketing Solutions</h4>
@@ -2195,7 +2174,7 @@
 
 
                             <div class="col-md-4 col-12  PartnerShip____img col-lg-4 col-xl-4 col-xxl-4 mx-auto">
-                                <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/29.png" alt="" class="img-fluid" />
+                                <img src="http://localhost/multipageadmin/partnerwebsiteresources/images/29.png" alt="" class="img-fluid" />
                             </div>
                             <div class="col-md-8 PartnerShip____details col-12 col-lg-8 col-xl-8 col-xxl-8 mx-auto">
                                 <h4>Web & Mobile App Solutions</h4>
@@ -2208,7 +2187,7 @@
 
 
                             <div class="col-md-4 col-12  PartnerShip____img col-lg-4 col-xl-4 col-xxl-4 mx-auto">
-                                <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/28.png" alt="" class="img-fluid" />
+                                <img src="http://localhost/multipageadmin/partnerwebsiteresources/images/28.png" alt="" class="img-fluid" />
                             </div>
                             <div class="col-md-8 PartnerShip____details col-12 col-lg-8 col-xl-8 col-xxl-8 mx-auto">
                                 <h4>Custom Digital Marketing Dashboard Integrations</h4>
@@ -2258,7 +2237,7 @@
 
                             </div>
                             <div class="col-12 col-md-6 col-xl-6 col-lg-6 mx-auto">
-                                <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/erewr.png" alt="" class="img-fluid" />
+                                <img src="http://localhost/multipageadmin/partnerwebsiteresources/images/erewr.png" alt="" class="img-fluid" />
                             </div>
                         </div>
                     </div>
@@ -2277,7 +2256,7 @@
     <section class="comment___box___Wraper" id="contactUsForm">
         <div class="Warper___header px-4">
             <div class="container-fluid">
-                <form action="<?=$actual_link?>/multipageadmin/auth/inquiry_handler.php" method="post" id="form3">
+                <form action="http://localhost/multipageadmin/auth/inquiry_handler.php" method="post" id="form3">
                     <input type="hidden" name="contact_form" value="form-3" />
                     <div class="row">
                         <div class="col-12 max____width__ col-md-12 col-lg-12 col-xl-12 col-xxl-12 mx-auto">
@@ -2347,7 +2326,7 @@
                                                     <div class="carousel-inner">
                                                         <div class="carousel-item active">
                                                             <div class="Organizen____box">
-                                                                <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/icon1.png" alt="" class="img-fluid" />
+                                                                <img src="http://localhost/multipageadmin/partnerwebsiteresources/images/icon1.png" alt="" class="img-fluid" />
                                                                 <p>
                                                                     Organizein has been excellent to work with! Very
                                                                     knowledgeable about the ever changing algorithms
@@ -2363,7 +2342,7 @@
 
                                                         <div class="carousel-item">
                                                             <div class="Organizen____box">
-                                                                <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/icon1.png" alt="" class="img-fluid" />
+                                                                <img src="http://localhost/multipageadmin/partnerwebsiteresources/images/icon1.png" alt="" class="img-fluid" />
                                                                 <p>
                                                                     Organizein did everything they said they would do
                                                                     and
@@ -2378,7 +2357,7 @@
 
                                                         <div class="carousel-item">
                                                             <div class="Organizen____box">
-                                                                <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/icon1.png" alt="" class="img-fluid" />
+                                                                <img src="http://localhost/multipageadmin/partnerwebsiteresources/images/icon1.png" alt="" class="img-fluid" />
                                                                 <p>
                                                                     Organizein has been a pleasure to work with on our
                                                                     SEO
@@ -2395,7 +2374,7 @@
 
                                                         <div class="carousel-item">
                                                             <div class="Organizen____box">
-                                                                <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/icon1.png" alt="" class="img-fluid" />
+                                                                <img src="http://localhost/multipageadmin/partnerwebsiteresources/images/icon1.png" alt="" class="img-fluid" />
                                                                 <p>
                                                                     Organizein did everything they said they would do
                                                                     and
@@ -2415,7 +2394,7 @@
                                         <a class="Clinet____testimonials" href="#">VIEW 500+ CLIENT TESTIMONIALS</a>
 
                                         <div class="Claient____CompanyLogo my-5">
-                                            <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/award-footer.png" alt="" class="img-fluid" />
+                                            <img src="http://localhost/multipageadmin/partnerwebsiteresources/images/award-footer.png" alt="" class="img-fluid" />
                                         </div>
                                     </div>
                                 </div>
@@ -2439,7 +2418,7 @@
                     <div class="col-md-12 max____width__ col-12 col-xl-12 col-lg-12 col-xxl-12 mx-auto">
                         <div class="row justify-content-between align-items-center text-center">
                             <div class="col-12 left___speck___ d-flex justify-content-center align-items-center text-start col-md-7 col-lg-7 col-xl-7 col-xxl-7 mx-auto">
-                                <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/1675426.png" alt="" class="img-fluid" width="100px" />
+                                <img src="http://localhost/multipageadmin/partnerwebsiteresources/images/1675426.png" alt="" class="img-fluid" width="100px" />
                                 <div class="company_details">
                                     <h5>Ready to speak with a marketing expert? Give us a ring</h5>
                                     <!-- <h2>+1 646 679-7250</h2> -->
@@ -2499,13 +2478,13 @@
                         <div class="row">
                             <div class="col-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4 mx-auto">
                                 <div class="Left__site__footer">
-                                    <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/organizein-logo-main-1.png" alt="" class="img-fluid" />
+                                    <img src="http://localhost/multipageadmin/partnerwebsiteresources/images/organizein-logo-main-1.png" alt="" class="img-fluid" />
                                     <ul>
-                                        <li><a href="https://www.facebook.com/organizeindm/ "> <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/facebook-day.svg" alt="" class="img-fluid" /></a></li>
-                                        <li><a href="https://twitter.com/Organizein/"> <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/twitter-day.svg" alt="" class="img-fluid" /></a></li>
-                                        <li><a href="https://www.linkedin.com/company/3273657/"> <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/linkedin-day.svg" alt="" class="img-fluid" /></a></li>
-                                        <li><a href=""> <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/instagram-day.svg" alt="https://www.youtube.com/channel/UCAuvWg57vxGiRcyRV9p3Avw/videos" class="img-fluid" /></a></li>
-                                        <li><a href="https://www.instagram.com/organizein_/"> <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/youtube-day.svg" alt="" class="img-fluid" /></a></li>
+                                        <li><a href="https://www.facebook.com/organizeindm/ "> <img src="http://localhost/multipageadmin/partnerwebsiteresources/images/facebook-day.svg" alt="" class="img-fluid" /></a></li>
+                                        <li><a href="https://twitter.com/Organizein/"> <img src="http://localhost/multipageadmin/partnerwebsiteresources/images/twitter-day.svg" alt="" class="img-fluid" /></a></li>
+                                        <li><a href="https://www.linkedin.com/company/3273657/"> <img src="http://localhost/multipageadmin/partnerwebsiteresources/images/linkedin-day.svg" alt="" class="img-fluid" /></a></li>
+                                        <li><a href=""> <img src="http://localhost/multipageadmin/partnerwebsiteresources/images/instagram-day.svg" alt="https://www.youtube.com/channel/UCAuvWg57vxGiRcyRV9p3Avw/videos" class="img-fluid" /></a></li>
+                                        <li><a href="https://www.instagram.com/organizein_/"> <img src="http://localhost/multipageadmin/partnerwebsiteresources/images/youtube-day.svg" alt="" class="img-fluid" /></a></li>
                                     </ul>
                                     <!-- <h4>Call us at +1 646 679-7250</h4> -->
                                     <h4>Email us at hi@organizein.com</h4>
@@ -2586,58 +2565,58 @@
                             <div class="mega_menu_coloum">
                                 <div class="column_heading">DRIVE MORE LEADS</div>
                                 <div class="column_items">
-                                    <a class="item_data" href="https://www.organizein.com/seo-services/"><?php echo $city ?> SEO
+                                    <a class="item_data" href="https://www.organizein.com/seo-services/"> SEO
                                         Services</a>
-                                    <a class="item_data" href="https://www.organizein.com/e-commerce-seo/"><?php echo $city ?> eCommerce
+                                    <a class="item_data" href="https://www.organizein.com/e-commerce-seo/"> eCommerce
                                         SEO</a>
-                                    <a class="item_data" href="https://www.organizein.com/local-seo/"><?php echo $city ?> Local
+                                    <a class="item_data" href="https://www.organizein.com/local-seo/"> Local
                                         SEO</a>
-                                    <a class="item_data" href="https://www.organizein.com/link-building-services-seo/"><?php echo $city ?> Link
+                                    <a class="item_data" href="https://www.organizein.com/link-building-services-seo/"> Link
                                         Building Services</a>
-                                    <a class="item_data" href="https://www.organizein.com/link-penalty-removal/"><?php echo $city ?> Link
+                                    <a class="item_data" href="https://www.organizein.com/link-penalty-removal/"> Link
                                         Penalty Removal</a>
-                                    <a class="item_data" href="https://www.organizein.com/seo-audits/"><?php echo $city ?> SEO
+                                    <a class="item_data" href="https://www.organizein.com/seo-audits/"> SEO
                                         Audits</a>
-                                    <a class="item_data" href="https://www.organizein.com/negative-seo-monitoring/"><?php echo $city ?> Negative
+                                    <a class="item_data" href="https://www.organizein.com/negative-seo-monitoring/"> Negative
                                         SEO Monitoring</a>
-                                    <a class="item_data" href="https://www.organizein.com/seo-competitor-intelligence/"><?php echo $city ?> SEO
+                                    <a class="item_data" href="https://www.organizein.com/seo-competitor-intelligence/"> SEO
                                         Competitor Intelligence</a>
-                                    <a class="item_data" href="https://www.organizein.com/video-seo/"><?php echo $city ?> Video
+                                    <a class="item_data" href="https://www.organizein.com/video-seo/"> Video
                                         SEO</a>
-                                    <a class="item_data" href="https://www.organizein.com/pnb-guest-blog-outreach/"><?php echo $city ?> PNB
+                                    <a class="item_data" href="https://www.organizein.com/pnb-guest-blog-outreach/"> PNB
                                         -Guest Blog</a>
-                                    <a class="item_data" href="https://www.organizein.com/gov-edu-link-building/"><?php echo $city ?> Gov
+                                    <a class="item_data" href="https://www.organizein.com/gov-edu-link-building/"> Gov
                                         &amp; Edu link Building</a>
-                                    <a class="item_data" href="https://www.organizein.com/website-seo-copywriting/"><?php echo $city ?> Website
+                                    <a class="item_data" href="https://www.organizein.com/website-seo-copywriting/"> Website
                                         SEO Copywriting</a>
-                                    <a class="item_data" href="https://www.organizein.com/voice-search-content-optimization/"><?php echo $city ?> Voice
+                                    <a class="item_data" href="https://www.organizein.com/voice-search-content-optimization/"> Voice
                                         Search Content Optimization</a>
-                                    <a class="item_data" href="https://www.organizein.com/seo-friendly-site-architecture/"><?php echo $city ?> SEO
+                                    <a class="item_data" href="https://www.organizein.com/seo-friendly-site-architecture/"> SEO
                                         Friendly Site Architecture</a>
-                                    <a class="item_data" href="https://www.organizein.com/seo-strategy-advice/"><?php echo $city ?> SEO
+                                    <a class="item_data" href="https://www.organizein.com/seo-strategy-advice/"> SEO
                                         Strategy Advice</a>
-                                    <a class="item_data" href="https://www.organizein.com/top-keywords-advice/"><?php echo $city ?> Top
+                                    <a class="item_data" href="https://www.organizein.com/top-keywords-advice/"> Top
                                         Keywords Advice</a>
-                                    <a class="item_data" href="https://www.organizein.com/digital-pr/"><?php echo $city ?> Digital
+                                    <a class="item_data" href="https://www.organizein.com/digital-pr/"> Digital
                                         PR</a>
                                 </div>
                             </div>
                             <div class="mega_menu_coloum">
                                 <div class="column_heading">Increase Your Reach</div>
                                 <div class="column_items">
-                                    <a class="item_data" href="https://www.organizein.com/amazon-seo-product-optimization/"><?php echo $city ?> Amazon
-                                        SEO &amp; Product Optimization</a><a class="item_data" href="https://www.organizein.com/mobile-apps-seo/"><?php echo $city ?> Mobile
-                                        Apps SEO</a><a class="item_data" href="https://www.organizein.com/optimize-social-media/"><?php echo $city ?> Optimize
-                                        Social Media</a><a class="item_data" href="https://www.organizein.com/hubsot-seo/"><?php echo $city ?> HubSpot
-                                        SEO</a><a class="item_data" href="https://www.organizein.com/wix-seo/"><?php echo $city ?> Wix
-                                        SEO</a><a class="item_data" href="https://www.organizein.com/shopify-seo/"><?php echo $city ?> Shopify
-                                        SEO</a><a class="item_data" href="https://www.organizein.com/wordpress-seo/"><?php echo $city ?> Wordpress
-                                        SEO</a><a class="item_data" href="https://www.organizein.com/volusion-seo/"><?php echo $city ?> Volusion
-                                        SEO</a><a class="item_data" href="https://www.organizein.com/magento-seo/"><?php echo $city ?> Magento
-                                        SEO</a><a class="item_data" href="https://www.organizein.com/squarespace-seo/"><?php echo $city ?> Squarespace
-                                        SEO</a><a class="item_data" href="https://www.organizein.com/woocommerce-seo/"><?php echo $city ?> WooCommerce
-                                        SEO</a><a class="item_data" href="https://www.organizein.com/bigcommerce-seo/"><?php echo $city ?> BigCommerce
-                                        SEO</a><a class="item_data" href="https://www.organizein.com/weebly-seo/"><?php echo $city ?> Weebly
+                                    <a class="item_data" href="https://www.organizein.com/amazon-seo-product-optimization/"> Amazon
+                                        SEO &amp; Product Optimization</a><a class="item_data" href="https://www.organizein.com/mobile-apps-seo/"> Mobile
+                                        Apps SEO</a><a class="item_data" href="https://www.organizein.com/optimize-social-media/"> Optimize
+                                        Social Media</a><a class="item_data" href="https://www.organizein.com/hubsot-seo/"> HubSpot
+                                        SEO</a><a class="item_data" href="https://www.organizein.com/wix-seo/"> Wix
+                                        SEO</a><a class="item_data" href="https://www.organizein.com/shopify-seo/"> Shopify
+                                        SEO</a><a class="item_data" href="https://www.organizein.com/wordpress-seo/"> Wordpress
+                                        SEO</a><a class="item_data" href="https://www.organizein.com/volusion-seo/"> Volusion
+                                        SEO</a><a class="item_data" href="https://www.organizein.com/magento-seo/"> Magento
+                                        SEO</a><a class="item_data" href="https://www.organizein.com/squarespace-seo/"> Squarespace
+                                        SEO</a><a class="item_data" href="https://www.organizein.com/woocommerce-seo/"> WooCommerce
+                                        SEO</a><a class="item_data" href="https://www.organizein.com/bigcommerce-seo/"> BigCommerce
+                                        SEO</a><a class="item_data" href="https://www.organizein.com/weebly-seo/"> Weebly
                                         SEO</a>
                                 </div>
                             </div>
@@ -2649,46 +2628,46 @@
                             <div class="mega_menu_coloum">
                                 <div class="column_heading">Search Engine</div>
                                 <div class="column_items">
-                                    <a class="item_data" href="https://www.organizein.com/google-search-ads/"><?php echo $city ?> Google
+                                    <a class="item_data" href="https://www.organizein.com/google-search-ads/"> Google
                                         Search Ads</a>
-                                    <a class="item_data" href="https://www.organizein.com/google-display-ads/"><?php echo $city ?> Google
+                                    <a class="item_data" href="https://www.organizein.com/google-display-ads/"> Google
                                         Display Ads</a>
-                                    <a class="item_data" href="https://www.organizein.com/google-remarketing-ads/"><?php echo $city ?> Google
+                                    <a class="item_data" href="https://www.organizein.com/google-remarketing-ads/"> Google
                                         Remarketing Ads</a>
-                                    <a class="item_data" href="https://www.organizein.com/google-mobile-ads/"><?php echo $city ?> Google
+                                    <a class="item_data" href="https://www.organizein.com/google-mobile-ads/"> Google
                                         Mobile Ads</a>
-                                    <a class="item_data" href="https://www.organizein.com/google-shopping-ads/"><?php echo $city ?> Google
+                                    <a class="item_data" href="https://www.organizein.com/google-shopping-ads/"> Google
                                         Shopping Ads</a>
-                                    <a class="item_data" href="https://www.organizein.com/google-video-ads/"><?php echo $city ?> Google
+                                    <a class="item_data" href="https://www.organizein.com/google-video-ads/"> Google
                                         Video Ads</a>
-                                    <a class="item_data" href="https://www.organizein.com/microsoft-ads/"><?php echo $city ?> Microsoft
+                                    <a class="item_data" href="https://www.organizein.com/microsoft-ads/"> Microsoft
                                         Ads</a>
-                                    <a class="item_data" href="https://www.organizein.com/yahoo-ads/"><?php echo $city ?> Yahoo
+                                    <a class="item_data" href="https://www.organizein.com/yahoo-ads/"> Yahoo
                                         Ads</a>
-                                    <a class="item_data" href="https://www.organizein.com/amazon-ads/"><?php echo $city ?> Amazon
+                                    <a class="item_data" href="https://www.organizein.com/amazon-ads/"> Amazon
                                         Ads</a>
-                                    <a class="item_data" href="https://www.organizein.com/spotify-ads/"><?php echo $city ?> Spotify
+                                    <a class="item_data" href="https://www.organizein.com/spotify-ads/"> Spotify
                                         Ads</a>
                                 </div>
                             </div>
                             <div class="mega_menu_coloum">
                                 <div class="column_heading">Social Network</div>
                                 <div class="column_items">
-                                    <a class="item_data" href="https://www.organizein.com/facebook-ads/"><?php echo $city ?> Facebook
+                                    <a class="item_data" href="https://www.organizein.com/facebook-ads/"> Facebook
                                         Ads</a>
-                                    <a class="item_data" href="https://www.organizein.com/instagram-ads/"><?php echo $city ?> Instagram
+                                    <a class="item_data" href="https://www.organizein.com/instagram-ads/"> Instagram
                                         Ads</a>
-                                    <a class="item_data" href="https://www.organizein.com/twitter-ads/"><?php echo $city ?> Twitter
+                                    <a class="item_data" href="https://www.organizein.com/twitter-ads/"> Twitter
                                         Ads</a>
-                                    <a class="item_data" href="https://www.organizein.com/linkedin-ads/"><?php echo $city ?> LinkedIn
+                                    <a class="item_data" href="https://www.organizein.com/linkedin-ads/"> LinkedIn
                                         Ads</a>
-                                    <a class="item_data" href="https://www.organizein.com/youtube-ads/"><?php echo $city ?> Youtube
+                                    <a class="item_data" href="https://www.organizein.com/youtube-ads/"> Youtube
                                         Ads</a>
-                                    <a class="item_data" href="https://www.organizein.com/snapchat-ads/"><?php echo $city ?> Snapchat
+                                    <a class="item_data" href="https://www.organizein.com/snapchat-ads/"> Snapchat
                                         Ads</a>
-                                    <a class="item_data" href="https://www.organizein.com/taboola/"><?php echo $city ?> Taboola</a>
+                                    <a class="item_data" href="https://www.organizein.com/taboola/"> Taboola</a>
 
-                                    <a class="item_data" href="https://www.organizein.com/pinterest-ads/"><?php echo $city ?> Pinterest
+                                    <a class="item_data" href="https://www.organizein.com/pinterest-ads/"> Pinterest
                                         Ads</a>
                                 </div>
 
@@ -2696,20 +2675,20 @@
                             <div class="mega_menu_coloum">
                                 <div class="column_heading">Mobile Network</div>
                                 <div class="column_items">
-                                    <a class="item_data" href="https://www.organizein.com/admob/"><?php echo $city ?> AdMob</a>
-                                    <a class="item_data" href="https://www.organizein.com/adcolony/"><?php echo $city ?> AdColony</a>
+                                    <a class="item_data" href="https://www.organizein.com/admob/"> AdMob</a>
+                                    <a class="item_data" href="https://www.organizein.com/adcolony/"> AdColony</a>
 
-                                    <a class="item_data" href="https://www.organizein.com/tubemogul/"><?php echo $city ?> TubeMogul</a>
+                                    <a class="item_data" href="https://www.organizein.com/tubemogul/"> TubeMogul</a>
 
-                                    <a class="item_data" href="https://www.organizein.com/airpush/"><?php echo $city ?> Airpush</a>
+                                    <a class="item_data" href="https://www.organizein.com/airpush/"> Airpush</a>
 
-                                    <a class="item_data" href="https://www.organizein.com/one-by-aol/"><?php echo $city ?> ONE by
+                                    <a class="item_data" href="https://www.organizein.com/one-by-aol/"> ONE by
                                         AOL</a>
-                                    <a class="item_data" href="https://www.organizein.com/inmobi/"><?php echo $city ?> Inmobi</a>
+                                    <a class="item_data" href="https://www.organizein.com/inmobi/"> Inmobi</a>
 
-                                    <a class="item_data" href="https://www.organizein.com/leadbolt/"><?php echo $city ?> LeadBolt</a>
+                                    <a class="item_data" href="https://www.organizein.com/leadbolt/"> LeadBolt</a>
 
-                                    <a class="item_data" href="https://www.organizein.com/ad-recover/"><?php echo $city ?> Ad
+                                    <a class="item_data" href="https://www.organizein.com/ad-recover/"> Ad
                                         Recover</a>
                                 </div>
                             </div>
@@ -2721,23 +2700,23 @@
                             <div class="mega_menu_coloum">
                                 <div class="column_heading">ATTRACT PROSPECTS</div>
                                 <div class="column_items">
-                                    <a class="item_data" href="https://www.organizein.com/seo/"><?php echo $city ?> Search Engine
+                                    <a class="item_data" href="https://www.organizein.com/seo/"> Search Engine
                                         Optimization</a>
-                                    <a class="item_data" href="https://www.organizein.com/search-engine-marketing-seo/"><?php echo $city ?> Search
+                                    <a class="item_data" href="https://www.organizein.com/search-engine-marketing-seo/"> Search
                                         Engine Marketing</a>
-                                    <a class="item_data" href="https://www.organizein.com/mobile-advertising/"><?php echo $city ?> Mobile
+                                    <a class="item_data" href="https://www.organizein.com/mobile-advertising/"> Mobile
                                         Advertising</a>
-                                    <a class="item_data" href="https://www.organizein.com/influencer-marketing/"><?php echo $city ?> Influencer
+                                    <a class="item_data" href="https://www.organizein.com/influencer-marketing/"> Influencer
                                         Marketing</a>
-                                    <a class="item_data" href="https://www.organizein.com/branding-design/"><?php echo $city ?> Branding
+                                    <a class="item_data" href="https://www.organizein.com/branding-design/"> Branding
                                         &amp; Design</a>
-                                    <a class="item_data" href="https://www.organizein.com/managed-digital-service-360/"><?php echo $city ?> Managed
+                                    <a class="item_data" href="https://www.organizein.com/managed-digital-service-360/"> Managed
                                         Digital Service 360</a>
-                                    <a class="item_data" href="https://www.organizein.com/social-media-marketing-seo/"><?php echo $city ?> Social
+                                    <a class="item_data" href="https://www.organizein.com/social-media-marketing-seo/"> Social
                                         Media Marketing</a>
-                                    <a class="item_data" href="https://www.organizein.com/re-marketing-ads/"><?php echo $city ?> Re-Marketing
+                                    <a class="item_data" href="https://www.organizein.com/re-marketing-ads/"> Re-Marketing
                                         Ads</a>
-                                    <a class="item_data" href="https://www.organizein.com/content-development-seo/"><?php echo $city ?> Content
+                                    <a class="item_data" href="https://www.organizein.com/content-development-seo/"> Content
                                         Development</a>
                                 </div>
                             </div>
@@ -2758,31 +2737,31 @@
                             <div class="mega_menu_coloum">
                                 <div class="column_heading">TURN OPPORTUNITIES INTO CLIENTS</div>
                                 <div class="column_items">
-                                    <a class="item_data" href="https://www.organizein.com/sms-marketing/"><?php echo $city ?> SMS
+                                    <a class="item_data" href="https://www.organizein.com/sms-marketing/"> SMS
                                         Marketing</a>
-                                    <a class="item_data" href="https://www.organizein.com/email-marketing-seo/"><?php echo $city ?> Email
+                                    <a class="item_data" href="https://www.organizein.com/email-marketing-seo/"> Email
                                         Marketing</a>
-                                    <a class="item_data" href="https://www.organizein.com/crm-integrations-analytics/"><?php echo $city ?> CRM
+                                    <a class="item_data" href="https://www.organizein.com/crm-integrations-analytics/"> CRM
                                         Integrations &amp; Analytics</a>
                                 </div>
                             </div>
                             <div class="mega_menu_coloum">
                                 <div class="column_heading">Accelerate Your Revenue</div>
                                 <div class="column_items">
-                                    <a class="item_data" href="https://www.organizein.com/enterprise-seo/"><?php echo $city ?> Enterprise
-                                        SEO</a><a class="item_data" href="https://www.organizein.com/franchse-seo/"><?php echo $city ?> Franchise
-                                        SEO</a><a class="item_data" href="https://www.organizein.com/hire-dedicated-seo-team/"><?php echo $city ?> Hire
-                                        Dedicated SEO Team</a><a class="item_data" href="https://www.organizein.com/white-label-seo/"><?php echo $city ?> White-label
-                                        SEO</a><a class="item_data" href="https://www.organizein.com/seo-project-management/"><?php echo $city ?> SEO
-                                        Project Management</a><a class="item_data" href="https://www.organizein.com/managed-seo-service/"><?php echo $city ?> Managed
-                                        SEO Service</a><a class="item_data" href="https://www.organizein.com/web-consule-management/"><?php echo $city ?> Web
-                                        console Management</a><a class="item_data" href="https://www.organizein.com/custom-seo-dashboard-reporting/"><?php echo $city ?> Custom
-                                        SEO Dashboard &amp; Reporting</a><a class="item_data" href="https://www.organizein.com/smb-solution/"><?php echo $city ?> SMB
-                                        Solution</a><a class="item_data" href="https://www.organizein.com/multigual-seo/"><?php echo $city ?> Multilingual
-                                        SEO</a><a class="item_data" href="https://www.organizein.com/seo-web-speed-optimization/"><?php echo $city ?> SEO
-                                        Web Speed Optimization</a><a class="item_data" href="https://www.organizein.com/seo-safe-cdn-integration/"><?php echo $city ?> SEO
-                                        Safe CDN Integration</a><a class="item_data" href="https://www.organizein.com/improve-score-in-gtmetrix/"><?php echo $city ?> Improve
-                                        Score in GTMetrix</a><a class="item_data" href="https://www.organizein.com/improve-core-web-vitals/"><?php echo $city ?> Improve
+                                    <a class="item_data" href="https://www.organizein.com/enterprise-seo/"> Enterprise
+                                        SEO</a><a class="item_data" href="https://www.organizein.com/franchse-seo/"> Franchise
+                                        SEO</a><a class="item_data" href="https://www.organizein.com/hire-dedicated-seo-team/"> Hire
+                                        Dedicated SEO Team</a><a class="item_data" href="https://www.organizein.com/white-label-seo/"> White-label
+                                        SEO</a><a class="item_data" href="https://www.organizein.com/seo-project-management/"> SEO
+                                        Project Management</a><a class="item_data" href="https://www.organizein.com/managed-seo-service/"> Managed
+                                        SEO Service</a><a class="item_data" href="https://www.organizein.com/web-consule-management/"> Web
+                                        console Management</a><a class="item_data" href="https://www.organizein.com/custom-seo-dashboard-reporting/"> Custom
+                                        SEO Dashboard &amp; Reporting</a><a class="item_data" href="https://www.organizein.com/smb-solution/"> SMB
+                                        Solution</a><a class="item_data" href="https://www.organizein.com/multigual-seo/"> Multilingual
+                                        SEO</a><a class="item_data" href="https://www.organizein.com/seo-web-speed-optimization/"> SEO
+                                        Web Speed Optimization</a><a class="item_data" href="https://www.organizein.com/seo-safe-cdn-integration/"> SEO
+                                        Safe CDN Integration</a><a class="item_data" href="https://www.organizein.com/improve-score-in-gtmetrix/"> Improve
+                                        Score in GTMetrix</a><a class="item_data" href="https://www.organizein.com/improve-core-web-vitals/"> Improve
                                         Core Web Vitals</a>
                                 </div>
                             </div>
@@ -2794,16 +2773,16 @@
                             <div class="mega_menu_coloum">
                                 <div class="column_heading">WEB DEVELOPMENT</div>
                                 <div class="column_items">
-                                    <a class="item_data" href="https://www.organizein.com/ecommerce-store/"><?php echo $city ?> eCommerce
+                                    <a class="item_data" href="https://www.organizein.com/ecommerce-store/"> eCommerce
                                         Store</a>
-                                    <a class="item_data" href="https://www.organizein.com/php-web-development/"><?php echo $city ?> PHP
+                                    <a class="item_data" href="https://www.organizein.com/php-web-development/"> PHP
                                         Web Development</a>
 
-                                    <a class="item_data" href="https://www.organizein.com/wordpress-development/"><?php echo $city ?> WordPress
+                                    <a class="item_data" href="https://www.organizein.com/wordpress-development/"> WordPress
                                         Development</a>
-                                    <a class="item_data" href="https://www.organizein.com/chatbot-apps/"><?php echo $city ?> Chatbot
+                                    <a class="item_data" href="https://www.organizein.com/chatbot-apps/"> Chatbot
                                         Apps</a></li736>
-                                    <a class="item_data" href="https://www.organizein.com/website-localization/"><?php echo $city ?> Website
+                                    <a class="item_data" href="https://www.organizein.com/website-localization/"> Website
                                         Localization</a>
 
                                 </div>
@@ -2811,12 +2790,12 @@
                             <div class="mega_menu_coloum">
                                 <div class="column_heading">MOBILE APPLICATION</div>
                                 <div class="column_items">
-                                    <a class="item_data" href="https://www.organizein.com/android-app-development/"><?php echo $city ?> Android
+                                    <a class="item_data" href="https://www.organizein.com/android-app-development/"> Android
                                         App
                                         development</a>
-                                    <a class="item_data" href="https://www.organizein.com/ios-app-development/"><?php echo $city ?> iOS
+                                    <a class="item_data" href="https://www.organizein.com/ios-app-development/"> iOS
                                         App Development</a>
-                                    <a class="item_data" href="https://www.organizein.com/hybrid-apps/"><?php echo $city ?> Hybrid
+                                    <a class="item_data" href="https://www.organizein.com/hybrid-apps/"> Hybrid
                                         Apps</a>
                                     <a class="item_data" href="#">MVP Prototypes</a>
                                 </div>
@@ -2824,18 +2803,18 @@
                             <div class="mega_menu_coloum">
                                 <div class="column_heading">DOMAIN &amp; SERVER MANAGEMENT</div>
                                 <div class="column_items">
-                                    <a class="item_data" href="https://www.organizein.com/dedicated-server-management/"><?php echo $city ?> Dedicated
+                                    <a class="item_data" href="https://www.organizein.com/dedicated-server-management/"> Dedicated
                                         Server
                                         Management</a>
-                                    <a class="item_data" href="https://www.organizein.com/vps-shared-server-management/"><?php echo $city ?> VPS
+                                    <a class="item_data" href="https://www.organizein.com/vps-shared-server-management/"> VPS
                                         &amp; Shared
                                         Server Management</a>
-                                    <a class="item_data" href="https://www.organizein.com/ssl-certification-management/"><?php echo $city ?> SSL
+                                    <a class="item_data" href="https://www.organizein.com/ssl-certification-management/"> SSL
                                         Certification
                                         Management</a>
-                                    <a class="item_data" href="https://www.organizein.com/qa-testing/"><?php echo $city ?> QA &amp;
+                                    <a class="item_data" href="https://www.organizein.com/qa-testing/"> QA &amp;
                                         Testing</a>
-                                    <a class="item_data" href="https://www.organizein.com/migration-services/"><?php echo $city ?> Migration
+                                    <a class="item_data" href="https://www.organizein.com/migration-services/"> Migration
                                         Services</a>
                                 </div>
                             </div>
@@ -2852,7 +2831,7 @@
                     <div class="col-12 max____width__ col-md-12 col-xl-12 col-lg-12 col-xxl-12 mx-auto">
                         <div class="row">
                             <div class="col-12 col-md-4 left____site___footer___btn col-lg-4 col-xl-4 mx-auto">
-                                <button data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/global_blue.png" alt="" class="img-fluid" /> WORLDWIDE <i class="fas fa-chevron-right"></i></button>
+                                <button data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="http://localhost/multipageadmin/partnerwebsiteresources/images/global_blue.png" alt="" class="img-fluid" /> WORLDWIDE <i class="fas fa-chevron-right"></i></button>
                             </div>
 
                             <div class="col-12 col-md-8 right____site___footer___btn col-lg-8 col-xl-8 mx-auto">

@@ -58,7 +58,7 @@ if (!isset($_SESSION["isLoggedin"])) {
             <?php include 'partials/sidebar.php' ?>
                 <div class="col-12 col-md-9 col-lg-9">
                     <div class="right-site">
-                        <h4>Contact Forms</h4>
+                        <h4>Add scripts/codes</h4>
                     </div>
                     <div class="code-box-wraper mb-4">
                         <div class="header-code-box">Add Code in Header</div>

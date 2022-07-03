@@ -2,6 +2,7 @@
 session_start();
 if (!isset($_SESSION["isLoggedin"])) {
   header('Location: ./index.php');
+
 }
 ?>
 <?php include 'partials/header.php' ?>
@@ -55,6 +56,7 @@ if (!isset($_SESSION["isLoggedin"])) {
 
               <?php
               include './partials/dbconnect.php';
+              $actual_link = "http://$_SERVER[HTTP_HOST]";
               $sql = "SELECT * FROM `partner_details`";
               $result = mysqli_query($conn, $sql);
               while ($row = mysqli_fetch_assoc($result)) {
@@ -85,148 +87,15 @@ if (!isset($_SESSION["isLoggedin"])) {
                 $country = str_replace(" ", "-", $country);
                 $state = str_replace(" ", "-", $state);
                 $city = str_replace(" ", "-", $city);
-                for($i=0; $i<count($services_array); $i++){
-                  echo 'http://localhost/multipageadmin/'.$country.'/' . $state . '/' . $city . '/'.$services_array[$i].".php<br>";
+                for ($i = 0; $i < count($services_array); $i++) {
+                  echo $actual_link. '/'. 'multipageadmin/' . $country . '/' . $state . '/' . $city . '/' . $services_array[$i] . ".php<br>";
                 }
-                
+
                 echo '</td>  
                 <td>Download / Edit / Delete</td>
               </tr>';
               }
               ?>
-              <!-- 2 -->
-              <!-- <tr>
-                <td>1</td>
-                <td>India</td>
-                <td>KA</td>
-                <td>Bangalore </td>
-                <td>Main</td>
-                <td>Organizein.com/In/Bangalore</td>
-                <td>Download / Edit / Delete</td>
-              </tr>
-              <!-- 3 -->
-              <!-- <tr>
-                <td>1</td>
-                <td>India</td>
-                <td>KA</td>
-                <td>Bangalore </td>
-                <td>Main</td>
-                <td>Organizein.com/In/Bangalore</td>
-                <td>Download / Edit / Delete</td>
-              </tr> -->
-              <!-- 4 -->
-              <!-- <tr>
-                <td>1</td>
-                <td>India</td>
-                <td>KA</td>
-                <td>Bangalore </td>
-                <td>Main</td>
-                <td>Organizein.com/In/Bangalore</td>
-                <td>Download / Edit / Delete</td>
-              </tr> -->
-              <!-- 5 -->
-              <!-- <tr>
-                <td>1</td>
-                <td>India</td>
-                <td>KA</td>
-                <td>Bangalore </td>
-                <td>Main</td>
-                <td>Organizein.com/In/Bangalore</td>
-                <td>Download / Edit / Delete</td>
-              </tr> -->
-              <!-- 6 -->
-              <!-- <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td> </td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td> </td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td> </td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td> </td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td> </td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td> </td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td> </td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td> </td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td> </td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr> -->
-              <!-- <td></td>
-                <td></td>
-                <td></td>
-                <td> </td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr> --> -->
-
-
             </tbody>
           </table>
         </div>
@@ -256,3 +125,10 @@ if (!isset($_SESSION["isLoggedin"])) {
     darkModex.classList.toggle('active');
   })
 </script>
+
+
+
+<?php
+  
+
+?>
