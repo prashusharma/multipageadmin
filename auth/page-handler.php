@@ -6,7 +6,8 @@ $actual_link = "http://$_SERVER[HTTP_HOST]";
 
 if (isset($_POST["create_single_page"])) {
 
-    $country = $_POST['country'];
+    $country = json_decode($_POST['country'])[0];
+    $country_name = json_decode($_POST['country'])[1]; 
     $state = $_POST['state'];
     $city = $_POST['city'];
     $selected_title = $_POST['title'];
@@ -30,7 +31,7 @@ if (isset($_POST["create_single_page"])) {
         header("LOCATION: ../add-single-page.php");
         exit();
     } else {
-        $sql = "INSERT INTO `partner_details`( `country_selected`, `state_name`, `city_name`, `title` ,`partner_first_name`, `partner_last_name`, `partner_phone`, `partner_email`, `partner_address`, `partner_discription`, `partner_linkedin`, `partner_photo`, `services`) VALUES ('$country','$state','$city','$selected_title','$fist_name','$last_name','$phone','$email','$address','$description','$linkedin','$photo', '" . json_encode($services) . "')";
+        $sql = "INSERT INTO `partner_details`(`country_selected`, `country_name`, `state_name`, `city_name`, `title`, `partner_first_name`, `partner_last_name`, `partner_phone`, `partner_email`, `partner_address`, `partner_discription`, `partner_linkedin`, `partner_photo`, `services`) VALUES ('$country','$country_name','$state','$city','$selected_title','$fist_name','$last_name','$phone','$email','$address','$description','$linkedin','$photo', '" . json_encode($services) . "')";
         $result1 = mysqli_query($conn, $sql);
     }
     $id = mysqli_insert_id($conn);
@@ -58,12 +59,12 @@ if (isset($_POST["create_single_page"])) {
         if (!file_exists('../' . $country . '/' . $state . '/' . $city)) {
             mkdir('../' . $country . '/' . $state . '/' . $city, 0777, true);
         }
-        $myfile = fopen('../' . $country . '/' . $state . '/' . $city . '/' . $service . '.html', "w") or die("Unable to open file!");
+        $myfile = fopen('../' . $country . '/' . $state . '/' . $city . '/' . $service . '.php', "w") or die("Unable to open file!");
         fwrite($myfile, $response);
         fclose($myfile);
 
 
-        $url = "$actual_link/multipageadmin/$country/$state/$city/$service.html";
+        $url = "$actual_link/multipageadmin/$country/$state/$city/$service.php";
 
         $sql3 = "INSERT INTO `website_pages`(`partner_id`, `website_url`, `status`) VALUES ('$id', '$url', '1')";
         mysqli_query($conn, $sql3);
@@ -98,7 +99,7 @@ if (isset($_POST["create_bullk_page"])) {
                     if ($numRows > 0) continue;
                     else {
 
-                        $sql2 = "INSERT INTO `partner_details`( `country_selected`, `state_name`, `city_name`, `title`, `partner_first_name`, `partner_last_name`, `partner_phone`, `partner_email`, `partner_address`, `partner_discription`, `partner_linkedin`, `partner_photo`, `services`) VALUES ('$csv_data[0]','$csv_data[1]','$csv_data[2]','$csv_data[3]','$csv_data[4]','$csv_data[5]','$csv_data[6]','$csv_data[7]','$csv_data[8]','$csv_data[9]','$csv_data[10]','$csv_data[11]', '" . json_encode($services) . "')";
+                        $sql2 = "INSERT INTO `partner_details`( `country_selected`,`country_name`, `state_name`, `city_name`, `title`, `partner_first_name`, `partner_last_name`, `partner_phone`, `partner_email`, `partner_address`, `partner_discription`, `partner_linkedin`, `partner_photo`, `services`) VALUES ('$csv_data[0]','$csv_data[1]','$csv_data[2]','$csv_data[3]','$csv_data[4]','$csv_data[5]','$csv_data[6]','$csv_data[7]','$csv_data[8]','$csv_data[9]','$csv_data[10]','$csv_data[11]','$csv_data[12]', '" . json_encode($services) . "')";
                         if (mysqli_query($conn, $sql2)) {
                             $id = mysqli_insert_id($conn);
                             foreach ($services as $service) {
@@ -112,11 +113,11 @@ if (isset($_POST["create_bullk_page"])) {
                                     mkdir('../' . $country . '/' . $state . '/' . $city, 0777, true);
                                 }
 
-                                $myfile = fopen('../' . $country . '/' . $state . '/' . $city . '/' . $service . '.html', "w") or die("Unable to open file!");
+                                $myfile = fopen('../' . $country . '/' . $state . '/' . $city . '/' . $service . '.php', "w") or die("Unable to open file!");
                                 fwrite($myfile, $response);
                                 fclose($myfile);
 
-                                $url = "$actual_link/multipageadmin/$country/$state/$city/$service.html";
+                                $url = "$actual_link/multipageadmin/$country/$state/$city/$service.php";
 
                                 $sql3 = "INSERT INTO `website_pages`(`partner_id`, `website_url`, `status`) VALUES ('$id', '$url', '1')";
                                 mysqli_query($conn, $sql3);

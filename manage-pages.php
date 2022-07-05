@@ -81,7 +81,7 @@ if (!isset($_SESSION["isLoggedin"])) {
                 $state = str_replace(" ", "-", $state);
                 $city = str_replace(" ", "-", $city);
                 for ($i = 0; $i < count($services_array); $i++) {
-                  echo $actual_link. '/'. 'multipageadmin/' . $country . '/' . $state . '/' . $city . '/' . $services_array[$i] . ".html<br>";
+                  echo $actual_link. '/'. 'multipageadmin/' . $country . '/' . $state . '/' . $city . '/' . $services_array[$i] . ".php<br>";
                 }
 
                 echo '</td>  

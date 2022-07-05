@@ -11,7 +11,7 @@
                                     <a class="icon" href="contact-form1.php">
                                         
                                         <i class="fa-solid fa-envelope">
-                                            <span>0</span>
+                                            <span style="background-color: #4ceb34; color: black;">0</span>
                                         </i>
                                     
                                         <span>

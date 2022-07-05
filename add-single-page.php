@@ -1,3 +1,5 @@
+
+
 <?php
 session_start();
 if (!isset($_SESSION["isLoggedin"])) {
@@ -6,10 +8,21 @@ if (!isset($_SESSION["isLoggedin"])) {
 ?>
 <?php include 'partials/header.php' ?>
 
- 
+
 <?php include './partials/loggedin-header.php' ?>
 <!------------------ header section end ------------------------>
-
+<style>
+    .country-section .selection{
+        display: block !important;
+    }
+    .country-section .select2-container--default .select2-selection--single {
+        border-radius: unset !important;
+        border: 2px solid #dadada  !important;
+    }
+    .country-section .select2-container .select2-selection--single {
+        height: 33px;
+    }
+</style>
 <section>
     <div class="container">
         <div class="row">
@@ -27,20 +40,31 @@ if (!isset($_SESSION["isLoggedin"])) {
                         <div>
                             <div class="single-filed">
                                 <h5>Select Country</h5>
-                                <div class="right">
-                                    <input type="text" name="country"/>
+                                <div class="right country-section">
+                                    <!-- <input type="text" name="country"/>
+                                    <select name="country"></select> -->
+                                    <select name="country" class="country-name form-control">
+                                        <?php
+                                        $country = file_get_contents("http://api.countrylayer.com/v2/all?access_key=fec59892c62605a7039906b730fdd2f9");
+                                        $country = json_decode($country);
+                                        // print_r($country);
+                                        foreach ($country as $country_name) {
+                                        ?>
+                                            <option value='<?='["'.$country_name->alpha2Code.'", "'.$country_name->name.'"]'?>'><?= $country_name->name ?></option>
+                                        <?php } ?>
+                                    </select>
                                 </div>
                             </div>
                             <div class="single-filed">
                                 <h5>State Name</h5>
                                 <div class="right">
-                                    <input type="text" name="state"/>
+                                    <input type="text" name="state" />
                                 </div>
                             </div>
                             <div class="single-filed">
                                 <h5>City Name</h5>
                                 <div class="right">
-                                    <input type="text" name="city"/>
+                                    <input type="text" name="city" />
                                 </div>
                             </div>
                             <div class="single-filed">
@@ -102,13 +126,13 @@ if (!isset($_SESSION["isLoggedin"])) {
                                     <div class="single-filed">
                                         <h5>Partner First Name</h5>
                                         <div class="right">
-                                            <input type="text" name="first_name"/>
+                                            <input type="text" name="first_name" />
                                         </div>
                                     </div>
                                     <div class="single-filed">
                                         <h5>Partner Last Name</h5>
                                         <div class="right">
-                                            <input type="text" name="last_name"/>
+                                            <input type="text" name="last_name" />
                                         </div>
                                     </div>
                                     <div class="single-filed">
@@ -123,31 +147,31 @@ if (!isset($_SESSION["isLoggedin"])) {
                                     <div class="single-filed">
                                         <h5>Partner Phone</h5>
                                         <div class="right">
-                                            <input type="text" name="phone"/>
+                                            <input type="text" name="phone" />
                                         </div>
                                     </div>
                                     <div class="single-filed">
                                         <h5>Partner Email</h5>
                                         <div class="right">
-                                            <input type="text" name="email"/>
+                                            <input type="text" name="email" />
                                         </div>
                                     </div>
                                     <div class="single-filed">
                                         <h5>Partner Address</h5>
                                         <div class="right">
-                                            <input type="text" name="address"/>
+                                            <input type="text" name="address" />
                                         </div>
                                     </div>
                                     <div class="single-filed">
                                         <h5>About Partner Descriptions</h5>
                                         <div class="right">
-                                            <input type="text" name="description"/>
+                                            <input type="text" name="description" />
                                         </div>
                                     </div>
                                     <div class="single-filed">
                                         <h5>Partner Linkedln Link</h5>
                                         <div class="right">
-                                            <input type="text" name="linkedin_url"/>
+                                            <input type="text" name="linkedin_url" />
                                         </div>
                                     </div>
                                 </div>
@@ -239,7 +263,7 @@ if (!isset($_SESSION["isLoggedin"])) {
 
             <div class="col-12 col-md-12">
                 <div class="log-out mt-5 mb-3">
-                    <a href="<?="./auth/logout.php"?>">
+                    <a href="<?= "./auth/logout.php" ?>">
                         <i class="fa-solid fa-right-from-bracket"></i> Logout</a>
                 </div>
             </div>
@@ -364,4 +388,7 @@ if (!isset($_SESSION["isLoggedin"])) {
             }
         })
     }
+    $(document).ready(function() {
+        $('.country-name').select2();
+    });
 </script>

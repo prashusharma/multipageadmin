@@ -3,6 +3,8 @@ session_start();
 if (!isset($_SESSION["isLoggedin"])) {
   header('Location: ./index.php');
 }
+include 'partials/dbconnect.php';
+$actual_link = "http://$_SERVER[HTTP_HOST]";
 ?>
 <?php include 'partials/header.php' ?>
 <!------------------ header section  ------------------------>
@@ -50,6 +52,8 @@ if (!isset($_SESSION["isLoggedin"])) {
             </div>
         </header> -->
 <?php include 'partials/loggedin-header.php' ?>
+
+
 <!------------------ header section end ------------------------>
 
 <section>
@@ -114,6 +118,7 @@ if (!isset($_SESSION["isLoggedin"])) {
                 $form_number = $row['form_number'];
                 $date = $row['date'];
                 $website_link = $row['website_link'];
+                $current_url = $row['from_website']
               ?>
                 <tr>
                   <td><?= $id ?> </td>
@@ -125,7 +130,8 @@ if (!isset($_SESSION["isLoggedin"])) {
                   <td><?= $budget ?> </td>
                   <td><?= $message ?> </td>
                   <td class="edit-delet"><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal-<?= $id ?>">View</a> /
-                   <a href="./auth/delete_msg.php?id=<?=$id?>">Delete</a></td>
+                    <a href="./auth/delete_msg.php?id=<?= $id ?>">Delete</a>
+                  </td>
                 </tr>
 
                 <!-- Modal -->
@@ -139,105 +145,113 @@ if (!isset($_SESSION["isLoggedin"])) {
                       <div class="modal-body">
                         <h4 class="mb-5">Massage Details</h4>
                         <!-- 1 -->
-                        <div class="signle-table-filed">
-                          <h5>Form Name</h5>
-                          <div>
-                            <input type="text" value="<?= $form_number ?>" disabled>
+                        <form action="<?= $actual_link ?>/multipageadmin/auth/inquiry_handler.php" method="post">
+                        <input type="hidden" name="edit_message" value="edit" />
+                        <input type="hidden" name="id" value="<?= $id ?>">
+                          <div class="signle-table-filed">
+                            <h5>Form Name</h5>
+                            <div>
+                              <input name="form_number" type="text" value="<?= $form_number ?>" >
+                            </div>
                           </div>
-                        </div>
-                        <!-- 2 -->
-                        <div class="signle-table-filed">
-                          <h5>Date</h5>
-                          <div>
-                            <input type="text" value="<?= $date ?>" disabled>
+                          <!-- 2 -->
+                          <div class="signle-table-filed">
+                            <h5>Date</h5>
+                            <div>
+                              <input name="date" type="text" value="<?= $date ?>" >
+                            </div>
                           </div>
-                        </div>
-                        <!-- 3 -->
-                        <div class="signle-table-filed">
-                          <h5> Name</h5>
-                          <div>
-                            <input type="text" value="<?= $name ?>" disabled>
+                          <!-- 3 -->
+                          <div class="signle-table-filed">
+                            <h5> Name</h5>
+                            <div>
+                              <input name="name" type="text" value="<?= $name ?>" >
+                            </div>
                           </div>
-                        </div>
-                        <!-- 4 -->
-                        <div class="signle-table-filed">
-                          <h5>Email</h5>
-                          <div>
-                            <input type="text" value="<?= $email ?>" disabled>
+                          <!-- 4 -->
+                          <div class="signle-table-filed">
+                            <h5>Email</h5>
+                            <div>
+                              <input name="email" type="text" value="<?= $email ?>" >
+                            </div>
                           </div>
-                        </div>
-                        <!-- 5 -->
-                        <div class="signle-table-filed">
-                          <h5>Phone</h5>
-                          <div>
-                            <input type="text" value="<?= $phone ?>" disabled>
+                          <!-- 5 -->
+                          <div class="signle-table-filed">
+                            <h5>Phone</h5>
+                            <div>
+                              <input name="phone" type="text" value="<?= $phone ?>" >
+                            </div>
                           </div>
-                        </div>
-                        <!-- 6 -->
-                        <div class="signle-table-filed">
-                          <h5>Quote</h5>
-                          <div>
-                            <input type="text" value="<?= $budget ?>" disabled>
+                          <!-- 6 -->
+                          <div class="signle-table-filed">
+                            <h5>Budget</h5>
+                            <div>
+                              <input name="budget" type="text" value="<?= $budget ?>" >
+                            </div>
                           </div>
-                        </div>
-                        <!-- 7 -->
-                        <div class="signle-table-filed">
-                          <h5>Company Name</h5>
-                          <div>
-                            <input type="text" value="<?= $company ?>" disabled>
+                          <!-- 7 -->
+                          <div class="signle-table-filed">
+                            <h5>Company Name</h5>
+                            <div>
+                              <input name="company" type="text" value="<?= $company ?>" >
+                            </div>
                           </div>
-                        </div>
-                        <!-- 8 -->
-                        <div class="signle-table-filed">
-                          <h5>Website Link</h5>
-                          <div>
-                            <input type="text" value="<?= $website_link ?>" disabled>
+                          <!-- 8 -->
+                          <div class="signle-table-filed">
+                            <h5>Website Link</h5>
+                            <div>
+                              <input name="website_link" type="text" value="<?= $website_link ?>" >
+                            </div>
                           </div>
-                        </div>
-                        <!-- 9 -->
-                        <div class="signle-table-filed">
-                          <h5>Form Name</h5>
-                          <div>
-                            <input type="text" value="<?= $form_number ?>" disabled>
+                          <!-- 9 -->
+                          <div class="signle-table-filed">
+                            <h5>From website</h5>
+                            <div>
+                              <input name="from_website" type="text" value="<?= $current_url ?>">
+                            </div>
                           </div>
-                        </div>
-                        <!-- 10 -->
-                        <div class="signle-table-filed">
-                          <h5>Massage</h5>
-                          <div>
-                            <input type="text" value="<?= $message ?>" disabled>
+                          <!-- 10 -->
+                          <div class="signle-table-filed">
+                            <h5>Massage</h5>
+                            <div>
+                              <input name="message" type="text" value="<?= $message ?>" >
+                            </div>
                           </div>
-                        </div>
-                        <!-- 11 -->
-                        <div class="signle-table-filed">
-                          <h5>Massage URL</h5>
-                          <div>
-                            <textarea name="" id="" rows="5" disabled> </textarea>
+                          <!-- 11 -->
+                          <div class="signle-table-filed">
+                            <h5>Massage URL</h5>
+                            <div>
+                              <textarea name="message_url" id="" rows="5"> </textarea>
+                            </div>
                           </div>
-                        </div>
-                        <!-- 12 -->
-                        <div class="signle-table-filed">
-                          <h5>City</h5>
-                          <div>
-                            <input type="text">
+                          <!-- 12 -->
+                          <div class="signle-table-filed">
+                            <h5>City</h5>
+                            <div>
+                              <input name="city" type="text">
+                            </div>
                           </div>
-                        </div>
-                        <!-- 13 -->
-                        <div class="signle-table-filed">
-                          <h5>Country</h5>
-                          <div>
-                            <input type="text">
+                          <!-- 13 -->
+                          <div class="signle-table-filed">
+                            <h5>Country</h5>
+                            <div>
+                              <input name="coutry" type="text">
+                            </div>
                           </div>
-                        </div>
-                        <!-- 14 -->
-                        <div class="signle-table-filed">
-                          <h5>IP</h5>
-                          <div>
-                            <input type="text">
+                          <!-- 14 -->
+                          <div class="signle-table-filed">
+                            <h5>IP</h5>
+                            <div>
+                              <input name="ip" type="text">
+                            </div>
                           </div>
-                        </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Save changes</button>
+                          </div>
+                        </form>
                       </div>
-                      
+
                     </div>
                   </div>
                 </div>

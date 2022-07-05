@@ -1,5 +1,5 @@
 <?php
-include '../partials/dbconnect.php';
+include '../partials/dbconnect.php';    
 $actual_link = "http://$_SERVER[HTTP_HOST]";
     $id = $_GET['id'];
     $sql = "DELETE FROM `inquiry_form` WHERE id = '$id'";
