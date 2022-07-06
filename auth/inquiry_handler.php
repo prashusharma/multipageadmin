@@ -17,7 +17,7 @@
             $sql = "INSERT INTO `inquiry_form`(`full_name`, `from_website` ,`email`, `phone`, `website_link`, `interested_services`,`form_number`) VALUES ('$name','$current_url','$email','$phone','$website_link','$services','$form_number')";
             mysqli_query($conn, $sql);
 
-            header("Location: $actual_link/multipageadmin/index.php");
+            header("Location: $current_url");
 
         }else if($_POST['contact_form'] == 'form-3'){
             //process form3
@@ -37,7 +37,7 @@
 
             // print_r($sql); exit();
             
-            header("Location: $actual_link/multipageadmin/index.php");
+            header("Location: $current_url");
 
         }else if($_POST['contact_form'] == 'form-2'){
             //process form2
@@ -50,7 +50,7 @@
             $sql = "INSERT INTO `inquiry_form`( `email`,`from_website` , `website_link`,`form_number`) VALUES ('$email','$current_url', '$website_link','$form_number')";
             mysqli_query($conn, $sql);
 
-            header("Location: $actual_link/multipageadmin/index.php");
+            header("Location: $current_url");
         }
     }
 

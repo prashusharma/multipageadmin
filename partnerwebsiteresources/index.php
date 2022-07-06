@@ -5,7 +5,7 @@
     <?php
     include '../partials/dbconnect.php';
     $actual_link = "http://$_SERVER[HTTP_HOST]";
-    $current_url= (string)$actual_link.$_SERVER['REQUEST_URI']; 
+    $current_url = (string)$actual_link . $_SERVER['REQUEST_URI'];
     $partnerid = $_GET['partner_id'];
     $services = $_GET['service'];
 
@@ -20,7 +20,7 @@
     $phone = empty($row['partner_phone']) ? "+1 646 679-7250" : $row['partner_phone'];
     $email = empty($row['partner_email']) ? "hi@organizein.com" : $row['partner_email'];
     $linkedin = $row['partner_linkedin'];
-/*<?php echo $country?>
+    /*<?php echo $country?>
 <?php echo $state?>
 <?php echo $city?>*/
 
@@ -30,9 +30,9 @@
     <!--------------- Required meta tags ------------------->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="title" content="<?php echo $city?> SEO Services | <?php echo $city?> Web Design | <?php echo $city?> Digital Marketing">
-    <meta name="description" content="<?php echo $city?> SEO Company is a leading SEO & Web Design Agency that provides unmatched <?php echo $city?> SEO services. We deliver more leads and traffic to your online business in <?php echo $city?> and surrounding burrows, call <?php echo $city?> SEO Company today.">
-    <meta name="keywords" content="<?php echo $city?> SEO Company ,<?php echo $city?>  Social Media Company,<?php echo $city?> PPC Company ,<?php echo $city?>  Digital Marketing Company ,<?php echo $city?> Web Design Company ,<?php echo $city?> Graphic design agency">
+    <meta name="title" content="<?php echo $city ?> SEO Services | <?php echo $city ?> Web Design | <?php echo $city ?> Digital Marketing">
+    <meta name="description" content="<?php echo $city ?> SEO Company is a leading SEO & Web Design Agency that provides unmatched <?php echo $city ?> SEO services. We deliver more leads and traffic to your online business in <?php echo $city ?> and surrounding burrows, call <?php echo $city ?> SEO Company today.">
+    <meta name="keywords" content="<?php echo $city ?> SEO Company ,<?php echo $city ?>  Social Media Company,<?php echo $city ?> PPC Company ,<?php echo $city ?>  Digital Marketing Company ,<?php echo $city ?> Web Design Company ,<?php echo $city ?> Graphic design agency">
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -47,6 +47,17 @@
     <link rel="shortcut icon" href="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/logo favicon.png" type="image/x-icon">
 
     <link rel="stylesheet" href="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/megaMenu.css">
+    <!-- Header code -->
+    <?php
+    $header_code = mysqli_query($conn, "SELECT * FROM `extra_code`");
+    $header_code = mysqli_fetch_assoc($header_code);
+    // print_r($header_code); exit();
+    if ($header_code["header_code"] != "") :
+    ?>
+        <?= $header_code["header_code"] ?>
+    <?php endif ?>
+    <!-- Header code -->
+
     <style>
         .source {
             display: none !important;
@@ -109,6 +120,7 @@
                         <div class="col-md-12 col-12 top__header__Wraper mx-auto">
                             <div class="left___site____top_____header">
                                 <span>Get Custom Proposal</span>
+
                                 <ul>
                                     <li class="social_media_icons"><a href="https://www.facebook.com/organizeindm/ 
                                         "><i class="fab fa-facebook"></i></a><span>Facebook</span></li>
@@ -119,6 +131,9 @@
                                     <li class="social_media_icons"><a href="https://www.instagram.com/organizein_/"><i class="fab fa-instagram"></i></a><span>Instagram</span></li>
                                 </ul>
                             </div>
+                            <?php if ($header_code["top_header_message"] != "") : ?>
+                                <div class="left___site____top_____header"><?= $header_code["top_header_message"] ?></div>
+                            <?php endif ?>
                             <div class="right___site____top___header">
                                 <div class="number___div" style="margin-right: 4px;">
                                     <span><i class="fas fa-mobile-alt"></i><?php echo $phone ?></span>
@@ -127,7 +142,7 @@
                                     <span><i class="fas fa-mobile-alt"></i> <?php echo $email ?></span>
                                 </div>
                                 <div class="login___img">
-                                    <img style="border-radius: 100%;" src="https://countryflagsapi.com/png/<?php echo $country_name?>" alt="flag" class="img-fluid flag" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    <img style="border-radius: 100%;" src="https://countryflagsapi.com/png/<?php echo $country_name ?>" alt="flag" class="img-fluid flag" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                     <span class="login_btn_company">Login
                                         <div class="openPoper">
                                             <div class="head">
@@ -753,9 +768,9 @@
                             </div>
                         </div>
                         <div class="col-md-6 col-12 col-lg-6 banner____ col-xl-6 mx-auto">
-                            <form action="<?=$actual_link?>/multipageadmin/auth/inquiry_handler.php" method="post" class="contactForm">
+                            <form action="<?= $actual_link ?>/multipageadmin/auth/inquiry_handler.php" method="post" class="contactForm">
                                 <input type="hidden" name="contact_form" value="form-1" />
-                                <input type="hidden" name="current_url" value="<?=$current_url?>">
+                                <input type="hidden" name="current_url" value="<?= $current_url ?>">
                                 <div class="formHeader">Let’s Get Started, Get in touch now!</div>
                                 <input type="text" name="name" id="name" class="inputField" placeholder="Full Name" required>
                                 <input type="text" name="email" id="email" class="inputField" placeholder="Email" required>
@@ -1080,10 +1095,10 @@
                     <p>Take the next step in growing your business using digital marketing. Connect with one of our
                         expert
                         digital strategists to learn how WebFx can help you reach your business goals.</p>
-                    <form action="<?=$actual_link?>/multipageadmin/auth/inquiry_handler.php" method="post">
-                    <input type="hidden" name="contact_form" value="form-2" />
+                    <form action="<?= $actual_link ?>/multipageadmin/auth/inquiry_handler.php" method="post">
+                        <input type="hidden" name="contact_form" value="form-2" />
                         <input type="text" class="websiteInput" placeholder="Email">
-                        <input type="hidden" name="actual_url" value="<?=$current_url?>">
+                        <input type="hidden" name="actual_url" value="<?= $current_url ?>">
                         <input type="text" class="websiteInput" placeholder="Enter Your website">
                         <button type="submit" class="proposalBtn">Send me a proposal <i class="fas fa-arrow-right"></i></button>
                     </form>
@@ -2281,9 +2296,9 @@
     <section class="comment___box___Wraper" id="contactUsForm">
         <div class="Warper___header px-4">
             <div class="container-fluid">
-                <form action="<?=$actual_link?>/multipageadmin/auth/inquiry_handler.php" method="post" id="form3">
+                <form action="<?= $actual_link ?>/multipageadmin/auth/inquiry_handler.php" method="post" id="form3">
                     <input type="hidden" name="contact_form" value="form-3" />
-                    <input type="hidden" name="actual_url" value="<?=$current_url?>">
+                    <input type="hidden" name="actual_url" value="<?= $current_url ?>">
                     <div class="row">
                         <div class="col-12 max____width__ col-md-12 col-lg-12 col-xl-12 col-xxl-12 mx-auto">
                             <div class="row">
@@ -2857,7 +2872,7 @@
                     <div class="col-12 max____width__ col-md-12 col-xl-12 col-lg-12 col-xxl-12 mx-auto">
                         <div class="row">
                             <div class="col-12 col-md-4 left____site___footer___btn col-lg-4 col-xl-4 mx-auto">
-                                <button data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/global_blue.png" alt="" class="img-fluid" /> <?php echo $country_name?> <i class="fas fa-chevron-right"></i></button>
+                                <button data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/global_blue.png" alt="" class="img-fluid" /> <?php echo $country_name ?> <i class="fas fa-chevron-right"></i></button>
                             </div>
 
                             <div class="col-12 col-md-8 right____site___footer___btn col-lg-8 col-xl-8 mx-auto">
@@ -3567,7 +3582,7 @@
                 autoplayTimeout: 3000,
                 navText: ['<i class="fa fa-chevron-right" id="marketingbanner_right"></i>', `<i class="fa fa-chevron-left" id="marketingbanner_left"></i>`]
             })
-            
+
         })
 
         $(document).ready(function() {
@@ -3638,6 +3653,10 @@
         var x = document.getElementsByTagName('script')[0];
         x.parentNode.insertBefore(s, x);
     </script>
+    <?php if ($header_code["footer_code"] != "") :
+    ?>
+        <?= $header_code["footer_code"] ?>
+    <?php endif ?>
 </body>
 
 </html>

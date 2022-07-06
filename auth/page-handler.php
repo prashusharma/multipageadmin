@@ -144,29 +144,33 @@ if (isset($_POST["create_bullk_page"])) {
 if (isset($_POST["add_extra_code"])) {
 
     $sql = "UPDATE `extra_code` SET `header_code`='" . $_POST["header_code"] . "',`footer_code`='" . $_POST["footer_code"] . "',`top_header_message`='" . $_POST["top_header_message"] . "' WHERE 1";
-    mysqli_query($conn, $sql); 
+    mysqli_query($conn, $sql);
 
-    // print_r($services); exit();
-
-    $photo = "https://www.dmarge.com/most-likeable-person-world-the-rock";
+    // print_r($services); exit(); 
 
     $existsql = "SELECT * FROM `partner_details`";
-    $result = mysqli_query($conn, $existsql);  
+    $result = mysqli_query($conn, $existsql);
 
     while ($row = mysqli_fetch_assoc($result)) {
-       
-        $response = file_get_contents('http://' . $_SERVER["HTTP_HOST"] . '/multipageadmin/partnerwebsiteresources/index.php?partner_id=' . urlencode($row["partner_id"]) . '&service=' . urlencode($service));
-        //    print_r($response); exit();
-        $country = str_replace(" ", "-", $country);
-        $state = str_replace(" ", "-", $state);
-        $city = str_replace(" ", "-", $city);
+        $services = json_decode($row["services"]); 
+        foreach ($services as $service) {
+            $service = trim($service);
+            $response = file_get_contents('http://' . $_SERVER["HTTP_HOST"] . '/multipageadmin/partnerwebsiteresources/index.php?partner_id=' . urlencode($row["partner_id"]) . '&service=' . urlencode($service));
+            //    print_r($response); exit();
+            $country = str_replace(" ", "-", $row["country_selected"]);
+            $state = str_replace(" ", "-", $row["state_name"]);
+            $city = str_replace(" ", "-", $row["city_name"]);
 
-        if (!file_exists('../' . $country . '/' . $state . '/' . $city)) {
-            mkdir('../' . $country . '/' . $state . '/' . $city, 0777, true);
+            if (!file_exists('../' . $country . '/' . $state . '/' . $city)) {
+                mkdir('../' . $country . '/' . $state . '/' . $city, 0777, true);
+            }
+            $myfile = fopen('../' . $country . '/' . $state . '/' . $city . '/' . strtolower(str_replace(" ", "-", $service)) . '.php', "w") or die("Unable to open file!");
+            fwrite($myfile, $response);
+            fclose($myfile);
+            // sleep( 6000 );
         }
-        $myfile = fopen('../' . $country . '/' . $state . '/' . $city . '/' . strtolower(str_replace(" ", "-", $service)) . '.php', "w") or die("Unable to open file!");
-        fwrite($myfile, $response);
-        fclose($myfile);
-        // sleep( 6000 );
     }
+
+    header("Location: $actual_link/multipageadmin/contact-form2.php");
+    exit();
 }

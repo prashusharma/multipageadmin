@@ -12,20 +12,20 @@ include './partials/dbconnect.php';
 <!------------------ header section end ------------------------>
 
 <?php
-$sql = "SELECT * FROM `partner_details`";
+$sql = "SELECT count(*) as check_row FROM `partner_details`";
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_array($result);
-$city_count = count($row);
+$city_count = $row["check_row"];
 
-$sql2 = "SELECT * FROM `inquiry_form`";
+$sql2 = "SELECT count(*) as check_row FROM `inquiry_form`";
 $result2 = mysqli_query($conn, $sql2);
 $row2 = mysqli_fetch_array($result2);
-$email_count = count($row2);
+$email_count = $row2["check_row"];
 
-$sql3 = "SELECT * FROM `inquiry_form`";
+$sql3 = "SELECT  count(*) as check_row FROM `website_pages`";
 $result3 = mysqli_query($conn, $sql3);
 $row3 = mysqli_fetch_array($result3);
-$page_count = count($row3);
+$page_count = $row3["check_row"];
 
 
 ?>
