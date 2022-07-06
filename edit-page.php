@@ -191,14 +191,14 @@ include './partials/dbconnect.php';
                                     <div class="admin-div-filed admin-div-filed2">
                                         <h4>Add Massage to Top Header Only to The Selected City</h4>
                                         <div>
-                                            <textarea id="" rows="4" name="special_top_message"><?= $row['special_header_script'] ?></textarea>
+                                            <textarea id="" rows="4" name="special_top_message"><?= $row['special_top_message'] ?></textarea>
                                         </div>
                                     </div>
                                     <!-- 5 -->
                                     <div class="admin-div-filed admin-div-filed2">
                                         <h4>Add any Special Script to Header only to the selected city</h4>
                                         <div>
-                                            <input type="text" value="<?= $row['special_header_script'] ?>" name="special_header_script">
+                                        <textarea name="special_header_script" rows="4" ><?= $row['special_header_script'] ?></textarea>
                                         </div>
                                     </div>
                                     <!-- 6 -->
