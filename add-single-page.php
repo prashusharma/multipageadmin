@@ -1,5 +1,3 @@
-
-
 <?php
 session_start();
 if (!isset($_SESSION["isLoggedin"])) {
@@ -12,14 +10,19 @@ if (!isset($_SESSION["isLoggedin"])) {
 <?php include './partials/loggedin-header.php' ?>
 <!------------------ header section end ------------------------>
 <style>
-    .country-section .selection{
+    .country-section .selection,
+    .services .selection {
         display: block !important;
     }
-    .country-section .select2-container--default .select2-selection--single {
+
+    .country-section .select2-container--default .select2-selection--single,
+    .services .select2-container--default .select2-selection--single {
         border-radius: unset !important;
-        border: 2px solid #dadada  !important;
+        border: 2px solid #dadada !important;
     }
-    .country-section .select2-container .select2-selection--single {
+
+    .country-section .select2-container .select2-selection--single,
+    .services .select2-container .select2-selection--single {
         height: 33px;
     }
 </style>
@@ -45,12 +48,12 @@ if (!isset($_SESSION["isLoggedin"])) {
                                     <select name="country"></select> -->
                                     <select name="country" class="country-name form-control">
                                         <?php
-                                        $country = file_get_contents("http://api.countrylayer.com/v2/all?access_key=fec59892c62605a7039906b730fdd2f9");
+                                        $country = file_get_contents("https://api.worldbank.org/v2/country/all?format=json&per_page=299");
                                         $country = json_decode($country);
-                                        // print_r($country);
-                                        foreach ($country as $country_name) {
+                                        // print_r($country); exit();
+                                        foreach ($country[1] as $country_name) {
                                         ?>
-                                            <option value='<?='["'.$country_name->alpha2Code.'", "'.$country_name->name.'"]'?>'><?= $country_name->name ?></option>
+                                            <option value='<?= '["' . $country_name->iso2Code . '", "' . $country_name->name . '"]' ?>'><?= $country_name->name ?></option>
                                         <?php } ?>
                                     </select>
                                 </div>
@@ -77,24 +80,22 @@ if (!isset($_SESSION["isLoggedin"])) {
                                         (Main, SEO, SMM)
                                     </h5>
                                 </aside>
-                                <div class="right">
-                                    <div class="tag-box" id="dropDown2Container" onclick="toggleDropDown(event , 'dropDown2')">
-                                        <!-- <span class="tag-single">
-                                                <i class="fa-solid fa-xmark"></i> &nbsp; Web design
-                                            </span>
-                                            <span class="tag-single">
-                                                <i class="fa-solid fa-xmark"></i> &nbsp; Email
-                                                Marketing
-                                            </span> -->
-                                    </div>
-                                    <ul class="CustomDropDown" id="dropDown2">
-                                        <li>Web Design</li>
-                                        <li>Email Marketing</li>
-                                        <li>SEO</li>
-                                    </ul>
+                                <div class="right services">
+                                    <select name="services[]" class="country-name form-control" multiple>
+                                        <option value='Web Design'>Web Design</option>
+                                        <option value='Email Marketing'>Email Marketing</option>
+                                        <option value='SEO'>SEO</option>
+                                        <option value='Search engine marketing'>Search engine marketing</option>
+                                        <option value='Social media marketing'>Social media marketing</option>
+                                        <option value='Email marketing'>Email marketing</option>
+                                        <option value='Graphic design Services'>Graphic design Services</option>
+                                        <option value='Web Design services'>Web Design services</option>
+                                        <option value='Web development services'>Web development services</option>
+                                        <option value='Mobile App development services'>Mobile App development services</option>
+                                    </select>
                                     <h3 class="text-center mt-2">Or</h3>
                                     <div class="check">
-                                        <input type="checkbox" />
+                                        <input type="checkbox" id="all-select" />
                                         <span>Add all available template pages</span>
                                     </div>
                                 </div>
@@ -390,5 +391,21 @@ if (!isset($_SESSION["isLoggedin"])) {
     }
     $(document).ready(function() {
         $('.country-name').select2();
+        $('#all-select').click(function() {
+            let madharchod = $(this);
+            // console.log();
+            if (madharchod.is(':checked')) {
+                $.each($(madharchod.parent().siblings('.country-name')[0]).find('option'), function(indexInArray, valueOfElement) {
+                    $(valueOfElement).attr("selected", "selected");
+                });
+            } else {
+                $.each($(madharchod.parent().siblings('.country-name')[0]).find('option'), function(indexInArray, valueOfElement) {
+                    $(valueOfElement).removeAttr("selected");
+                });
+            }
+
+            // console.log($(madharchod.parent().siblings('.country-name')[0]).val());
+            $('.country-name').trigger('change.select2');
+        });
     });
 </script>

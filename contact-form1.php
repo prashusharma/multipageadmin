@@ -5,6 +5,8 @@ if (!isset($_SESSION["isLoggedin"])) {
 }
 include 'partials/dbconnect.php';
 $actual_link = "http://$_SERVER[HTTP_HOST]";
+
+mysqli_query($conn, "update inquiry_form set new_inquiry = 0");
 ?>
 <?php include 'partials/header.php' ?>
 <!------------------ header section  ------------------------>

@@ -3,6 +3,8 @@ session_start();
 if (!isset($_SESSION["isLoggedin"])) {
     header('Location: ./index.php');
 }
+include './partials/dbconnect.php';
+
 ?>
 <?php include 'partials/header.php' ?>
 <!------------------ header section  ------------------------>
@@ -10,7 +12,6 @@ if (!isset($_SESSION["isLoggedin"])) {
 <!------------------ header section end ------------------------>
 
 <?php
-include './partials/dbconnect.php';
 $sql = "SELECT * FROM `partner_details`";
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_array($result);

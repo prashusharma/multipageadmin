@@ -11,7 +11,13 @@
                                     <a class="icon" href="contact-form1.php">
                                         
                                         <i class="fa-solid fa-envelope">
-                                            <span style="background-color: #4ceb34; color: black;">0</span>
+                                            <?php
+                                            $datequery = mysqli_query($conn, "select count(*) as new_notfication from inquiry_form where  REPLACE(date, '-', '') > ".(date("Ymd")-1)." and new_inquiry = 1"); 
+                                            $nums = mysqli_fetch_assoc($datequery); 
+                                            if($nums["new_notfication"]) :
+                                            ?> 
+                                            <span style="background-color: #4ceb34; color: black;"><?=$nums["new_notfication"]?></span> 
+                                            <?php endif ?>
                                         </i>
                                     
                                         <span>

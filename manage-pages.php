@@ -4,6 +4,8 @@ if (!isset($_SESSION["isLoggedin"])) {
   header('Location: ./index.php');
 
 }
+include './partials/dbconnect.php';
+
 ?>
 <?php include 'partials/header.php' ?>
 <!------------------ header section  --------------------------->
@@ -55,7 +57,6 @@ if (!isset($_SESSION["isLoggedin"])) {
               <!-- 1 -->
 
               <?php
-              include './partials/dbconnect.php';
               $actual_link = "http://$_SERVER[HTTP_HOST]";
               $sql = "SELECT * FROM `partner_details`";
               $result = mysqli_query($conn, $sql);
@@ -77,15 +78,17 @@ if (!isset($_SESSION["isLoggedin"])) {
                 <td>' . $city . '</td>
                 <td>' . $name . '</td>
                 <td>';
+
+                $serviceSql = mysqli_query($conn, "select website_url from website_pages where partner_id = $no");
                 $country = str_replace(" ", "-", $country);
                 $state = str_replace(" ", "-", $state);
                 $city = str_replace(" ", "-", $city);
-                for ($i = 0; $i < count($services_array); $i++) {
-                  echo $actual_link. '/'. 'multipageadmin/' . $country . '/' . $state . '/' . $city . '/' . $services_array[$i] . ".php<br>";
+                while ($rowdata = mysqli_fetch_assoc($serviceSql)) {
+                  echo $rowdata["website_url"]."<br>";
                 }
 
                 echo '</td>  
-                <td>Download / Edit / Delete</td>
+                <td><a href="">Download</a> / <a href="./edit-page.php?id='.$no.'">Edit</a> / <a href="">Delete</a></td>
               </tr>';
               }
               ?>

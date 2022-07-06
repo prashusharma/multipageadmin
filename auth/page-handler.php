@@ -7,7 +7,7 @@ $actual_link = "http://$_SERVER[HTTP_HOST]";
 if (isset($_POST["create_single_page"])) {
 
     $country = json_decode($_POST['country'])[0];
-    $country_name = json_decode($_POST['country'])[1]; 
+    $country_name = json_decode($_POST['country'])[1];
     $state = $_POST['state'];
     $city = $_POST['city'];
     $selected_title = $_POST['title'];
@@ -18,7 +18,9 @@ if (isset($_POST["create_single_page"])) {
     $address = $_POST['address'];
     $description = $_POST['description'];
     $linkedin = $_POST['linkedin_url'];
-    $services = array("seo-marketing", "email-marketing", "web-design");
+    $services = $_POST["services"];
+
+    // print_r($services); exit();
 
     $photo = "https://www.dmarge.com/most-likeable-person-world-the-rock";
 
@@ -36,22 +38,9 @@ if (isset($_POST["create_single_page"])) {
     }
     $id = mysqli_insert_id($conn);
 
-    foreach ($services as $service) {
-        $curl = curl_init();
-        curl_setopt_array($curl, array(
-            CURLOPT_URL => 'http://' . $_SERVER["HTTP_HOST"] . '/multipageadmin/partnerwebsiteresources/index.php?partner_id=' . $id . '&service=' . $service,
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_ENCODING => '',
-            CURLOPT_MAXREDIRS => 10,
-            CURLOPT_TIMEOUT => 0,
-            CURLOPT_FOLLOWLOCATION => true,
-            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-            CURLOPT_CUSTOMREQUEST => 'GET',
-        ));
-
-        $response = curl_exec($curl);
-        curl_close($curl);
-
+    foreach ($services as $service) { 
+       $response = file_get_contents('http://' . $_SERVER["HTTP_HOST"] . '/multipageadmin/partnerwebsiteresources/index.php?partner_id=' . urlencode($id) . '&service=' . urlencode($service));  
+    //    print_r($response); exit();
         $country = str_replace(" ", "-", $country);
         $state = str_replace(" ", "-", $state);
         $city = str_replace(" ", "-", $city);
@@ -59,15 +48,16 @@ if (isset($_POST["create_single_page"])) {
         if (!file_exists('../' . $country . '/' . $state . '/' . $city)) {
             mkdir('../' . $country . '/' . $state . '/' . $city, 0777, true);
         }
-        $myfile = fopen('../' . $country . '/' . $state . '/' . $city . '/' . $service . '.php', "w") or die("Unable to open file!");
+        $myfile = fopen('../' . $country . '/' . $state . '/' . $city . '/' . strtolower(str_replace(" ", "-", $service)) . '.php', "w") or die("Unable to open file!");
         fwrite($myfile, $response);
         fclose($myfile);
 
 
-        $url = "$actual_link/multipageadmin/$country/$state/$city/$service.php";
+        $url = "$actual_link/multipageadmin/$country/$state/$city/".strtolower(str_replace(" ", "-", $service)).".php";
 
         $sql3 = "INSERT INTO `website_pages`(`partner_id`, `website_url`, `status`) VALUES ('$id', '$url', '1')";
         mysqli_query($conn, $sql3);
+        // sleep( 6000 );
     }
 
 
@@ -89,8 +79,9 @@ if (isset($_POST["create_bullk_page"])) {
                 $var_name = 0;
                 while (($csv_data = fgetcsv($handle, 1000, ",")) !== FALSE) {
                     if ($var_name++ == 0) continue;
-                    echo '<pre>', print_r($csv_data, 1), '</pre>';
-                    $services = array("seo-marketing", "email-marketing", "web-design");
+                    // echo '<pre>', print_r($csv_data, 1), '</pre>';
+                    $services = explode(",",$csv_data[13]); 
+                    if (!$services[0]) continue;
 
                     $existsql = "SELECT count(*) as check_row FROM `partner_details` WHERE city_name = '$csv_data[2]' and state_name = '$csv_data[1]' and json_contains(`services`, '" . json_encode($services) . "')";
                     $results = mysqli_query($conn, $existsql);
@@ -103,21 +94,23 @@ if (isset($_POST["create_bullk_page"])) {
                         if (mysqli_query($conn, $sql2)) {
                             $id = mysqli_insert_id($conn);
                             foreach ($services as $service) {
-                                $response = file_get_contents($actual_link . '/multipageadmin/partnerwebsiteresources/index.php?partner_id=' . $id . '&service=' . $service);
+                                $service = trim($service);
+
+                                $response = file_get_contents($actual_link . '/multipageadmin/partnerwebsiteresources/index.php?partner_id=' . urlencode($id) . '&service=' . urlencode($service));
 
                                 $country = str_replace(" ", "-", $csv_data[0]);
-                                $state = str_replace(" ", "-", $csv_data[1]);
-                                $city = str_replace(" ", "-", $csv_data[2]);
+                                $state = str_replace(" ", "-", $csv_data[2]);
+                                $city = str_replace(" ", "-", $csv_data[3]);
 
                                 if (!file_exists('../' . $country . '/' . $state . '/' . $city)) {
                                     mkdir('../' . $country . '/' . $state . '/' . $city, 0777, true);
                                 }
 
-                                $myfile = fopen('../' . $country . '/' . $state . '/' . $city . '/' . $service . '.php', "w") or die("Unable to open file!");
+                                $myfile = fopen('../' . $country . '/' . $state . '/' . $city . '/' . strtolower(str_replace(" ", "-", $service)) . '.php', "w") or die("Unable to open file!");
                                 fwrite($myfile, $response);
                                 fclose($myfile);
 
-                                $url = "$actual_link/multipageadmin/$country/$state/$city/$service.php";
+                                $url = "$actual_link/multipageadmin/$country/$state/$city/".strtolower(str_replace(" ", "-", $service)).".php";
 
                                 $sql3 = "INSERT INTO `website_pages`(`partner_id`, `website_url`, `status`) VALUES ('$id', '$url', '1')";
                                 mysqli_query($conn, $sql3);
