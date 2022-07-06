@@ -3,6 +3,7 @@ session_start();
 if (!isset($_SESSION["isLoggedin"])) {
     header('Location: ./index.php');
 }
+include './partials/dbconnect.php';
 ?>
 <?php include 'partials/header.php' ?>
 

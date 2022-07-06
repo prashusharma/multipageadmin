@@ -3,6 +3,7 @@ session_start();
 if (!isset($_SESSION["isLoggedin"])) {
     header('Location: ./index.php');
 }
+include './partials/dbconnect.php';
 ?>
 <?php include 'partials/header.php' ?>
 
@@ -66,7 +67,7 @@ if (!isset($_SESSION["isLoggedin"])) {
 
 
 <!-- <?php
-include './partials/dbconnect.php';
+
 if(isset($_FILES['csv'] )){
     $csv_file = $_FILES['csv']['tmp_name'];
     if(is_file($csv_file)){

@@ -88,7 +88,7 @@ include './partials/dbconnect.php';
                 }
 
                 echo '</td>  
-                <td><a href="">Download</a> / <a href="./edit-page.php?id='.$no.'">Edit</a> / <a href="">Delete</a></td>
+                <td><a href="./auth/create_download_zip.php?folder_structure='.$country.'/'.$state.'/'.$city.'">Download</a> / <a href="./edit-page.php?id='.$no.'">Edit</a> / <a href="./auth/delete_msg.php?id=<?= $no ?>">Delete</a></td>
               </tr>';
               }
               ?>

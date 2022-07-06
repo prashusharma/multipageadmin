@@ -38,9 +38,9 @@ if (isset($_POST["create_single_page"])) {
     }
     $id = mysqli_insert_id($conn);
 
-    foreach ($services as $service) { 
-       $response = file_get_contents('http://' . $_SERVER["HTTP_HOST"] . '/multipageadmin/partnerwebsiteresources/index.php?partner_id=' . urlencode($id) . '&service=' . urlencode($service));  
-    //    print_r($response); exit();
+    foreach ($services as $service) {
+        $response = file_get_contents('http://' . $_SERVER["HTTP_HOST"] . '/multipageadmin/partnerwebsiteresources/index.php?partner_id=' . urlencode($id) . '&service=' . urlencode($service));
+        //    print_r($response); exit();
         $country = str_replace(" ", "-", $country);
         $state = str_replace(" ", "-", $state);
         $city = str_replace(" ", "-", $city);
@@ -53,7 +53,7 @@ if (isset($_POST["create_single_page"])) {
         fclose($myfile);
 
 
-        $url = "$actual_link/multipageadmin/$country/$state/$city/".strtolower(str_replace(" ", "-", $service)).".php";
+        $url = "$actual_link/multipageadmin/$country/$state/$city/" . strtolower(str_replace(" ", "-", $service)) . ".php";
 
         $sql3 = "INSERT INTO `website_pages`(`partner_id`, `website_url`, `status`) VALUES ('$id', '$url', '1')";
         mysqli_query($conn, $sql3);
@@ -80,7 +80,7 @@ if (isset($_POST["create_bullk_page"])) {
                 while (($csv_data = fgetcsv($handle, 1000, ",")) !== FALSE) {
                     if ($var_name++ == 0) continue;
                     // echo '<pre>', print_r($csv_data, 1), '</pre>';
-                    $services = explode(",",$csv_data[13]); 
+                    $services = explode(",", $csv_data[13]);
                     if (!$services[0]) continue;
 
                     $existsql = "SELECT count(*) as check_row FROM `partner_details` WHERE city_name = '$csv_data[2]' and state_name = '$csv_data[1]' and json_contains(`services`, '" . json_encode($services) . "')";
@@ -110,7 +110,7 @@ if (isset($_POST["create_bullk_page"])) {
                                 fwrite($myfile, $response);
                                 fclose($myfile);
 
-                                $url = "$actual_link/multipageadmin/$country/$state/$city/".strtolower(str_replace(" ", "-", $service)).".php";
+                                $url = "$actual_link/multipageadmin/$country/$state/$city/" . strtolower(str_replace(" ", "-", $service)) . ".php";
 
                                 $sql3 = "INSERT INTO `website_pages`(`partner_id`, `website_url`, `status`) VALUES ('$id', '$url', '1')";
                                 mysqli_query($conn, $sql3);
@@ -137,5 +137,36 @@ if (isset($_POST["create_bullk_page"])) {
         // header("LOCATION : ../new-page.php");
         header("Location: $actual_link/multipageadmin/new-page.php");
         exit();
+    }
+}
+
+
+if (isset($_POST["add_extra_code"])) {
+
+    $sql = "UPDATE `extra_code` SET `header_code`='" . $_POST["header_code"] . "',`footer_code`='" . $_POST["footer_code"] . "',`top_header_message`='" . $_POST["top_header_message"] . "' WHERE 1";
+    mysqli_query($conn, $sql); 
+
+    // print_r($services); exit();
+
+    $photo = "https://www.dmarge.com/most-likeable-person-world-the-rock";
+
+    $existsql = "SELECT * FROM `partner_details`";
+    $result = mysqli_query($conn, $existsql);  
+
+    while ($row = mysqli_fetch_assoc($result)) {
+       
+        $response = file_get_contents('http://' . $_SERVER["HTTP_HOST"] . '/multipageadmin/partnerwebsiteresources/index.php?partner_id=' . urlencode($row["partner_id"]) . '&service=' . urlencode($service));
+        //    print_r($response); exit();
+        $country = str_replace(" ", "-", $country);
+        $state = str_replace(" ", "-", $state);
+        $city = str_replace(" ", "-", $city);
+
+        if (!file_exists('../' . $country . '/' . $state . '/' . $city)) {
+            mkdir('../' . $country . '/' . $state . '/' . $city, 0777, true);
+        }
+        $myfile = fopen('../' . $country . '/' . $state . '/' . $city . '/' . strtolower(str_replace(" ", "-", $service)) . '.php', "w") or die("Unable to open file!");
+        fwrite($myfile, $response);
+        fclose($myfile);
+        // sleep( 6000 );
     }
 }
