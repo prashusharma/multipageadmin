@@ -30,9 +30,27 @@
     <!--------------- Required meta tags ------------------->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="title" content="<?php echo $city ?> SEO Services | <?php echo $city ?> Web Design | <?php echo $city ?> Digital Marketing">
-    <meta name="description" content="<?php echo $city ?> SEO Company is a leading SEO & Web Design Agency that provides unmatched <?php echo $city ?> SEO services. We deliver more leads and traffic to your online business in <?php echo $city ?> and surrounding burrows, call <?php echo $city ?> SEO Company today.">
-    <meta name="keywords" content="<?php echo $city ?> SEO Company ,<?php echo $city ?>  Social Media Company,<?php echo $city ?> PPC Company ,<?php echo $city ?>  Digital Marketing Company ,<?php echo $city ?> Web Design Company ,<?php echo $city ?> Graphic design agency">
+
+    <?php if ($row['meta_title'] == "") : ?>
+        <meta name="title" content="<?php echo $city ?> SEO Services | <?php echo $city ?> Web Design | <?php echo $city ?> Digital Marketing">
+    <?php else : ?>
+        <meta name="title" content="<?php echo $row['meta_title'] ?>">
+    <?php endif ?>
+
+    <?php if ($row['meta_description'] == "") : ?>
+        <meta name="description" content="<?php echo $city ?> SEO Company is a leading SEO & Web Design Agency that provides unmatched <?php echo $city ?> SEO services. We deliver more leads and traffic to your online business in <?php echo $city ?> and surrounding burrows, call <?php echo $city ?> SEO Company today.">
+    <?php else : ?>
+        <meta name="description" content="<?php echo $row['meta_description'] ?>">
+    <?php endif ?>
+    
+    <?php if ($row['meta_keyword'] == "") : ?>
+        <meta name="keywords" content="<?php echo $city ?> SEO Company ,<?php echo $city ?>  Social Media Company,<?php echo $city ?> PPC Company ,<?php echo $city ?>  Digital Marketing Company ,<?php echo $city ?> Web Design Company ,<?php echo $city ?> Graphic design agency">
+    <?php else : ?>
+        <meta name="keywords" content="<?php echo $row['meta_keyword'] ?>">
+    <?php endif ?>
+
+
+
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -52,8 +70,9 @@
     $header_code = mysqli_query($conn, "SELECT * FROM `extra_code`");
     $header_code = mysqli_fetch_assoc($header_code);
     // print_r($header_code); exit();
-    if ($header_code["header_code"] != "") :
-    ?>
+    if ($row["special_header_script"] != "") : ?>
+        <?= $row["special_header_script"] ?>
+   <?php elseif ($header_code["header_code"] != "") : ?>
         <?= $header_code["header_code"] ?>
     <?php endif ?>
     <!-- Header code -->
@@ -131,7 +150,9 @@
                                     <li class="social_media_icons"><a href="https://www.instagram.com/organizein_/"><i class="fab fa-instagram"></i></a><span>Instagram</span></li>
                                 </ul>
                             </div>
-                            <?php if ($header_code["top_header_message"] != "") : ?>
+                            <?php if ($row["special_top_message"] != "") : ?>
+                                <div class="left___site____top_____header"><?= $row["special_top_message"] ?></div>
+                            <?php elseif ($header_code["top_header_message"] != "") : ?>
                                 <div class="left___site____top_____header"><?= $header_code["top_header_message"] ?></div>
                             <?php endif ?>
                             <div class="right___site____top___header">

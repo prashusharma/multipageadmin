@@ -174,3 +174,39 @@ if (isset($_POST["add_extra_code"])) {
     header("Location: $actual_link/multipageadmin/contact-form2.php");
     exit();
 }
+
+
+if (isset($_POST["edit_page_website"])) {
+    // print_r($_POST); exit();
+
+    $sql = "UPDATE `partner_details` SET `partner_phone`='".$_POST["phone"]."', `whatsapp`='".$_POST["whatsapp"]."', `partner_email`='".$_POST["email"]."', `meta_title`='".$_POST["title"]."',`meta_description`='".$_POST["description"]."',`meta_keyword`='".$_POST["keywords"]."',`special_top_message`='".$_POST["special_top_message"]."',`special_header_script`='".$_POST["special_header_script"]."' WHERE  `partner_id`='".$_POST["partner_id"]."'";
+    mysqli_query($conn, $sql);
+
+    // print_r($services); exit(); 
+
+    $existsql = "SELECT * FROM `partner_details` WHERE  `partner_id`='".$_POST["partner_id"]."'";
+    $result = mysqli_query($conn, $existsql);
+
+    while ($row = mysqli_fetch_assoc($result)) {
+        $services = json_decode($row["services"]); 
+        foreach ($services as $service) {
+            $service = trim($service);
+            $response = file_get_contents('http://' . $_SERVER["HTTP_HOST"] . '/multipageadmin/partnerwebsiteresources/index.php?partner_id=' . urlencode($row["partner_id"]) . '&service=' . urlencode($service));
+            //    print_r($response); exit();
+            $country = str_replace(" ", "-", $row["country_selected"]);
+            $state = str_replace(" ", "-", $row["state_name"]);
+            $city = str_replace(" ", "-", $row["city_name"]);
+
+            if (!file_exists('../' . $country . '/' . $state . '/' . $city)) {
+                mkdir('../' . $country . '/' . $state . '/' . $city, 0777, true);
+            }
+            $myfile = fopen('../' . $country . '/' . $state . '/' . $city . '/' . strtolower(str_replace(" ", "-", $service)) . '.php', "w") or die("Unable to open file!");
+            fwrite($myfile, $response);
+            fclose($myfile);
+            // sleep( 6000 );
+        }
+    }
+
+    header("Location: $actual_link/multipageadmin/edit-page.php");
+    exit();
+}
