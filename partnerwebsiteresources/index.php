@@ -4,7 +4,7 @@
 <head>
     <?php
     include '../partials/dbconnect.php';
-    $actual_link = "http://$_SERVER[HTTP_HOST]";
+    $actual_link = "https://$_SERVER[HTTP_HOST]";
     $current_url = (string)$actual_link . $_SERVER['REQUEST_URI'];
     $partnerid = $_GET['partner_id'];
     $services = $_GET['service'];
