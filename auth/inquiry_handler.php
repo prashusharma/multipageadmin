@@ -23,7 +23,7 @@
             //process form3
             $name = $_POST['name'];
             $email = $_POST['email'];
-            $current_url = $_POST['current_url'];
+            $current_url = $_POST['actual_url'];
             $budget = $_POST['budget'];
             $phone = $_POST['phone'];
             $services = $_POST['services_interested'];
