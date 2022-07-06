@@ -5,7 +5,6 @@
     <?php
     include '../partials/dbconnect.php';
     $actual_link = "https://$_SERVER[HTTP_HOST]";
-    $current_url = (string)$actual_link . $_SERVER['REQUEST_URI'];
     $partnerid = $_GET['partner_id'];
     $services = $_GET['service'];
 
@@ -20,6 +19,8 @@
     $phone = empty($row['partner_phone']) ? "+1 646 679-7250" : $row['partner_phone'];
     $email = empty($row['partner_email']) ? "hi@organizein.com" : $row['partner_email'];
     $linkedin = $row['partner_linkedin'];
+    $current_url = $actual_link. 'multipageadmin/' . str_replace(" ", "-", trim($country))."/".str_replace(" ", "-", trim($state))."/".str_replace(" ", "-", trim($city))."/".str_replace(" ", "-", trim($services)).".php";
+
     /*<?php echo $country?>
 <?php echo $state?>
 <?php echo $city?>*/
