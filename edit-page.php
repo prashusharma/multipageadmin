@@ -177,7 +177,7 @@ include './partials/dbconnect.php';
                                     <div class="admin-div-filed admin-div-filed2">
                                         <h4>WhatsApp Number</h4>
                                         <div>
-                                            <input type="text" value="<?=$row["whatsapp"]?>" name="whatsapp">
+                                            <input type="text" value="<?= $row["whatsapp"] ?>" name="whatsapp">
                                         </div>
                                     </div>
                                     <!-- 3 -->
@@ -198,7 +198,7 @@ include './partials/dbconnect.php';
                                     <div class="admin-div-filed admin-div-filed2">
                                         <h4>Add any Special Script to Header only to the selected city</h4>
                                         <div>
-                                        <textarea name="special_header_script" rows="4" ><?= $row['special_header_script'] ?></textarea>
+                                            <textarea name="special_header_script" rows="4"><?= $row['special_header_script'] ?></textarea>
                                         </div>
                                     </div>
                                     <!-- 6 -->
@@ -289,7 +289,25 @@ include './partials/dbconnect.php';
     //     darkModex.classList.toggle('active');
     // })
     $(document).ready(function() {
-        $('.country-name').select2();
+        $('.country-name').select2({
+            ajax: {
+                url: "./auth/server_side_call.php",
+                type: "post",
+                dataType: 'json',
+                delay: 250,
+                data: function(params) {
+                    return {
+                        searchTerm: params.term // search term
+                    };
+                },
+                processResults: function(response) {
+                    return {
+                        results: response
+                    };
+                },
+                cache: true
+            }
+        });
         $('.country-name').change(function() {
             window.location = "./edit-page.php?id=" + $(this).val();
         });

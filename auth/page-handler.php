@@ -41,9 +41,9 @@ if (isset($_POST["create_single_page"])) {
     foreach ($services as $service) {
         $response = file_get_contents('http://' . $_SERVER["HTTP_HOST"] . '/multipageadmin/partnerwebsiteresources/index.php?partner_id=' . urlencode($id) . '&service=' . urlencode($service));
         //    print_r($response); exit();
-        $country = str_replace(" ", "-", $country);
-        $state = str_replace(" ", "-", $state);
-        $city = str_replace(" ", "-", $city);
+        $country = strtolower(str_replace(" ", "-", $country));
+        $state = strtolower(str_replace(" ", "-", $state));
+        $city = strtolower(str_replace(" ", "-", $city));
 
         if (!file_exists('../' . $country . '/' . $state . '/' . $city)) {
             mkdir('../' . $country . '/' . $state . '/' . $city, 0777, true);
@@ -63,7 +63,7 @@ if (isset($_POST["create_single_page"])) {
 
 
     if ($result1) {
-        header("Location: /multipageAdmin/manage-pages.php");
+        header("Location: /multipageadmin/manage-pages.php");
         exit();
     }
 }
@@ -98,9 +98,9 @@ if (isset($_POST["create_bullk_page"])) {
 
                                 $response = file_get_contents($actual_link . '/multipageadmin/partnerwebsiteresources/index.php?partner_id=' . urlencode($id) . '&service=' . urlencode($service));
 
-                                $country = str_replace(" ", "-", $csv_data[0]);
-                                $state = str_replace(" ", "-", $csv_data[2]);
-                                $city = str_replace(" ", "-", $csv_data[3]);
+                                $country = strtolower(str_replace(" ", "-", $csv_data[0]));
+                                $state = strtolower(str_replace(" ", "-", $csv_data[2]));
+                                $city = strtolower(str_replace(" ", "-", $csv_data[3]));
 
                                 if (!file_exists('../' . $country . '/' . $state . '/' . $city)) {
                                     mkdir('../' . $country . '/' . $state . '/' . $city, 0777, true);
@@ -157,9 +157,9 @@ if (isset($_POST["add_extra_code"])) {
             $service = trim($service);
             $response = file_get_contents('http://' . $_SERVER["HTTP_HOST"] . '/multipageadmin/partnerwebsiteresources/index.php?partner_id=' . urlencode($row["partner_id"]) . '&service=' . urlencode($service));
             //    print_r($response); exit();
-            $country = str_replace(" ", "-", $row["country_selected"]);
-            $state = str_replace(" ", "-", $row["state_name"]);
-            $city = str_replace(" ", "-", $row["city_name"]);
+            $country = strtolower(str_replace(" ", "-", $row["country_selected"]));
+            $state = strtolower(str_replace(" ", "-", $row["state_name"]));
+            $city = strtolower(str_replace(" ", "-", $row["city_name"]));
 
             if (!file_exists('../' . $country . '/' . $state . '/' . $city)) {
                 mkdir('../' . $country . '/' . $state . '/' . $city, 0777, true);
@@ -193,9 +193,9 @@ if (isset($_POST["edit_page_website"])) {
             $service = trim($service);
             $response = file_get_contents('http://' . $_SERVER["HTTP_HOST"] . '/multipageadmin/partnerwebsiteresources/index.php?partner_id=' . urlencode($row["partner_id"]) . '&service=' . urlencode($service));
             //    print_r($response); exit();
-            $country = str_replace(" ", "-", $row["country_selected"]);
-            $state = str_replace(" ", "-", $row["state_name"]);
-            $city = str_replace(" ", "-", $row["city_name"]);
+            $country = strtolower(str_replace(" ", "-", $row["country_selected"]));
+            $state = strtolower(str_replace(" ", "-", $row["state_name"]));
+            $city = strtolower(str_replace(" ", "-", $row["city_name"]));
 
             if (!file_exists('../' . $country . '/' . $state . '/' . $city)) {
                 mkdir('../' . $country . '/' . $state . '/' . $city, 0777, true);

@@ -19,7 +19,7 @@
     $phone = empty($row['partner_phone']) ? "+1 646 679-7250" : $row['partner_phone'];
     $email = empty($row['partner_email']) ? "hi@organizein.com" : $row['partner_email'];
     $linkedin = $row['partner_linkedin'];
-    $current_url = $actual_link.'/'. 'multipageadmin/' . str_replace(" ", "-", trim($country))."/".str_replace(" ", "-", trim($state))."/".str_replace(" ", "-", trim($city))."/".str_replace(" ", "-", strtolower(trim($services))).".php";
+    $current_url = $actual_link.'/'. 'multipageadmin/' . str_replace(" ", "-", strtolower(trim($country)))."/".str_replace(" ", "-", strtolower(trim($state)))."/".str_replace(" ", "-", strtolower(trim($city)))."/".str_replace(" ", "-", strtolower(trim($services))).".php";
 
     /*<?php echo $country?>
 <?php echo $state?>
@@ -1120,7 +1120,7 @@
                     <form action="<?= $actual_link ?>/multipageadmin/auth/inquiry_handler.php" method="post">
                         <input type="hidden" name="contact_form" value="form-2" />
                         <input type="text" class="websiteInput" placeholder="Email">
-                        <input type="hidden" name="actual_url" value="<?= $current_url ?>">
+                        <input type="hidden" name="current_url" value="<?= $current_url ?>">
                         <input type="text" class="websiteInput" placeholder="Enter Your website">
                         <button type="submit" class="proposalBtn">Send me a proposal <i class="fas fa-arrow-right"></i></button>
                     </form>
@@ -2320,7 +2320,7 @@
             <div class="container-fluid">
                 <form action="<?= $actual_link ?>/multipageadmin/auth/inquiry_handler.php" method="post" id="form3">
                     <input type="hidden" name="contact_form" value="form-3" />
-                    <input type="hidden" name="actual_url" value="<?= $current_url ?>">
+                    <input type="hidden" name="current_url" value="<?= $current_url ?>">
                     <div class="row">
                         <div class="col-12 max____width__ col-md-12 col-lg-12 col-xl-12 col-xxl-12 mx-auto">
                             <div class="row">

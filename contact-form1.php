@@ -10,52 +10,7 @@ mysqli_query($conn, "update inquiry_form set new_inquiry = 0");
 ?>
 <?php include 'partials/header.php' ?>
 <!------------------ header section  ------------------------>
-<!-- <header>
-            <div class="container">
-                <div class="row">
-                    <div class="col-12 col-md-12 col-lg-12">
-                        <div class="header-navigation">
-                            <div class="logo-">
-                                <a href=""><img src="./img/organizein-logo-main-1.png" class="img-fluid" alt="logo"></a>
-                            </div>
-                            <div class="header-icon-div">
-                                <div>
-                                    <a class="icon" href="Contact%20Form.html">
-                                        
-                                        <i class="fa-solid fa-envelope">
-                                            <span>0</span>
-                                        </i>
-                                    
-                                        <span>
-                                            Website Email
-                                        </span>
-                                    </a>
-                                </div>
-                                <div>
-                                  <div class="dropdown">
-                                    <a class="dropdown-toggle" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" href="#">
-                                      <i class="fa-solid fa-user"></i>
-                                  
-                                      <span>
-                                          My Account
-                                      </span>
-                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                      <li class="text-start"><a class="dropdown-item" href="dashboard.html">Dashboard</a></li>
-                                      <li class="text-start"><a class="dropdown-item" href="My%20Accoun.html">Change Password</a></li>
-                                      <li class="text-start"><a class="dropdown-item" href="adminlogin.html">Database Details</a></li>
-                                    </ul>
-                                  </div>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header> -->
 <?php include 'partials/loggedin-header.php' ?>
-
-
 <!------------------ header section end ------------------------>
 
 <section>
@@ -120,7 +75,11 @@ mysqli_query($conn, "update inquiry_form set new_inquiry = 0");
                 $form_number = $row['form_number'];
                 $date = $row['date'];
                 $website_link = $row['website_link'];
-                $current_url = $row['from_website']
+                $current_url = $row['from_website'];
+                $ip = $row['ip'];
+                $country = $row['country'];
+                $city = $row['city'];
+                $message_url = $row['message_url'];
               ?>
                 <tr>
                   <td><?= $id ?> </td>
@@ -223,28 +182,28 @@ mysqli_query($conn, "update inquiry_form set new_inquiry = 0");
                           <div class="signle-table-filed">
                             <h5>Massage URL</h5>
                             <div>
-                              <textarea name="message_url" id="" rows="5"> </textarea>
+                              <textarea name="message_url" id="" rows="5"><?=$message_url?> </textarea>
                             </div>
                           </div>
                           <!-- 12 -->
                           <div class="signle-table-filed">
                             <h5>City</h5>
                             <div>
-                              <input name="city" type="text">
+                              <input name="city" value="<?=$city?>" type="text">
                             </div>
                           </div>
                           <!-- 13 -->
                           <div class="signle-table-filed">
                             <h5>Country</h5>
                             <div>
-                              <input name="coutry" type="text">
+                              <input name="coutry" value="<?=$country?>"  type="text">
                             </div>
                           </div>
                           <!-- 14 -->
                           <div class="signle-table-filed">
                             <h5>IP</h5>
                             <div>
-                              <input name="ip" type="text">
+                              <input name="ip"  value="<?=$ip?>"  type="text">
                             </div>
                           </div>
                           <div class="modal-footer">

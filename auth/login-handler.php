@@ -10,9 +10,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($_POST["password"] === $get_password["password"]) {
         $_SESSION["isLoggedin"] = true;
         header("LOCATION: ../dashboard.php");
+        exit();
     }else{
         $_SESSION["message"] = "Email or password is incorrect";
         header("LOCATION: ../index.php");
+        exit();
     }
 }
 ?>
