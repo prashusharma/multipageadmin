@@ -1,6 +1,6 @@
 <?php
 include '../partials/dbconnect.php';
-$actual_link = "https://$_SERVER[HTTP_HOST]";
+$actual_link = "http://$_SERVER[HTTP_HOST]";
 
 
 

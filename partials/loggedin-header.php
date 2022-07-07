@@ -36,6 +36,7 @@
                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                       <li class="text-start"><a class="dropdown-item" href="dashboard.php">Dashboard</a></li>
                                       <li class="text-start"><a class="dropdown-item" href="my-account.php">Change Password</a></li>
+                                      <li class="text-start"><a class="dropdown-item" href="add_admin.php">Add another admin</a></li>
                                       <li class="text-start"><a class="dropdown-item" href="admin-login.php">Database Details</a></li>
                                     </ul>
                                   </div>
