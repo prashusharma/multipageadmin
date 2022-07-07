@@ -1,6 +1,6 @@
 <?php
     include '../partials/dbconnect.php';
-    $actual_link = "http://$_SERVER[HTTP_HOST]";
+    $actual_link = "https://$_SERVER[HTTP_HOST]";
     // $current_url=$actual_link.$_SERVER['REQUEST_URI']; 
 
     if(isset($_POST['contact_form'])){

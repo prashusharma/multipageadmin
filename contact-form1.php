@@ -4,7 +4,7 @@ if (!isset($_SESSION["isLoggedin"])) {
   header('Location: ./index.php');
 }
 include 'partials/dbconnect.php';
-$actual_link = "http://$_SERVER[HTTP_HOST]";
+$actual_link = "https://$_SERVER[HTTP_HOST]";
 
 mysqli_query($conn, "update inquiry_form set new_inquiry = 0");
 ?>
@@ -60,7 +60,7 @@ mysqli_query($conn, "update inquiry_form set new_inquiry = 0");
               <!-- 1 -->
               <?php
               include './partials/dbconnect.php';
-              $actual_link = "http://$_SERVER[HTTP_HOST]";
+              $actual_link = "https://$_SERVER[HTTP_HOST]";
               $sql = "SELECT * FROM `inquiry_form`";
               $result = mysqli_query($conn, $sql);
               while ($row = mysqli_fetch_assoc($result)) {
