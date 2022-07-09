@@ -81,15 +81,15 @@ include './partials/dbconnect.php';
                 <td>';
 
                 $serviceSql = mysqli_query($conn, "select website_url from website_pages where partner_id = $no");
-                $country = str_replace(" ", "-", $country);
-                $state = str_replace(" ", "-", $state);
-                $city = str_replace(" ", "-", $city);
+                $country = strtolower(str_replace(" ", "-", $country));
+                $state = strtolower(str_replace(" ", "-", $state));
+                $city = strtolower(str_replace(" ", "-", $city));
                 while ($rowdata = mysqli_fetch_assoc($serviceSql)) {
                   echo $rowdata["website_url"]."<br>";
                 }
 
                 echo '</td>  
-                <td><a href="./auth/create_download_zip.php?folder_structure='.strtolower($country).'/'.strtolower($city).'">Download</a> / <a href="./edit-page.php?id='.$no.'">Edit</a> / <a href="./auth/delete_website.php?id='.$no.'&folder='.$country.'/'.$city.'">Delete</a></td>
+                <td><a href="./auth/create_download_zip.php?folder_structure='.$country.'/'.$city.'">Download</a> / <a href="./edit-page.php?id='.$no.'">Edit</a> / <a href="./auth/delete_website.php?id='.$no.'&folder='.$country.'/'.$city.'">Delete</a></td>
               </tr>';
               }
               ?>
