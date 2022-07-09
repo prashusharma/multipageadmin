@@ -3,7 +3,7 @@
 $folder = $_GET["folder_structure"];
 $file = tempnam("tmp", "zip");
 $zip = new ZipArchive();
-$zip->open($file, ZipArchive::OVERWRITE);
+$zip->open($file, ZipArchive::CREATE);
 
 // Stuff with content
 foreach (glob("../$folder/*.php") as $file1) { /* Add appropriate path to read content of zip */
