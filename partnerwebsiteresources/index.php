@@ -3636,11 +3636,11 @@
 
         $(document).ready(function() {
             const topp = $('#contactUsForm').offset()
-            $('.contactus_btn').click(function() {
-                $('html, body').animate({
-                    scrollTop: ($("#contactUsForm").offset().top - 100)
-                }, 10);
-            })
+            // $('.contactus_btn').click(function() {
+            //     $('html, body').animate({
+            //         scrollTop: ($("#contactUsForm").offset().top - 100)
+            //     }, 10);
+            // })
         })
     </script>
     <script>
