@@ -122,7 +122,11 @@
             }
         }
     </style>
-    <title>organizein</title>
+    <?php if ($row['meta_title'] == "") : ?>
+        <title><?php echo $city ?> <?=$services?> </title>
+    <?php else : ?>
+        <title><?php echo $row['meta_title'] ?></title>
+    <?php endif ?>
 </head>
 
 <body>
@@ -158,13 +162,13 @@
                             <?php endif ?>
                             <div class="right___site____top___header">
                                 <div class="number___div" style="margin-right: 4px;">
-                                    <span><i class="fas fa-mobile-alt"></i><?php echo $phone ?></span>
+                                    <span><i class="fas fa-mobile-alt"></i> <?php echo $phone ?></span>
                                 </div>
                                 <div class="number___div">
                                     <span><i class="fas fa-mobile-alt"></i> <?php echo $email ?></span>
                                 </div>
                                 <div class="login___img">
-                                    <img style="border-radius: 100%;" src="https://countryflagsapi.com/png/<?php echo $country_name ?>" alt="flag" class="img-fluid flag" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    <img style="margin-top: 2px;border-radius: 100%;width: 25px;height: 25px;" src="https://countryflagsapi.com/png/<?php echo $country_name ?>" alt="flag" class="img-fluid flag" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                     <span class="login_btn_company">Login
                                         <div class="openPoper">
                                             <div class="head">
@@ -775,7 +779,7 @@
                     <div class="row">
                         <div class="col-md-6 col-12 col-lg-6 banner____ col-xl-6 mx-auto">
                             <div class="text___banner___header" style="padding: 0px 36px;">
-                                <h1>Organizein <?php echo $country_name ?>'s Trusted IT & <?php echo $services ?> Agency
+                                <h1>Organizein <?php echo $city ?>'s Trusted IT & <?php echo $services ?> Agency
                                 </h1>
                                 <p>We will help you take advantage of all that the Internet has to offer. Having a solid
                                     inbound strategy with a high ROI is what every business strives for.
@@ -1119,9 +1123,9 @@
                         digital strategists to learn how WebFx can help you reach your business goals.</p>
                     <form action="<?= $actual_link ?>/multipageadmin/auth/inquiry_handler.php" method="post">
                         <input type="hidden" name="contact_form" value="form-2" />
-                        <input type="text" class="websiteInput" placeholder="Email">
+                        <input type="email" class="websiteInput" name="email" placeholder="Email" required>
                         <input type="hidden" name="current_url" value="<?= $current_url ?>">
-                        <input type="text" class="websiteInput" placeholder="Enter Your website">
+                        <input type="text" class="websiteInput" name="website_link" placeholder="Enter Your website" required>
                         <button type="submit" class="proposalBtn">Send me a proposal <i class="fas fa-arrow-right"></i></button>
                     </form>
                 </div>
@@ -2894,7 +2898,7 @@
                     <div class="col-12 max____width__ col-md-12 col-xl-12 col-lg-12 col-xxl-12 mx-auto">
                         <div class="row">
                             <div class="col-12 col-md-4 left____site___footer___btn col-lg-4 col-xl-4 mx-auto">
-                                <button data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/global_blue.png" alt="" class="img-fluid" /> <?php echo $country_name ?> <i class="fas fa-chevron-right"></i></button>
+                                <button data-bs-toggle="modal" data-bs-target="#exampleModal"><img style="border-radius: 100%; width:25px; height:25px" src="https://countryflagsapi.com/png/<?php echo $country_name ?>" alt="" class="img-fluid" /> <?php echo $country_name ?> <i class="fas fa-chevron-right"></i></button>
                             </div>
 
                             <div class="col-12 col-md-8 right____site___footer___btn col-lg-8 col-xl-8 mx-auto">

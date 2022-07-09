@@ -227,7 +227,7 @@ include './partials/dbconnect.php';
                                     <div class="admin-div-filed admin-div-filed2 mt-3">
                                         <h4>Title</h4>
                                         <div>
-                                            <input type="text" value="<?= $row['meta_title'] ?>" name="title">
+                                            <input type="text" value="<?= ($row['meta_title'] == "") ? $row["city_name"] : $row['meta_title'] ?>" name="title">
                                         </div>
                                     </div>
                                     <!-- 10 -->

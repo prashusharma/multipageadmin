@@ -61,8 +61,9 @@ mysqli_query($conn, "update inquiry_form set new_inquiry = 0");
               <?php
               include './partials/dbconnect.php';
               $actual_link = "https://$_SERVER[HTTP_HOST]";
-              $sql = "SELECT * FROM `inquiry_form`";
+              $sql = "SELECT * FROM `inquiry_form` ORDER BY `id` DESC";
               $result = mysqli_query($conn, $sql);
+              $sno = 0;
               while ($row = mysqli_fetch_assoc($result)) {
 
                 $id = $row['id'];
@@ -80,9 +81,10 @@ mysqli_query($conn, "update inquiry_form set new_inquiry = 0");
                 $country = $row['country'];
                 $city = $row['city'];
                 $message_url = $row['message_url'];
+                $sno++;
               ?>
                 <tr>
-                  <td><?= $id ?> </td>
+                  <td><?= $sno ?> </td>
                   <td><?= $date ?> </td>
                   <td><?= $form_number ?> </td>
                   <td><?= $name ?> </td>

@@ -60,6 +60,7 @@ include './partials/dbconnect.php';
               $actual_link = "https://$_SERVER[HTTP_HOST]";
               $sql = "SELECT * FROM `partner_details`";
               $result = mysqli_query($conn, $sql);
+              $sno = 0;
               while ($row = mysqli_fetch_assoc($result)) {
 
                 $no = $row['partner_id'];
@@ -69,10 +70,10 @@ include './partials/dbconnect.php';
                 $name = $row['title'] . $row['partner_first_name'] . $row['partner_last_name'];
                 $services = $row['services'];
                 $services_array = json_decode($services);
-
+                $sno++;
 
                 echo '<tr>
-                <td>' . $no . '</td>
+                <td>' . $sno . '</td>
                 <td>' . $country . '</td>
                 <td>' . $state . '</td>
                 <td>' . $city . '</td>

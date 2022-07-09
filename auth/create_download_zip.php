@@ -17,7 +17,7 @@ header('Content-Type: application/zip');
 header('Content-Length: ' . filesize($file). "\\n");
 header('Content-Disposition: attachment; filename="file.zip"');
 readfile($file);
-
+unlink($file);
 exit();
 
 ?>

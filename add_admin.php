@@ -63,7 +63,7 @@ include './partials/dbconnect.php';
                                             <br>
                                             <div style="display: flex ; justify-content: center;">
                                             <div style="width: 40% ; " class="text-center mb-5">
-                                                <button type="submit" style="background-color:#036081; width: 100%; color: #fff; border: none;" class="create-website">Change Password</button>
+                                                <button type="submit" style="background-color:#036081; width: 100%; color: #fff; border: none;" class="create-website">Add admin</button>
                                             </div>
                                             </div>
                                         </form>
