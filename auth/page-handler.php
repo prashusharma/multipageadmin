@@ -161,10 +161,10 @@ if (isset($_POST["add_extra_code"])) {
             $state = strtolower(str_replace(" ", "-", $row["state_name"]));
             $city = strtolower(str_replace(" ", "-", $row["city_name"]));
 
-            if (!file_exists('../' . $country . '/' . $city)) {
-                mkdir('../' . $country . '/' . $city, 0777, true);
+            if (!file_exists('../../' . $country . '/' . $city)) {
+                mkdir('../../' . $country . '/' . $city, 0777, true);
             }
-            $myfile = fopen('../' . $country . '/' . $city . '/' . strtolower(str_replace(" ", "-", $service)) . '.php', "w") or die("Unable to open file!");
+            $myfile = fopen('../../' . $country . '/' . $city . '/' . strtolower(str_replace(" ", "-", $service)) . '.php', "w") or die("Unable to open file!");
             fwrite($myfile, $response);
             fclose($myfile);
             // sleep( 6000 );
@@ -197,10 +197,10 @@ if (isset($_POST["edit_page_website"])) {
             $state = strtolower(str_replace(" ", "-", $row["state_name"]));
             $city = strtolower(str_replace(" ", "-", $row["city_name"]));
 
-            if (!file_exists('../' . $country . '/' . $city)) {
-                mkdir('../' . $country . '/' . $city, 0777, true);
+            if (!file_exists('../../' . $country . '/' . $city)) {
+                mkdir('../../' . $country . '/' . $city, 0777, true);
             }
-            $myfile = fopen('../' . $country . '/' . $city . '/' . strtolower(str_replace(" ", "-", $service)) . '.php', "w") or die("Unable to open file!");
+            $myfile = fopen('../../' . $country . '/' . $city . '/' . strtolower(str_replace(" ", "-", $service)) . '.php', "w") or die("Unable to open file!");
             fwrite($myfile, $response);
             fclose($myfile);
             // sleep( 6000 );
