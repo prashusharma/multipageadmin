@@ -6,7 +6,7 @@ $zip = new ZipArchive();
 $zip->open($file, ZipArchive::CREATE);
 
 // Stuff with content
-foreach (glob("../$folder/*.php") as $file1) { /* Add appropriate path to read content of zip */
+foreach (glob("../../$folder/*.php") as $file1) { /* Add appropriate path to read content of zip */
   $zip->addFile($file1);
 }
 // Close and send to users
