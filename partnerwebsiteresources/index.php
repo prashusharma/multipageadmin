@@ -19,7 +19,7 @@
     $phone = empty($row['partner_phone']) ? "+1 646 679-7250" : $row['partner_phone'];
     $email = empty($row['partner_email']) ? "hi@organizein.com" : $row['partner_email'];
     $linkedin = $row['partner_linkedin'];
-    $current_url = $actual_link.'/'. 'multipageadmin/' . str_replace(" ", "-", strtolower(trim($country)))."/".str_replace(" ", "-", strtolower(trim($city)))."/".str_replace(" ", "-", strtolower(trim($services))).".php";
+    $current_url = $actual_link.'/'. str_replace(" ", "-", strtolower(trim($country)))."/".str_replace(" ", "-", strtolower(trim($city)))."/".str_replace(" ", "-", strtolower(trim($services))).".php";
 
     /*<?php echo $country?>
 <?php echo $state?>
