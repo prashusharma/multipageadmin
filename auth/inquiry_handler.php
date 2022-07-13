@@ -1,6 +1,6 @@
 <?php
     include '../partials/dbconnect.php';
-    $actual_link = "https://$_SERVER[HTTP_HOST]";
+    $actual_link = "https://$_SERVER[https_HOST]";
     // $current_url=$actual_link.$_SERVER['REQUEST_URI']; 
 
     if(isset($_POST['contact_form'])){
@@ -12,12 +12,11 @@
             $website_link = $_POST['website_link'];
             $phone = $_POST['phone'];
             $services = $_POST['services_interested'];
-            $form_number = $_POST['contact_form'];
+            $form_number = $_POST['contact_form']; 
             
-            
-            $to      ='prashukumarsharmassm2000@gmail.com'; 
+            $to      ="nisargnaik@gmail.com"; 
             $subject = $name.' filled form-1 on website '.$current_url; 
-            $email_message = "Email of user: ".$email."\nPhone number: ".$phone;  
+            $email_message = "Email of user: ".$email."\nPhone number: ".$phone."\nServices: ".$services."\nWebsite link: ".$website_link;  
             mail($to, $subject, $email_message);  
 
             $sql = "INSERT INTO `inquiry_form`(`full_name`, `from_website` ,`email`, `phone`, `website_link`, `interested_services`,`form_number`) VALUES ('$name','$current_url','$email','$phone','$website_link','$services','$form_number')";
@@ -38,12 +37,11 @@
             $company = $_POST['company'];
             $form_number = $_POST['contact_form'];
 
-            $to      ='prashukumarsharmassm2000@gmail.com'; 
+            $to      ='nisargnaik@gmail.com'; 
             $subject = $name.' filled form-3 on website '.$current_url; 
-            $email_message = "Email of user: ".$email."\nPhone number: ".$phone."\nInquiry for: ".$message;  
+            $email_message = "Email of user: ".$email."\nPhone number: ".$phone."\nInquiry for: ".$message."\nCompany for: ".$company."\nBudget for: ".$budget."\nServices for: ".$services;   
             mail($to, $subject, $email_message);
-
-                 $sql = "INSERT INTO `inquiry_form`(`full_name`,`from_website` , `company`, `email`, `phone`, `budget`, `interested_services`, `message`,`form_number`) VALUES ('$name','$current_url','$company','$email','$phone','$budget','$services','$message','$form_number')";
+            $sql = "INSERT INTO `inquiry_form`(`full_name`,`from_website` , `company`, `email`, `phone`, `budget`, `interested_services`, `message`,`form_number`) VALUES ('$name','$current_url','$company','$email','$phone','$budget','$services','$message','$form_number')";
             mysqli_query($conn, $sql);
 
             // print_r($sql); exit();
@@ -58,14 +56,14 @@
             $form_number = $_POST['contact_form'];
             $current_url = $_POST['current_url'];
 
-            $to      ='prashukumarsharmassm2000@gmail.com'; 
-            $subject = $name.' filled form-2 on website '.$current_url; 
-            $email_message = 'Email of user: '.$email;  
+            $to      ='nisargnaik@gmail.com'; 
+            $subject = 'filled form-2 on website '.$current_url; 
+            $email_message = 'Email of user: '.$email.'
+Website of user: '.$website_link;  
             mail($to, $subject, $email_message);
 
             $sql = "INSERT INTO `inquiry_form`( `email`,`from_website` , `website_link`,`form_number`) VALUES ('$email','$current_url', '$website_link','$form_number')";
             mysqli_query($conn, $sql);
-
             header("Location: https://organizein.com/thank-you/");
             exit();
         }

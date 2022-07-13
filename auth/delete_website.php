@@ -1,6 +1,6 @@
 <?php
 include '../partials/dbconnect.php';
-$actual_link = "https://$_SERVER[HTTP_HOST]";
+$actual_link = "https://$_SERVER[https_HOST]";
 $id = $_GET['id'];
 $sql = "DELETE FROM `partner_details` WHERE partner_id = '$id'"; 
 mysqli_query($conn, $sql);

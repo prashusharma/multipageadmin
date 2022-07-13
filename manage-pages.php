@@ -57,7 +57,7 @@ include './partials/dbconnect.php';
               <!-- 1 -->
 
               <?php
-              $actual_link = "https://$_SERVER[HTTP_HOST]";
+              $actual_link = "https://$_SERVER[https_HOST]";
               $sql = "SELECT * FROM `partner_details`";
               $result = mysqli_query($conn, $sql);
               $sno = 0;

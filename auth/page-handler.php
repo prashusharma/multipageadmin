@@ -1,6 +1,6 @@
 <?php
 include '../partials/dbconnect.php';
-$actual_link = "https://$_SERVER[HTTP_HOST]";
+$actual_link = "https://$_SERVER[https_HOST]";
 
 
 
@@ -39,21 +39,21 @@ if (isset($_POST["create_single_page"])) {
     $id = mysqli_insert_id($conn);
 
     foreach ($services as $service) {
-        $response = file_get_contents('http://' . $_SERVER["HTTP_HOST"] . '/multipageadmin/partnerwebsiteresources/index.php?partner_id=' . urlencode($id) . '&service=' . urlencode($service));
+        $response = file_get_contents('https://' . $_SERVER["https_HOST"] . '/multipageadmin/partnerwebsiteresources/index.php?partner_id=' . urlencode($id) . '&service=' . urlencode($service));
         //    print_r($response); exit();
         $country = strtolower(str_replace(" ", "-", $country));
         $state = strtolower(str_replace(" ", "-", $state));
         $city = strtolower(str_replace(" ", "-", $city));
 
-        if (!file_exists('../' . $country . '/' . $city)) {
-            mkdir('../' . $country . '/' . $city, 0777, true);
+        if (!file_exists('../../' . $country . '/' . $city)) {
+            mkdir('../../' . $country . '/' . $city, 0777, true);
         }
-        $myfile = fopen('../' . $country . '/' . $city . '/' . strtolower(str_replace(" ", "-", $service)) . '.php', "w") or die("Unable to open file!");
+        $myfile = fopen('../../' . $country . '/' . $city . '/' . strtolower(str_replace(" ", "-", $service)) . '.php', "w") or die("Unable to open file!");
         fwrite($myfile, $response);
         fclose($myfile);
 
 
-        $url = "$actual_link/multipageadmin/$country/$city/" . strtolower(str_replace(" ", "-", $service)) . ".php";
+        $url = "$actual_link/$country/$city/" . strtolower(str_replace(" ", "-", $service)) . ".php";
 
         $sql3 = "INSERT INTO `website_pages`(`partner_id`, `website_url`, `status`) VALUES ('$id', '$url', '1')";
         mysqli_query($conn, $sql3);
@@ -102,15 +102,15 @@ if (isset($_POST["create_bullk_page"])) {
                                 $state = strtolower(str_replace(" ", "-", $csv_data[2]));
                                 $city = strtolower(str_replace(" ", "-", $csv_data[3]));
 
-                                if (!file_exists('../' . $country . '/' . $city)) {
-                                    mkdir('../' . $country . '/' . $city, 0777, true);
+                                if (!file_exists('../../' . $country . '/' . $city)) {
+                                    mkdir('../../' . $country . '/' . $city, 0777, true);
                                 }
 
-                                $myfile = fopen('../' . $country . '/' . $city . '/' . strtolower(str_replace(" ", "-", $service)) . '.php', "w") or die("Unable to open file!");
+                                $myfile = fopen('../../' . $country . '/' . $city . '/' . strtolower(str_replace(" ", "-", $service)) . '.php', "w") or die("Unable to open file!");
                                 fwrite($myfile, $response);
                                 fclose($myfile);
 
-                                $url = "$actual_link/multipageadmin/$country/$city/" . strtolower(str_replace(" ", "-", $service)) . ".php";
+                                $url = "$actual_link/$country/$city/" . strtolower(str_replace(" ", "-", $service)) . ".php";
 
                                 $sql3 = "INSERT INTO `website_pages`(`partner_id`, `website_url`, `status`) VALUES ('$id', '$url', '1')";
                                 mysqli_query($conn, $sql3);
@@ -155,7 +155,7 @@ if (isset($_POST["add_extra_code"])) {
         $services = json_decode($row["services"]); 
         foreach ($services as $service) {
             $service = trim($service);
-            $response = file_get_contents('http://' . $_SERVER["HTTP_HOST"] . '/multipageadmin/partnerwebsiteresources/index.php?partner_id=' . urlencode($row["partner_id"]) . '&service=' . urlencode($service));
+            $response = file_get_contents('https://' . $_SERVER["https_HOST"] . '/multipageadmin/partnerwebsiteresources/index.php?partner_id=' . urlencode($row["partner_id"]) . '&service=' . urlencode($service));
             //    print_r($response); exit();
             $country = strtolower(str_replace(" ", "-", $row["country_selected"]));
             $state = strtolower(str_replace(" ", "-", $row["state_name"]));
@@ -191,7 +191,7 @@ if (isset($_POST["edit_page_website"])) {
         $services = json_decode($row["services"]); 
         foreach ($services as $service) {
             $service = trim($service);
-            $response = file_get_contents('http://' . $_SERVER["HTTP_HOST"] . '/multipageadmin/partnerwebsiteresources/index.php?partner_id=' . urlencode($row["partner_id"]) . '&service=' . urlencode($service));
+            $response = file_get_contents('https://' . $_SERVER["https_HOST"] . '/multipageadmin/partnerwebsiteresources/index.php?partner_id=' . urlencode($row["partner_id"]) . '&service=' . urlencode($service));
             //    print_r($response); exit();
             $country = strtolower(str_replace(" ", "-", $row["country_selected"]));
             $state = strtolower(str_replace(" ", "-", $row["state_name"]));

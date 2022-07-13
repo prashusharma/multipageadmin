@@ -4,7 +4,7 @@
 <head>
     <?php
     include '../partials/dbconnect.php';
-    $actual_link = "https://$_SERVER[HTTP_HOST]";
+    $actual_link = "https://$_SERVER[https_HOST]";
     $partnerid = $_GET['partner_id'];
     $services = $_GET['service'];
 
@@ -19,7 +19,7 @@
     $phone = empty($row['partner_phone']) ? "+1 646 679-7250" : $row['partner_phone'];
     $email = empty($row['partner_email']) ? "hi@organizein.com" : $row['partner_email'];
     $linkedin = $row['partner_linkedin'];
-    $current_url = $actual_link.'/'. 'multipageadmin/' . str_replace(" ", "-", strtolower(trim($country)))."/".str_replace(" ", "-", strtolower(trim($state)))."/".str_replace(" ", "-", strtolower(trim($city)))."/".str_replace(" ", "-", strtolower(trim($services))).".php";
+    $current_url = $actual_link.'/'. 'multipageadmin/' . str_replace(" ", "-", strtolower(trim($country)))."/".str_replace(" ", "-", strtolower(trim($city)))."/".str_replace(" ", "-", strtolower(trim($services))).".php";
 
     /*<?php echo $country?>
 <?php echo $state?>
@@ -3594,7 +3594,7 @@
         //     });
         // });
     </script>
-    <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <script>
         $(document).ready(function() {
