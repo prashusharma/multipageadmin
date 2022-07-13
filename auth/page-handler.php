@@ -1,6 +1,6 @@
 <?php
 include '../partials/dbconnect.php';
-$actual_link = "https://$_SERVER[https_HOST]";
+$actual_link = "https://$_SERVER[HTTP_HOST]";
 
 
 
@@ -39,7 +39,7 @@ if (isset($_POST["create_single_page"])) {
     $id = mysqli_insert_id($conn);
 
     foreach ($services as $service) {
-        $response = file_get_contents('https://' . $_SERVER["https_HOST"] . '/multipageadmin/partnerwebsiteresources/index.php?partner_id=' . urlencode($id) . '&service=' . urlencode($service));
+        $response = file_get_contents('https://' . $_SERVER["HTTP_HOST"] . '/multipageadmin/partnerwebsiteresources/index.php?partner_id=' . urlencode($id) . '&service=' . urlencode($service));
         //    print_r($response); exit();
         $country = strtolower(str_replace(" ", "-", $country));
         $state = strtolower(str_replace(" ", "-", $state));
@@ -155,7 +155,7 @@ if (isset($_POST["add_extra_code"])) {
         $services = json_decode($row["services"]); 
         foreach ($services as $service) {
             $service = trim($service);
-            $response = file_get_contents('https://' . $_SERVER["https_HOST"] . '/multipageadmin/partnerwebsiteresources/index.php?partner_id=' . urlencode($row["partner_id"]) . '&service=' . urlencode($service));
+            $response = file_get_contents('https://' . $_SERVER["HTTP_HOST"] . '/multipageadmin/partnerwebsiteresources/index.php?partner_id=' . urlencode($row["partner_id"]) . '&service=' . urlencode($service));
             //    print_r($response); exit();
             $country = strtolower(str_replace(" ", "-", $row["country_selected"]));
             $state = strtolower(str_replace(" ", "-", $row["state_name"]));
@@ -191,7 +191,7 @@ if (isset($_POST["edit_page_website"])) {
         $services = json_decode($row["services"]); 
         foreach ($services as $service) {
             $service = trim($service);
-            $response = file_get_contents('https://' . $_SERVER["https_HOST"] . '/multipageadmin/partnerwebsiteresources/index.php?partner_id=' . urlencode($row["partner_id"]) . '&service=' . urlencode($service));
+            $response = file_get_contents('https://' . $_SERVER["HTTP_HOST"] . '/multipageadmin/partnerwebsiteresources/index.php?partner_id=' . urlencode($row["partner_id"]) . '&service=' . urlencode($service));
             //    print_r($response); exit();
             $country = strtolower(str_replace(" ", "-", $row["country_selected"]));
             $state = strtolower(str_replace(" ", "-", $row["state_name"]));
