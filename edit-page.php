@@ -161,6 +161,10 @@ include './partials/dbconnect.php';
                                 $sql = "SELECT * FROM `partner_details` WHERE `partner_id`='$id'";
                                 $result = mysqli_query($conn, $sql);
                                 $row = mysqli_fetch_assoc($result);
+                                $rowselect["city_name"];
+                                $default_description = $rowselect["city_name"]." SEO Company is a leading SEO & Web Design Agency that provides unmatched ".$rowselect["city_name"]." SEO services. We deliver more leads and traffic to your online business in ".$rowselect["city_name"]." and surrounding burrows, call Quod maiores quaerat SEO Company today.";
+
+                                $default_keywords = $rowselect["city_name"]." SEO Company ,".$rowselect["city_name"]."  Social Media Company,".$rowselect["city_name"]." PPC Company ,".$rowselect["city_name"]."  Digital Marketing Company ,".$rowselect["city_name"]." Web Design Company ,".$rowselect["city_name"]." Graphic design agency";
                                 ?>
                                 <form class="px-4" action="./auth/page-handler.php" method="post">
                                     <!-- 1 -->
@@ -234,14 +238,14 @@ include './partials/dbconnect.php';
                                     <div class="admin-div-filed admin-div-filed2">
                                         <h4>Description</h4>
                                         <div>
-                                            <input type="text" value="<?= $row['meta_description'] ?>" name="description">
+                                            <input type="text" value="<?= ($row['meta_description'] != "")?$row['meta_description']:$default_description ?>" name="description">
                                         </div>
                                     </div>
                                     <!-- 11 -->
                                     <div class="admin-div-filed admin-div-filed2">
                                         <h4>Keywords</h4>
                                         <div>
-                                            <input type="text" value="<?= $row['meta_keyword'] ?>" name="keywords">
+                                            <input type="text" value="<?= ($row['meta_keyword'] != "")?$row['meta_keyword']:$default_keywords ?>" name="keywords">
                                         </div>
                                     </div>
                                     <!-- <div class="admin-div-filed admin-div-filed2">
