@@ -2547,11 +2547,11 @@
                                 <div class="Left__site__footer">
                                     <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/organizein-logo-main-1.png" alt="" class="img-fluid" />
                                     <ul>
-                                        <li><a href="https://www.facebook.com/organizeindm/ "> <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/facebook-day.svg" alt="" class="img-fluid" /></a></li>
-                                        <li><a href="https://twitter.com/Organizein/"> <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/twitter-day.svg" alt="" class="img-fluid" /></a></li>
-                                        <li><a href="https://www.linkedin.com/company/3273657/"> <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/linkedin-day.svg" alt="" class="img-fluid" /></a></li>
-                                        <li><a href=""> <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/instagram-day.svg" alt="https://www.youtube.com/channel/UCAuvWg57vxGiRcyRV9p3Avw/videos" class="img-fluid" /></a></li>
-                                        <li><a href="https://www.instagram.com/organizein_/"> <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/youtube-day.svg" alt="" class="img-fluid" /></a></li>
+                                        <li><a href="https://www.facebook.com/organizeindm/ "> <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/facebook.png" alt="" class="img-fluid" /></a></li>
+                                        <li><a href="https://twitter.com/Organizein/"> <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/twitter-sign.png" alt="" class="img-fluid" /></a></li>
+                                        <li><a href="https://www.linkedin.com/company/3273657/"> <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/linkedin-logo.png" alt="" class="img-fluid" /></a></li>
+                                        <li><a href="https://www.youtube.com/channel/UCAuvWg57vxGiRcyRV9p3Avw/videos"> <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/youtube.png" alt="" class="img-fluid" /></a></li>
+                                        <li><a href="https://www.instagram.com/organizein_/"> <img src="<?= $actual_link ?>/multipageadmin/partnerwebsiteresources/images/instagram.png" alt="" class="img-fluid""/></a></li>
                                     </ul>
                                     <!-- <h4>Call us at +1 646 679-7250</h4> -->
                                     <h4>Email us at hi@organizein.com</h4>

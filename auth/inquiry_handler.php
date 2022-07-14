@@ -16,7 +16,7 @@
             
             $to      ="nisargnaik@gmail.com"; 
             $subject = $name.' filled form-1 on website '.$current_url; 
-            $email_message = "Email of user: ".$email."\nPhone number: ".$phone."\nServices: ".$services."\nWebsite link: ".$website_link;  
+            $email_message = "Website link: ".$current_url."Email of user: ".$email."\nPhone number: ".$phone."\nServices: ".$services."\nWebsite link: ".$website_link;  
             mail($to, $subject, $email_message);  
 
             $sql = "INSERT INTO `inquiry_form`(`full_name`, `from_website` ,`email`, `phone`, `website_link`, `interested_services`,`form_number`) VALUES ('$name','$current_url','$email','$phone','$website_link','$services','$form_number')";
@@ -39,7 +39,7 @@
 
             $to      ='nisargnaik@gmail.com'; 
             $subject = $name.' filled form-3 on website '.$current_url; 
-            $email_message = "Email of user: ".$email."\nPhone number: ".$phone."\nInquiry for: ".$message."\nCompany for: ".$company."\nBudget for: ".$budget."\nServices for: ".$services;   
+            $email_message = "Website link: ".$current_url."Email of user: ".$email."\nPhone number: ".$phone."\nInquiry for: ".$message."\nCompany for: ".$company."\nBudget for: ".$budget."\nServices for: ".$services;   
             mail($to, $subject, $email_message);
             $sql = "INSERT INTO `inquiry_form`(`full_name`,`from_website` , `company`, `email`, `phone`, `budget`, `interested_services`, `message`,`form_number`) VALUES ('$name','$current_url','$company','$email','$phone','$budget','$services','$message','$form_number')";
             mysqli_query($conn, $sql);
@@ -58,7 +58,7 @@
 
             $to      ='nisargnaik@gmail.com'; 
             $subject = 'filled form-2 on website '.$current_url; 
-            $email_message = 'Email of user: '.$email.'
+            $email_message = "Website link: ".$current_url.'Email of user: '.$email.'
 Website of user: '.$website_link;  
             mail($to, $subject, $email_message);
 
